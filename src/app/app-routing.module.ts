@@ -11,6 +11,7 @@ import { LoginComponent } from './auth/login/login.component';
  * @description These are the routes.
  */
 const appRoutes: Routes = [
+  
   { path: 'dashboard', loadChildren: './feature/dashboard/dashboard.module#DashboardModule' },
   { path: 'about-us', component: AboutUsComponent },
   { path: 'faq', component: FaqComponent },
