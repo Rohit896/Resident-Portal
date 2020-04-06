@@ -5,6 +5,7 @@ import { AboutUsComponent } from './core/about-us/about-us.component';
 import { ContactComponent } from './core/contact/contact.component';
 import { ParentComponent } from './shared/parent/parent.component';
 import { AuthGuardService } from './auth/auth-guard.service';
+import { LoginComponent } from './auth/login/login.component';
 
 /**
  * @description These are the routes.
@@ -14,6 +15,7 @@ const appRoutes: Routes = [
   { path: 'about-us', component: AboutUsComponent },
   { path: 'faq', component: FaqComponent },
   { path: 'contact', component: ContactComponent },
+  { path: 'pre-registration', component: LoginComponent},
 
   {
     path: 'pre-registration',

@@ -259,7 +259,8 @@
     "link_contact": "CONTACT",
     "link_applications": "Vos Applications",
     "link_logout": "Connectez - Out",
-    "link_login": "S'IDENTIFIER"
+    "link_login": "S'IDENTIFIER",
+    "link_pre-registration": "PRE-REGISTRATION"
   },
   "login": {
     "text": "Étapes rapides et faciles",

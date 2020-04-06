@@ -259,7 +259,8 @@
     "link_contact": "اتصل",
     "link_applications": "تطبيقاتك",
     "link_logout": "الخروج",
-    "link_login": "تسجيل الدخول"
+    "link_login": "تسجيل الدخول",
+    "link_pre-registration": "PRE-REGISTRATION"
   },
   "login": {
     "text": "خطوات سريعة وسهلة",

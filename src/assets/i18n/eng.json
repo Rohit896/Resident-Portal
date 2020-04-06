@@ -259,7 +259,8 @@
     "link_contact": "CONTACT",
     "link_applications": "Your Applications",
     "link_logout": "Logout",
-    "link_login": "LOGIN"
+    "link_login": "LOGIN",
+    "link_pre-registration": "PRE-REGISTRATION"
   },
   "login": {
     "text": "Quick & Easy steps",

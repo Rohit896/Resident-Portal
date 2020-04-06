@@ -16,19 +16,6 @@
       style="width: 38vw; max-width: 323px;"
       [ngClass]="selectedLanguage !== 'Arabic' ? 'form_fields_wrapper form_fields_padding' : 'form_fields_wrapper'"
     >
-      <div>
-        <mat-form-field appearance="outline">
-          <mat-select
-            disableOptionCentering
-            panelClass="select-option"
-            [(ngModel)]="selectedLanguage"
-            (selectionChange)="changeLanguage()"
-            placeholder="Select your language"
-          >
-            <mat-option *ngFor="let lang of languages" [value]="lang">{{ lang }}</mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
 
       <div *ngIf="showContactDetails">
         <div [dir]="textDir">
