@@ -12,6 +12,8 @@ import { SharedModule } from '../shared/shared.module';
 import { AuthInterceptorService } from '../shared/auth-interceptor.service';
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 
+
+
 @NgModule({
   imports: [CommonModule, AppRoutingModule, SharedModule, FormsModule, ReactiveFormsModule],
   declarations: [HeaderComponent, FooterComponent, AboutUsComponent, FaqComponent, ContactComponent],
