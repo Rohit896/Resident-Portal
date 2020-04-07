@@ -321,7 +321,7 @@ export class DataStorageService {
   }
 
   getConfig() {
-    //    return this.httpClient.get('./assets/configs.json');
+      //  return this.httpClient.get('./assets/configs.json');
     const url = this.BASE_URL + this.PRE_REG_URL + appConstants.APPEND_URL.auth + appConstants.APPEND_URL.config;
     return this.httpClient.get(url);
   }

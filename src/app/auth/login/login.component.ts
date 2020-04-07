@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   inputPlaceholderContact = 'Email ID or Phone Number';
   inputPlaceholderOTP = 'Enter OTP';
   disableBtn = false;
-  timer: any;
+  timer:any ;
   inputOTP: string;
   inputContactDetails = '';
   showSendOTP = true;
@@ -33,9 +33,10 @@ export class LoginComponent implements OnInit {
   errorMessage: string;
   minutes: string;
   seconds: string;
-  showSpinner = false;
+  showSpinner = true;
   selectedLanguage= '';
   validationMessages = {};
+  servicesActivationStatus: boolean[] = [];
 
   constructor(
     private authService: AuthService,
@@ -50,21 +51,62 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.showSpinner = true;
-    this.setTimer();
-      this.loadValidationMessages();      
-    if (this.authService.isAuthenticated()) {
-      this.authService.onLogout();
-    }
-  }
+      this.setServiceId();  
 
+      if (this.authService.isAuthenticated()) {
+        this.authService.onLogout();
+      }
+  }
+  setServiceId(){
+      this.route.paramMap.subscribe((params: ParamMap)=>{
+        //this.initializeVariables();
+        this.setTimer();
+        this.loadValidationMessages();
+        let id = params.get('id');
+        this.servicesActivationStatus[id]=true;
+        //this.ngOnInit();
+      })
+      
+  }
+  initializeVariables(){
+    this.inputPlaceholderContact = 'Email ID or Phone Number';
+  this.inputPlaceholderOTP = 'Enter OTP';
+  this.disableBtn = false;
+  this.inputOTP='';
+  this.inputContactDetails = '';
+  this.showSendOTP = true;
+  this.showResend = false;
+  this.showVerify = false;
+  this.showContactDetails = true;
+  this.showOTP = false;
+  this.disableVerify = false;
+ // secondaryLanguagelabels: any;
+  this.loggedOutLang='';
+  this.errorMessage='';
+  this.minutes='';
+  this.seconds='';
+  this.showSpinner = true;
+  this.selectedLanguage= '';
+  this.validationMessages = {};
+  this.servicesActivationStatus = [];
+  //clearInterval(this.timer);
+ //   document.getElementById('timer').style.visibility = 'hidden';
+  }
   loadValidationMessages() {
     let langCode=localStorage.getItem('langCode');
     this.selectedLanguage = appConstants.languageMapping[langCode].langName;
-    console.log(this.selectedLanguage);
     let factory = new LanguageFactory(langCode);
     let response = factory.getCurrentlanguage();
-    this.validationMessages = response['login'];
+    this.validationMessages = response['authValidationMessages'];
+    let residentServiceJSON = response['header']['residentServices'];
+    console.log(residentServiceJSON); 
+    //initialization of serviceActivationStatus array
+    let size = Object.keys(residentServiceJSON).length;
+    for (let i = 0; i < size; i++) {
+      this.servicesActivationStatus[i]=false;
+    }
+
+
     this.showSpinner=false;
   }
 
@@ -90,7 +132,7 @@ export class LoginComponent implements OnInit {
 
   setTimer() {
     const time = Number(this.configService.getConfigByKey(appConstants.CONFIG_KEYS.mosip_kernel_otp_expiry_time));
-    console.log(time);
+    console.log(typeof(time));
     if (!isNaN(time)) {
       const minutes = time / 60;
       const seconds = time % 60;

@@ -5,11 +5,36 @@
 <div *ngIf="!showSpinner" class="wrapper">
   <div class="form_wrapper">
     <div class="heading">
-      <span>{{ 'login.text' | translate }}</span>
+      <span>{{ 'authCommonText.text' | translate }}</span>
     </div>
 
-    <div class="subHeading pinkText">
-      {{ 'login.sub_text' | translate }} <span class="boldText"> {{ 'login.sub_text_UID' | translate }} </span>
+
+    <div class="subHeading pinkText" *ngIf="servicesActivationStatus[0]">
+      {{ '0.sub_text' | translate }} <span class="boldText"> {{ '0.sub_text_UID' | translate }} </span>
+    </div>
+    <div class="subHeading pinkText" *ngIf="servicesActivationStatus[1]">
+      {{ '1.sub_text' | translate }} <span class="boldText"> {{ '1.sub_text_UID' | translate }} </span>
+    </div>
+    <div class="subHeading pinkText" *ngIf="servicesActivationStatus[2]">
+      {{ '2.sub_text' | translate }} <span class="boldText"> {{ '2.sub_text_UID' | translate }} </span>
+    </div>
+    <div class="subHeading pinkText" *ngIf="servicesActivationStatus[3]">
+      {{ '3.sub_text' | translate }} <span class="boldText"> {{ '3.sub_text_UID' | translate }} </span>
+    </div>
+    <div class="subHeading pinkText" *ngIf="servicesActivationStatus[4]">
+      {{ '4.sub_text' | translate }} <span class="boldText"> {{ '4.sub_text_UID' | translate }} </span>
+    </div>
+    <div class="subHeading pinkText" *ngIf="servicesActivationStatus[5]">
+      {{ '5.sub_text' | translate }} <span class="boldText"> {{ '5.sub_text_UID' | translate }} </span>
+    </div>
+    <div class="subHeading pinkText" *ngIf="servicesActivationStatus[6]">
+      {{ '6.sub_text' | translate }} <span class="boldText"> {{ '6.sub_text_UID' | translate }} </span>
+    </div>
+    <div class="subHeading pinkText" *ngIf="servicesActivationStatus[7]">
+      {{ '7.sub_text' | translate }} <span class="boldText"> {{ '7.sub_text_UID' | translate }} </span>
+    </div>
+    <div class="subHeading pinkText" *ngIf="servicesActivationStatus[8]">
+      {{ '8.sub_text' | translate }} <span class="boldText"> {{ '8.sub_text_UID' | translate }} </span>
     </div>
 
     <div
@@ -25,7 +50,7 @@
               autofocus="autofocus"
               matInput
               [(ngModel)]="inputContactDetails"
-              placeholder="{{ 'login.label_email_num' | translate }}"
+              placeholder="{{ '0.label_email_num' | translate }}"
               id="inputFieldContact"
               required
             />
@@ -40,7 +65,7 @@
             autofocus="autofocus"
             matInput
             [(ngModel)]="inputOTP"
-            placeholder="{{ 'login.label_otp' | translate }}"
+            placeholder="{{ '0.label_otp' | translate }}"
             id="inputFieldOTP"
             (input)="showVerifyBtn()"
           />
@@ -55,7 +80,7 @@
           [disabled]="inputContactDetails.length > 0 ? false : true"
           (click)="submit()"
         >
-          {{ 'login.action_send' | translate }}
+          {{ '0.action_send' | translate }}
         </button>
       </div>
 
@@ -67,18 +92,18 @@
           disabled="{{ disableBtn }}"
           (click)="submit()"
         >
-          {{ 'login.action_verify' | translate }}
+          {{ '0.action_verify' | translate }}
         </button>
       </div>
 
       <div *ngIf="showResend">
         <button mat-raised-button class="btn_axn-pri" disabled="{{ disableBtn }}" (click)="submit()">
-          {{ 'login.action_resend' | translate }}
+          {{ '0.action_resend' | translate }}
         </button>
       </div>
 
       <div class="pinkText boldText" id="timer">
-        <span>{{ 'login.otp_valid_label' | translate }}&nbsp;</span><span id="minutesSpan">{{ minutes }}</span
+        <span>{{ '0.otp_valid_label' | translate }}&nbsp;</span><span id="minutesSpan">{{ minutes }}</span
         >:<span id="secondsSpan">{{ seconds }}</span>
       </div>
     </div>

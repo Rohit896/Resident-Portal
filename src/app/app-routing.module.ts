@@ -16,7 +16,15 @@ const appRoutes: Routes = [
   { path: 'about-us', component: AboutUsComponent },
   { path: 'faq', component: FaqComponent },
   { path: 'contact', component: ContactComponent },
-  { path: 'pre-registration', component: LoginComponent},
+  { path: 'residentServices/:id', component: LoginComponent},
+  { path: 'residentServices/:id', component: LoginComponent},
+  { path: 'residentServices/:id', component: LoginComponent},
+  { path: 'residentServices/:id', component: LoginComponent},
+  { path: 'residentServices/:id', component: LoginComponent},
+  { path: 'residentServices/:id', component: LoginComponent},
+  { path: 'residentServices/:id', component: LoginComponent},
+  { path: 'residentServices/:id', component: LoginComponent},
+  { path: 'residentServices/:id', component: LoginComponent},
 
   {
     path: 'pre-registration',

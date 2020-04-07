@@ -4,11 +4,12 @@ import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { MatDialog } from '@angular/material';
 import { DialougComponent } from 'src/app/shared/dialoug/dialoug.component';
-import { Subscription } from 'rxjs';
+import { Subscription, range } from 'rxjs';
 import LanguageFactory from 'src/assets/i18n';
 import { DataStorageService } from '../services/data-storage.service';
 import { ConfigService } from '../services/config.service';
 import * as appConstants from '../../app.constants';
+
 
 @Component({
   selector: 'app-header',
@@ -38,7 +39,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
     private router: Router,
     private dialog: MatDialog,
     private dataService: DataStorageService,
-    private configService: ConfigService
+    private configService: ConfigService,
+
   ) {
     //this.translate.use(localStorage.getItem('langCode'));
   }
@@ -55,6 +57,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.dataService.getConfig().subscribe(
       response => {
         this.configService.setConfig(response);
+        console.log(response);
         this.loadLanguagesWithConfig();
       },
       error => {
@@ -152,7 +155,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   loadValidationMessages() {
     let factory = new LanguageFactory(localStorage.getItem('langCode'));
     let response = factory.getCurrentlanguage();
-    this.validationMessages = response['login'];
+    this.validationMessages = response['header'];
     // const route_parts= this.router.url.split('/');
     //  let url=route_parts[route_parts.length-1];
     //  console.log(typeof(url));

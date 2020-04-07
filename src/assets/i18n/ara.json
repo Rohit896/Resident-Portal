@@ -260,10 +260,29 @@
     "link_applications": "تطبيقاتك",
     "link_logout": "الخروج",
     "link_login": "تسجيل الدخول",
-    "link_pre-registration": "PRE-REGISTRATION"
+    "link_pre-registration": "PRE-REGISTRATION",
+    "link_resident-services": "RESIDENT-SERVICES",
+    "residentServices":{
+      "0" : "Login",
+      "1" : "Generate VID",
+      "2" : "Revoke VID",
+      "3" : "VID Status",
+      "4" : "Update UIN",
+      "5" : "Request/Print UIN",
+      "6" : "Request EUIN",
+      "7" : "Update Demographic Details",
+      "8" : "Lock/Unlock"
+    }
   },
-  "login": {
-    "text": "خطوات سريعة وسهلة",
+  "authCommonText":{
+    "text": "خطوات سريعة وسهلة"
+  },
+  "authValidationMessages":{
+    "invalidEmail": "تم إدخال معرف البريد الإلكتروني غير صالح",
+    "invalidMobile": "تم إدخال رقم جوال غير صالح",
+    "invalidInput": "تم إدخال معرف البريد الإلكتروني أو رقم الجوال غير صالح"
+  },
+  "0": {
     "sub_text": "التسجيل المسبق ل",
     "sub_text_UID": "رقم تعريف فريد",
     "otp_valid_label": "صالحة ل",
@@ -272,10 +291,95 @@
     "action_send": "إرسال OTP",
     "action_resend": "إعادة إرسال",
     "action_verify": "التحقق",
-    "logout_msg": "يجب على مقدم الطلب تسجيل الدخول بنفس الهاتف المحمول / البريد الإلكتروني للوصول إلى التطبيقات التي تم إنشاؤها",
-    "invalidEmail": "تم إدخال معرف البريد الإلكتروني غير صالح",
-    "invalidMobile": "تم إدخال رقم جوال غير صالح",
-    "invalidInput": "تم إدخال معرف البريد الإلكتروني أو رقم الجوال غير صالح"
+    "logout_msg": "يجب على مقدم الطلب تسجيل الدخول بنفس الهاتف المحمول / البريد الإلكتروني للوصول إلى التطبيقات التي تم إنشاؤها"
+  },
+  "1": {
+    "sub_text": "التسجيل المسبق ل",
+    "sub_text_UID": "رقم تعريف فريد",
+    "otp_valid_label": "صالحة ل",
+    "label_email_num": "معرف البريد الإلكتروني أو رقم الهاتف",
+    "label_otp": "أدخل OTP",
+    "action_send": "إرسال OTP",
+    "action_resend": "إعادة إرسال",
+    "action_verify": "التحقق",
+    "logout_msg": "يجب على مقدم الطلب تسجيل الدخول بنفس الهاتف المحمول / البريد الإلكتروني للوصول إلى التطبيقات التي تم إنشاؤها"
+  },
+  "2": {
+    "sub_text": "التسجيل المسبق ل",
+    "sub_text_UID": "رقم تعريف فريد",
+    "otp_valid_label": "صالحة ل",
+    "label_email_num": "معرف البريد الإلكتروني أو رقم الهاتف",
+    "label_otp": "أدخل OTP",
+    "action_send": "إرسال OTP",
+    "action_resend": "إعادة إرسال",
+    "action_verify": "التحقق",
+    "logout_msg": "يجب على مقدم الطلب تسجيل الدخول بنفس الهاتف المحمول / البريد الإلكتروني للوصول إلى التطبيقات التي تم إنشاؤها"
+  },
+  "3": {
+    "sub_text": "التسجيل المسبق ل",
+    "sub_text_UID": "رقم تعريف فريد",
+    "otp_valid_label": "صالحة ل",
+    "label_email_num": "معرف البريد الإلكتروني أو رقم الهاتف",
+    "label_otp": "أدخل OTP",
+    "action_send": "إرسال OTP",
+    "action_resend": "إعادة إرسال",
+    "action_verify": "التحقق",
+    "logout_msg": "يجب على مقدم الطلب تسجيل الدخول بنفس الهاتف المحمول / البريد الإلكتروني للوصول إلى التطبيقات التي تم إنشاؤها"
+  },
+  "4": {
+    "sub_text": "التسجيل المسبق ل",
+    "sub_text_UID": "رقم تعريف فريد",
+    "otp_valid_label": "صالحة ل",
+    "label_email_num": "معرف البريد الإلكتروني أو رقم الهاتف",
+    "label_otp": "أدخل OTP",
+    "action_send": "إرسال OTP",
+    "action_resend": "إعادة إرسال",
+    "action_verify": "التحقق",
+    "logout_msg": "يجب على مقدم الطلب تسجيل الدخول بنفس الهاتف المحمول / البريد الإلكتروني للوصول إلى التطبيقات التي تم إنشاؤها"
+  },
+  "5": {
+    "sub_text": "التسجيل المسبق ل",
+    "sub_text_UID": "رقم تعريف فريد",
+    "otp_valid_label": "صالحة ل",
+    "label_email_num": "معرف البريد الإلكتروني أو رقم الهاتف",
+    "label_otp": "أدخل OTP",
+    "action_send": "إرسال OTP",
+    "action_resend": "إعادة إرسال",
+    "action_verify": "التحقق",
+    "logout_msg": "يجب على مقدم الطلب تسجيل الدخول بنفس الهاتف المحمول / البريد الإلكتروني للوصول إلى التطبيقات التي تم إنشاؤها"
+  },
+  "6": {
+    "sub_text": "التسجيل المسبق ل",
+    "sub_text_UID": "رقم تعريف فريد",
+    "otp_valid_label": "صالحة ل",
+    "label_email_num": "معرف البريد الإلكتروني أو رقم الهاتف",
+    "label_otp": "أدخل OTP",
+    "action_send": "إرسال OTP",
+    "action_resend": "إعادة إرسال",
+    "action_verify": "التحقق",
+    "logout_msg": "يجب على مقدم الطلب تسجيل الدخول بنفس الهاتف المحمول / البريد الإلكتروني للوصول إلى التطبيقات التي تم إنشاؤها"
+  },
+  "7": {
+    "sub_text": "التسجيل المسبق ل",
+    "sub_text_UID": "رقم تعريف فريد",
+    "otp_valid_label": "صالحة ل",
+    "label_email_num": "معرف البريد الإلكتروني أو رقم الهاتف",
+    "label_otp": "أدخل OTP",
+    "action_send": "إرسال OTP",
+    "action_resend": "إعادة إرسال",
+    "action_verify": "التحقق",
+    "logout_msg": "يجب على مقدم الطلب تسجيل الدخول بنفس الهاتف المحمول / البريد الإلكتروني للوصول إلى التطبيقات التي تم إنشاؤها"
+  },
+  "8": {
+    "sub_text": "التسجيل المسبق ل",
+    "sub_text_UID": "رقم تعريف فريد",
+    "otp_valid_label": "صالحة ل",
+    "label_email_num": "معرف البريد الإلكتروني أو رقم الهاتف",
+    "label_otp": "أدخل OTP",
+    "action_send": "إرسال OTP",
+    "action_resend": "إعادة إرسال",
+    "action_verify": "التحقق",
+    "logout_msg": "يجب على مقدم الطلب تسجيل الدخول بنفس الهاتف المحمول / البريد الإلكتروني للوصول إلى التطبيقات التي تم إنشاؤها"
   },
   "stepper": {
     "link_demographic": "التفاصيل الديموغرافية",

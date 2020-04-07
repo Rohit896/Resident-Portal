@@ -260,10 +260,29 @@
     "link_applications": "Your Applications",
     "link_logout": "Logout",
     "link_login": "LOGIN",
-    "link_pre-registration": "PRE-REGISTRATION"
+    "link_pre-registration": "PRE-REGISTRATION",
+    "link_resident-services": "RESIDENT-SERVICES",
+    "residentServices":{
+      "0" : "Login",
+      "1" : "Generate VID",
+      "2" : "Revoke VID",
+      "3" : "VID Status",
+      "4" : "Update UIN",
+      "5" : "Request/Print UIN",
+      "6" : "Request EUIN",
+      "7" : "Update Demographic Details",
+      "8" : "Lock/Unlock"
+    }
   },
-  "login": {
-    "text": "Quick & Easy steps",
+  "authCommonText":{
+    "text": "Quick & Easy steps"
+  },
+  "authValidationMessages":{
+    "invalidEmail": "Invalid email id Entered",
+    "invalidMobile": "Invalid mobile number Entered",
+    "invalidInput": "Invalid email id or mobile number Entered"
+  },
+  "0": {
     "sub_text": "Pre-register for",
     "sub_text_UID": "Unique Identification Number",
     "label_email_num": "Email ID or Phone Number",
@@ -272,11 +291,98 @@
     "action_resend": "Resend",
     "action_verify": "Verify",
     "logout_msg": "Applicant has to login with same Mobile/Email to access the created applications",
-    "otp_valid_label": "Valid for",
-    "invalidEmail": "Invalid email id Entered",
-    "invalidMobile": "Invalid mobile number Entered",
-    "invalidInput": "Invalid email id or mobile number Entered"
+    "otp_valid_label": "Valid for"
+ 
   },
+  "1":{
+    "sub_text": "Generate",
+    "sub_text_UID": "Virtual Identification Number",
+    "label_email_num": "Email ID or Phone Number",
+    "label_otp": "Enter OTP",
+    "action_send": "Send OTP",
+    "action_resend": "Resend",
+    "action_verify": "Verify",
+    "logout_msg": "Applicant has to login with same Mobile/Email to access the created applications",
+    "otp_valid_label": "Valid for"
+  },
+  "2":{
+    "sub_text": "Revoke",
+    "sub_text_UID": "Virtual Identification Number",
+    "label_email_num": "Email ID or Phone Number",
+    "label_otp": "Enter OTP",
+    "action_send": "Send OTP",
+    "action_resend": "Resend",
+    "action_verify": "Verify",
+    "logout_msg": "Applicant has to login with same Mobile/Email to access the created applications",
+    "otp_valid_label": "Valid for"
+  },
+  "3":{
+    "sub_text": "Check status of",
+    "sub_text_UID": "Virtual Identification Number",
+    "label_email_num": "Email ID or Phone Number",
+    "label_otp": "Enter OTP",
+    "action_send": "Send OTP",
+    "action_resend": "Resend",
+    "action_verify": "Verify",
+    "logout_msg": "Applicant has to login with same Mobile/Email to access the created applications",
+    "otp_valid_label": "Valid for"
+  },
+  "4":{
+    "sub_text": "Update",
+    "sub_text_UID": "Virtual Identification Number",
+    "label_email_num": "Email ID or Phone Number",
+    "label_otp": "Enter OTP",
+    "action_send": "Send OTP",
+    "action_resend": "Resend",
+    "action_verify": "Verify",
+    "logout_msg": "Applicant has to login with same Mobile/Email to access the created applications",
+    "otp_valid_label": "Valid for"
+  },
+  "5":{
+    "sub_text": "Request/Print",
+    "sub_text_UID": "Virtual Identification Number",
+    "label_email_num": "Email ID or Phone Number",
+    "label_otp": "Enter OTP",
+    "action_send": "Send OTP",
+    "action_resend": "Resend",
+    "action_verify": "Verify",
+    "logout_msg": "Applicant has to login with same Mobile/Email to access the created applications",
+    "otp_valid_label": "Valid for"
+  },
+  "6":{
+    "sub_text": "Request",
+    "sub_text_UID": "Electronic Unique Identification Number",
+    "label_email_num": "Email ID or Phone Number",
+    "label_otp": "Enter OTP",
+    "action_send": "Send OTP",
+    "action_resend": "Resend",
+    "action_verify": "Verify",
+    "logout_msg": "Applicant has to login with same Mobile/Email to access the created applications",
+    "otp_valid_label": "Valid for"
+  },
+  "7":{
+    "sub_text": "Update",
+    "sub_text_UID": "Demographic Details",
+    "label_email_num": "Email ID or Phone Number",
+    "label_otp": "Enter OTP",
+    "action_send": "Send OTP",
+    "action_resend": "Resend",
+    "action_verify": "Verify",
+    "logout_msg": "Applicant has to login with same Mobile/Email to access the created applications",
+    "otp_valid_label": "Valid for"
+  },
+  "8":{
+    "sub_text": "Lock/Unlock",
+    "sub_text_UID": "Authentication",
+    "label_email_num": "Email ID or Phone Number",
+    "label_otp": "Enter OTP",
+    "action_send": "Send OTP",
+    "action_resend": "Resend",
+    "action_verify": "Verify",
+    "logout_msg": "Applicant has to login with same Mobile/Email to access the created applications",
+    "otp_valid_label": "Valid for"
+  },
+  
   "stepper": {
     "link_demographic": "Demographics Details",
     "link_upload_doc": "Upload Document",
