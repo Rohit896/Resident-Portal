@@ -1,42 +1,13 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-.center {
-    display: block;
-    margin: auto;
-}
-.fit {
-    max-width: 100%;
-    max-height: 100%;
-}
-=======
->>>>>>> d9ff2ef242275a24ef5664bb0c5d6a262e4eedaf
-=======
->>>>>>> d9ff2ef242275a24ef5664bb0c5d6a262e4eedaf
 .row {
     margin-right: -15px;
     margin-left: -15px;
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-.col-md-12
-{
-=======
 
 .col-md-12{
->>>>>>> d9ff2ef242275a24ef5664bb0c5d6a262e4eedaf
-=======
-
-.col-md-12{
->>>>>>> d9ff2ef242275a24ef5664bb0c5d6a262e4eedaf
     position: relative;
     min-height: 1px;
     padding-right: 15px;
     padding-left: 15px;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> d9ff2ef242275a24ef5664bb0c5d6a262e4eedaf
    
 }
 
@@ -48,8 +19,4 @@
 .fit {
     max-width: 100%;
     max-height: 100%;
-<<<<<<< HEAD
->>>>>>> d9ff2ef242275a24ef5664bb0c5d6a262e4eedaf
-=======
->>>>>>> d9ff2ef242275a24ef5664bb0c5d6a262e4eedaf
 }

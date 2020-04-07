@@ -10,25 +10,12 @@ import { ContactComponent } from './contact/contact.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { AuthInterceptorService } from '../shared/auth-interceptor.service';
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-@NgModule({
-  imports: [CommonModule, AppRoutingModule, SharedModule],
-  declarations: [HeaderComponent, FooterComponent, AboutUsComponent, FaqComponent, ContactComponent],
-=======
-=======
->>>>>>> d9ff2ef242275a24ef5664bb0c5d6a262e4eedaf
 import { ResidentservicesComponent } from './residentservices/residentservices.component';
 import { BookmodifyappointmentComponent } from './bookmodifyappointment/bookmodifyappointment.component';
 
 @NgModule({
   imports: [CommonModule, AppRoutingModule, SharedModule],
   declarations: [HeaderComponent, FooterComponent, AboutUsComponent, FaqComponent, ContactComponent, ResidentservicesComponent,  BookmodifyappointmentComponent],
-<<<<<<< HEAD
->>>>>>> d9ff2ef242275a24ef5664bb0c5d6a262e4eedaf
-=======
->>>>>>> d9ff2ef242275a24ef5664bb0c5d6a262e4eedaf
   exports: [HeaderComponent, FooterComponent, SharedModule],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }]
 })

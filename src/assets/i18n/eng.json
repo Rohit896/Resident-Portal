@@ -254,19 +254,9 @@
     ]
   },
   "header": {
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "link_about": "GETTING STARTED",
-=======
     
     "link_Resident_services" : "Resident Services",
     "link_Book_modify_appointment" : "Book / Modify Appointment",
->>>>>>> d9ff2ef242275a24ef5664bb0c5d6a262e4eedaf
-=======
-    
-    "link_Resident_services" : "Resident Services",
-    "link_Book_modify_appointment" : "Book / Modify Appointment",
->>>>>>> d9ff2ef242275a24ef5664bb0c5d6a262e4eedaf
     "link_faq": "FAQ",
     "link_contact": "CONTACT",
     "link_applications": "Your Applications",
