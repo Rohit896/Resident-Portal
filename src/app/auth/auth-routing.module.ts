@@ -6,6 +6,10 @@ import { MainpageComponent } from './mainpage/mainpage.component';
 //const authRoutes: Routes = [{ path: '', component: LoginComponent }];
 const authRoutes: Routes = [{ path: '', component: MainpageComponent }];
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> d9ff2ef242275a24ef5664bb0c5d6a262e4eedaf
 =======
 
 >>>>>>> d9ff2ef242275a24ef5664bb0c5d6a262e4eedaf

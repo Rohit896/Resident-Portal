@@ -71,11 +71,17 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> d9ff2ef242275a24ef5664bb0c5d6a262e4eedaf
 
   resident()
   {
     
   }
+<<<<<<< HEAD
+>>>>>>> d9ff2ef242275a24ef5664bb0c5d6a262e4eedaf
+=======
 >>>>>>> d9ff2ef242275a24ef5664bb0c5d6a262e4eedaf
 }
