@@ -5,6 +5,10 @@ import { MainpageComponent } from './mainpage/mainpage.component';
 
 //const authRoutes: Routes = [{ path: '', component: LoginComponent }];
 const authRoutes: Routes = [{ path: '', component: MainpageComponent }];
+<<<<<<< HEAD
+=======
+
+>>>>>>> d9ff2ef242275a24ef5664bb0c5d6a262e4eedaf
 @NgModule({
   imports: [RouterModule.forChild(authRoutes)],
   exports: [RouterModule]

@@ -3,11 +3,17 @@ import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { NgxPrintModule } from 'ngx-print';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+<<<<<<< HEAD
 
 import { AppComponent } from './app.component';
 import { AppConfigService } from './app-config.service';
 import { BookingService } from './feature/booking/booking.service';
 
+=======
+import { AppComponent } from './app.component';
+import { AppConfigService } from './app-config.service';
+import { BookingService } from './feature/booking/booking.service';
+>>>>>>> d9ff2ef242275a24ef5664bb0c5d6a262e4eedaf
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
 import { AuthModule } from './auth/auth.module';

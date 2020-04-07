@@ -1,22 +1,40 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { FaqComponent } from './core/faq/faq.component';
+<<<<<<< HEAD
 import { AboutUsComponent } from './core/about-us/about-us.component';
 import { ContactComponent } from './core/contact/contact.component';
 import { ParentComponent } from './shared/parent/parent.component';
 import { AuthGuardService } from './auth/auth-guard.service';
 
+=======
+import { ContactComponent } from './core/contact/contact.component';
+import { ParentComponent } from './shared/parent/parent.component';
+import { AuthGuardService } from './auth/auth-guard.service';
+import {ResidentservicesComponent} from './core/residentservices/residentservices.component';
+import {BookmodifyappointmentComponent} from './core/bookmodifyappointment/bookmodifyappointment.component';
+>>>>>>> d9ff2ef242275a24ef5664bb0c5d6a262e4eedaf
 /**
  * @description These are the routes.
  */
 const appRoutes: Routes = [
   { path: 'dashboard', loadChildren: './feature/dashboard/dashboard.module#DashboardModule' },
+<<<<<<< HEAD
   { path: 'about-us', component: AboutUsComponent },
+=======
+  { path: 'Residentservices', component: ResidentservicesComponent },
+  { path: 'Bookmodifyappointment', component:BookmodifyappointmentComponent},
+  //{path: 'Bookmodifyappointment', redirectTo :'https://dev.mosip.io/pre-registration-ui/#/' , pathMatch :'full'},
+>>>>>>> d9ff2ef242275a24ef5664bb0c5d6a262e4eedaf
   { path: 'faq', component: FaqComponent },
   { path: 'contact', component: ContactComponent },
 
   {
+<<<<<<< HEAD
     path: 'pre-registration',
+=======
+    path: 'pre-registration', 
+>>>>>>> d9ff2ef242275a24ef5664bb0c5d6a262e4eedaf
     component: ParentComponent,
     canActivate: [AuthGuardService],
     children: [
@@ -40,3 +58,8 @@ const appRoutes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
+<<<<<<< HEAD
+=======
+/*export const routingcomponents=[BookmodifyappointmentComponent , ResidentservicesComponent]*/
+
+>>>>>>> d9ff2ef242275a24ef5664bb0c5d6a262e4eedaf

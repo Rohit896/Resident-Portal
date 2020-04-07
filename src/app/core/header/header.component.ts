@@ -70,4 +70,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
+<<<<<<< HEAD
+=======
+
+  resident()
+  {
+    
+  }
+>>>>>>> d9ff2ef242275a24ef5664bb0c5d6a262e4eedaf
 }
