@@ -254,7 +254,8 @@
     ]
   },
   "header": {
-    "link_about": "Commencer",
+     "link_Resident_services" : "Resident Services",
+     "link_Book_modify_appointment":"Book / Modify Appointment",
     "link_faq": "FAQ",
     "link_contact": "CONTACT",
     "link_applications": "Vos Applications",
