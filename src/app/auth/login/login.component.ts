@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
   validationMessages = {};
   servicesActivationStatus: boolean[] = [];
   activatedServiceJSON={};
-  UINDetails = '';
+  inputUinDetails = '';
 
 
   constructor(
@@ -94,6 +94,7 @@ export class LoginComponent implements OnInit {
   this.validationMessages = {};
   this.servicesActivationStatus = [];
   this.activatedServiceJSON={};
+  this.inputUinDetails = '';
   clearInterval(this.timer);
     // if (document.getElementById('timer').style.visibility === 'visible'){
     // document.getElementById('timer').style.visibility = 'hidden';
@@ -139,7 +140,6 @@ export class LoginComponent implements OnInit {
 
   setTimer() {
     const time = Number(this.configService.getConfigByKey(appConstants.CONFIG_KEYS.mosip_kernel_otp_expiry_time));
-    console.log(time);
     if (!isNaN(time)) {
       const minutes = time / 60;
       const seconds = time % 60;

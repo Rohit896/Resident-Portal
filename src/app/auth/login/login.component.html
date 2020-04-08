@@ -24,9 +24,9 @@
             class="input_pri"
             autofocus="autofocus"
             matInput
-            [(ngModel)]="UINDetails" 
+            [(ngModel)]="inputUinDetails" 
             placeholder="{{ activatedServiceJSON.enter_uin | translate }}"
-            id="inputFieldUIN"
+            id="inputFieldUin"
             required
           />
         </mat-form-field>
@@ -69,7 +69,7 @@
         <button
           mat-raised-button
           class="btn_axn-pri"
-          [disabled]="inputContactDetails.length > 0 ? false : true"
+          [disabled]="inputContactDetails.length > 0 && (inputUinDetails.length > 0 || servicesActivationStatus[0]) ? false : true"
           (click)="submit()"
         >
           {{ activatedServiceJSON.action_send | translate }}

@@ -304,7 +304,7 @@
     "action_verify": "Verify",
     "logout_msg": "Applicant has to login with same Mobile/Email to access the created applications",
     "otp_valid_label": "Valid for",
-    "enter_uin":"Enter UIN"
+    "enter_uin":"UIN"
   },
   "2":{
     "sub_text": "Revoke",
@@ -316,7 +316,7 @@
     "action_verify": "Verify",
     "logout_msg": "Applicant has to login with same Mobile/Email to access the created applications",
     "otp_valid_label": "Valid for",
-    "enter_uin":"Enter UIN"
+    "enter_uin":"UIN"
   },
   "3":{
     "sub_text": "Check status of",
@@ -328,7 +328,7 @@
     "action_verify": "Verify",
     "logout_msg": "Applicant has to login with same Mobile/Email to access the created applications",
     "otp_valid_label": "Valid for",
-    "enter_uin":"Enter UIN"
+    "enter_uin":"UIN"
   },
   "4":{
     "sub_text": "Update",
@@ -340,7 +340,7 @@
     "action_verify": "Verify",
     "logout_msg": "Applicant has to login with same Mobile/Email to access the created applications",
     "otp_valid_label": "Valid for",
-    "enter_uin":"Enter UIN"
+    "enter_uin":"UIN"
   },
   "5":{
     "sub_text": "Request/Print",
@@ -352,7 +352,7 @@
     "action_verify": "Verify",
     "logout_msg": "Applicant has to login with same Mobile/Email to access the created applications",
     "otp_valid_label": "Valid for",
-    "enter_uin":"Enter UIN"
+    "enter_uin":"UIN"
   },
   "6":{
     "sub_text": "Request",
@@ -364,7 +364,7 @@
     "action_verify": "Verify",
     "logout_msg": "Applicant has to login with same Mobile/Email to access the created applications",
     "otp_valid_label": "Valid for",
-    "enter_uin":"Enter UIN"
+    "enter_uin":"UIN"
   },
   "7":{
     "sub_text": "Update",
@@ -376,7 +376,7 @@
     "action_verify": "Verify",
     "logout_msg": "Applicant has to login with same Mobile/Email to access the created applications",
     "otp_valid_label": "Valid for",
-    "enter_uin":"Enter UIN"
+    "enter_uin":"UIN"
   },
   "8":{
     "sub_text": "Lock/Unlock",
@@ -388,7 +388,7 @@
     "action_verify": "Verify",
     "logout_msg": "Applicant has to login with same Mobile/Email to access the created applications",
     "otp_valid_label": "Valid for",
-    "enter_uin":"Enter UIN"
+    "enter_uin":"UIN"
   },
   
   "stepper": {
