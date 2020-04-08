@@ -303,7 +303,8 @@
     "action_resend": "Resend",
     "action_verify": "Verify",
     "logout_msg": "Applicant has to login with same Mobile/Email to access the created applications",
-    "otp_valid_label": "Valid for"
+    "otp_valid_label": "Valid for",
+    "enter_uin":"Enter UIN"
   },
   "2":{
     "sub_text": "Revoke",
@@ -314,7 +315,8 @@
     "action_resend": "Resend",
     "action_verify": "Verify",
     "logout_msg": "Applicant has to login with same Mobile/Email to access the created applications",
-    "otp_valid_label": "Valid for"
+    "otp_valid_label": "Valid for",
+    "enter_uin":"Enter UIN"
   },
   "3":{
     "sub_text": "Check status of",
@@ -325,7 +327,8 @@
     "action_resend": "Resend",
     "action_verify": "Verify",
     "logout_msg": "Applicant has to login with same Mobile/Email to access the created applications",
-    "otp_valid_label": "Valid for"
+    "otp_valid_label": "Valid for",
+    "enter_uin":"Enter UIN"
   },
   "4":{
     "sub_text": "Update",
@@ -336,7 +339,8 @@
     "action_resend": "Resend",
     "action_verify": "Verify",
     "logout_msg": "Applicant has to login with same Mobile/Email to access the created applications",
-    "otp_valid_label": "Valid for"
+    "otp_valid_label": "Valid for",
+    "enter_uin":"Enter UIN"
   },
   "5":{
     "sub_text": "Request/Print",
@@ -347,7 +351,8 @@
     "action_resend": "Resend",
     "action_verify": "Verify",
     "logout_msg": "Applicant has to login with same Mobile/Email to access the created applications",
-    "otp_valid_label": "Valid for"
+    "otp_valid_label": "Valid for",
+    "enter_uin":"Enter UIN"
   },
   "6":{
     "sub_text": "Request",
@@ -358,7 +363,8 @@
     "action_resend": "Resend",
     "action_verify": "Verify",
     "logout_msg": "Applicant has to login with same Mobile/Email to access the created applications",
-    "otp_valid_label": "Valid for"
+    "otp_valid_label": "Valid for",
+    "enter_uin":"Enter UIN"
   },
   "7":{
     "sub_text": "Update",
@@ -369,7 +375,8 @@
     "action_resend": "Resend",
     "action_verify": "Verify",
     "logout_msg": "Applicant has to login with same Mobile/Email to access the created applications",
-    "otp_valid_label": "Valid for"
+    "otp_valid_label": "Valid for",
+    "enter_uin":"Enter UIN"
   },
   "8":{
     "sub_text": "Lock/Unlock",
@@ -380,7 +387,8 @@
     "action_resend": "Resend",
     "action_verify": "Verify",
     "logout_msg": "Applicant has to login with same Mobile/Email to access the created applications",
-    "otp_valid_label": "Valid for"
+    "otp_valid_label": "Valid for",
+    "enter_uin":"Enter UIN"
   },
   
   "stepper": {

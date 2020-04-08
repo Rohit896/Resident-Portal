@@ -17,6 +17,23 @@
       [ngClass]="selectedLanguage !== 'Arabic' ? 'form_fields_wrapper form_fields_padding' : 'form_fields_wrapper'"
     >
 
+    <div *ngIf="servicesActivationStatus[i] && !(servicesActivationStatus[0])">
+      <div [dir]="textDir">
+        <mat-form-field appearance="outline">
+          <input
+            class="input_pri"
+            autofocus="autofocus"
+            matInput
+            [(ngModel)]="UINDetails" 
+            placeholder="{{ activatedServiceJSON.enter_uin | translate }}"
+            id="inputFieldUIN"
+            required
+          />
+        </mat-form-field>
+      </div>
+      <p class="error" *ngIf="errorMessage && servicesActivationStatus[i]">{{ errorMessage }}</p>
+    </div>
+
       <div *ngIf="showContactDetails && servicesActivationStatus[i]">
         <div [dir]="textDir">
           <mat-form-field appearance="outline">
@@ -25,7 +42,7 @@
               autofocus="autofocus"
               matInput
               [(ngModel)]="inputContactDetails"
-              placeholder="{{ '0.label_email_num' | translate }}"
+              placeholder="{{ activatedServiceJSON.label_email_num | translate }}"
               id="inputFieldContact"
               required
             />

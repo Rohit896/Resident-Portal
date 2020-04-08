@@ -38,6 +38,8 @@ export class LoginComponent implements OnInit {
   validationMessages = {};
   servicesActivationStatus: boolean[] = [];
   activatedServiceJSON={};
+  UINDetails = '';
+
 
   constructor(
     private authService: AuthService,
