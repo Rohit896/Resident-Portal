@@ -8,8 +8,89 @@
       <span>{{ 'authCommonText.text' | translate }}</span>
     </div>
 
+    <div  *ngFor="let id of servicesActivationStatus; index as i"> 
+      <div class="subHeading pinkText" *ngIf= "servicesActivationStatus[i]">
+      {{ activatedServiceJSON.sub_text }} <span class="boldText"> {{ activatedServiceJSON.sub_text_UID }} </span> 
+      </div> 
+    <div
+      style="width: 38vw; max-width: 323px;"
+      [ngClass]="selectedLanguage !== 'Arabic' ? 'form_fields_wrapper form_fields_padding' : 'form_fields_wrapper'"
+    >
 
-    <div class="subHeading pinkText" *ngIf="servicesActivationStatus[0]">
+      <div *ngIf="showContactDetails && servicesActivationStatus[i]">
+        <div [dir]="textDir">
+          <mat-form-field appearance="outline">
+            <input
+              class="input_pri"
+              autofocus="autofocus"
+              matInput
+              [(ngModel)]="inputContactDetails"
+              placeholder="{{ '0.label_email_num' | translate }}"
+              id="inputFieldContact"
+              required
+            />
+          </mat-form-field>
+        </div>
+        <p class="error" *ngIf="errorMessage && servicesActivationStatus[i]">{{ errorMessage }}</p>
+      </div>
+
+      <div *ngIf="showOTP && servicesActivationStatus[i]">
+        <mat-form-field appearance="outline">
+          <input
+            autofocus="autofocus"
+            matInput
+            [(ngModel)]="inputOTP"
+            placeholder="{{ activatedServiceJSON.label_otp | translate }}"
+            id="inputFieldOTP"
+            (input)="showVerifyBtn()"
+          />
+        </mat-form-field>
+      </div>
+
+      <!-- class="pinkBg whiteText boldText" -->
+      <div *ngIf="showSendOTP && servicesActivationStatus[i]">
+        <button
+          mat-raised-button
+          class="btn_axn-pri"
+          [disabled]="inputContactDetails.length > 0 ? false : true"
+          (click)="submit()"
+        >
+          {{ activatedServiceJSON.action_send | translate }}
+        </button>
+      </div>
+
+      <div *ngIf="showVerify && servicesActivationStatus[i]">
+        <button
+          mat-raised-button
+          class="btn_axn-pri"
+          [disabled]="disableVerify"
+          disabled="{{ disableBtn }}"
+          (click)="submit()"
+        >
+          {{ activatedServiceJSON.action_verify | translate }}
+        </button>
+      </div>
+
+      <div *ngIf="showResend && servicesActivationStatus[i]">
+        <button mat-raised-button class="btn_axn-pri" disabled="{{ disableBtn }}" (click)="submit()">
+          {{ activatedServiceJSON.action_resend | translate }}
+        </button>
+      </div>
+
+      <div class="pinkText boldText" id="timer" *ngIf="servicesActivationStatus[i]">
+        <span>{{ activatedServiceJSON.otp_valid_label | translate }}&nbsp;</span><span id="minutesSpan">{{ minutes }}</span
+        >:<span id="secondsSpan">{{ seconds }}</span>
+      </div>
+
+
+    </div>
+    
+    
+    
+    </div>
+
+
+    <!-- <div class="subHeading pinkText" *ngIf="servicesActivationStatus[0]">
       {{ '0.sub_text' | translate }} <span class="boldText"> {{ '0.sub_text_UID' | translate }} </span>
     </div>
     <div class="subHeading pinkText" *ngIf="servicesActivationStatus[1]">
@@ -35,77 +116,8 @@
     </div>
     <div class="subHeading pinkText" *ngIf="servicesActivationStatus[8]">
       {{ '8.sub_text' | translate }} <span class="boldText"> {{ '8.sub_text_UID' | translate }} </span>
-    </div>
+    </div> -->
 
-    <div
-      style="width: 38vw; max-width: 323px;"
-      [ngClass]="selectedLanguage !== 'Arabic' ? 'form_fields_wrapper form_fields_padding' : 'form_fields_wrapper'"
-    >
-
-      <div *ngIf="showContactDetails">
-        <div [dir]="textDir">
-          <mat-form-field appearance="outline">
-            <input
-              class="input_pri"
-              autofocus="autofocus"
-              matInput
-              [(ngModel)]="inputContactDetails"
-              placeholder="{{ '0.label_email_num' | translate }}"
-              id="inputFieldContact"
-              required
-            />
-          </mat-form-field>
-        </div>
-        <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
-      </div>
-
-      <div *ngIf="showOTP">
-        <mat-form-field appearance="outline">
-          <input
-            autofocus="autofocus"
-            matInput
-            [(ngModel)]="inputOTP"
-            placeholder="{{ '0.label_otp' | translate }}"
-            id="inputFieldOTP"
-            (input)="showVerifyBtn()"
-          />
-        </mat-form-field>
-      </div>
-
-      <!-- class="pinkBg whiteText boldText" -->
-      <div *ngIf="showSendOTP">
-        <button
-          mat-raised-button
-          class="btn_axn-pri"
-          [disabled]="inputContactDetails.length > 0 ? false : true"
-          (click)="submit()"
-        >
-          {{ '0.action_send' | translate }}
-        </button>
-      </div>
-
-      <div *ngIf="showVerify">
-        <button
-          mat-raised-button
-          class="btn_axn-pri"
-          [disabled]="disableVerify"
-          disabled="{{ disableBtn }}"
-          (click)="submit()"
-        >
-          {{ '0.action_verify' | translate }}
-        </button>
-      </div>
-
-      <div *ngIf="showResend">
-        <button mat-raised-button class="btn_axn-pri" disabled="{{ disableBtn }}" (click)="submit()">
-          {{ '0.action_resend' | translate }}
-        </button>
-      </div>
-
-      <div class="pinkText boldText" id="timer">
-        <span>{{ '0.otp_valid_label' | translate }}&nbsp;</span><span id="minutesSpan">{{ minutes }}</span
-        >:<span id="secondsSpan">{{ seconds }}</span>
-      </div>
-    </div>
+    
   </div>
 </div>

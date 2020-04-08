@@ -37,6 +37,7 @@ export class LoginComponent implements OnInit {
   selectedLanguage= '';
   validationMessages = {};
   servicesActivationStatus: boolean[] = [];
+  activatedServiceJSON={};
 
   constructor(
     private authService: AuthService,
@@ -61,8 +62,9 @@ export class LoginComponent implements OnInit {
       this.route.paramMap.subscribe((params: ParamMap)=>{
         this.initializeVariables();
         this.setTimer();
-        this.loadValidationMessages();
         let id = params.get('id');
+        this.loadValidationMessages(id);
+        
         this.servicesActivationStatus[id]=true;
         //this.ngOnInit();
       })
@@ -89,19 +91,20 @@ export class LoginComponent implements OnInit {
   this.selectedLanguage= '';
   this.validationMessages = {};
   this.servicesActivationStatus = [];
+  this.activatedServiceJSON={};
   clearInterval(this.timer);
     // if (document.getElementById('timer').style.visibility === 'visible'){
     // document.getElementById('timer').style.visibility = 'hidden';
     // }
   }
-  loadValidationMessages() {
+  loadValidationMessages(id: any) {
     let langCode=localStorage.getItem('langCode');
     this.selectedLanguage = appConstants.languageMapping[langCode].langName;
     let factory = new LanguageFactory(langCode);
     let response = factory.getCurrentlanguage();
     this.validationMessages = response['authValidationMessages'];
     let residentServiceJSON = response['header']['residentServices'];
-
+    this.activatedServiceJSON =response[id];
     //initialization of serviceActivationStatus array
     let size = Object.keys(residentServiceJSON).length;
     for (let i = 0; i < size; i++) {
