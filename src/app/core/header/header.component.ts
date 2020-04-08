@@ -42,7 +42,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     private configService: ConfigService,
 
   ) {
-    //this.translate.use(localStorage.getItem('langCode'));
+    this.translate.use(localStorage.getItem('langCode'));
   }
 
   ngOnInit() {

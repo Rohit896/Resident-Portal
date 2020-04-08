@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router,Route, ActivatedRoute, ParamMap } from '@angular/router';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { DialougComponent } from 'src/app/shared/dialoug/dialoug.component';
 import { MatDialog } from '@angular/material';
@@ -59,7 +59,7 @@ export class LoginComponent implements OnInit {
   }
   setServiceId(){
       this.route.paramMap.subscribe((params: ParamMap)=>{
-        //this.initializeVariables();
+        this.initializeVariables();
         this.setTimer();
         this.loadValidationMessages();
         let id = params.get('id');
@@ -89,8 +89,10 @@ export class LoginComponent implements OnInit {
   this.selectedLanguage= '';
   this.validationMessages = {};
   this.servicesActivationStatus = [];
-  //clearInterval(this.timer);
- //   document.getElementById('timer').style.visibility = 'hidden';
+  clearInterval(this.timer);
+    // if (document.getElementById('timer').style.visibility === 'visible'){
+    // document.getElementById('timer').style.visibility = 'hidden';
+    // }
   }
   loadValidationMessages() {
     let langCode=localStorage.getItem('langCode');
@@ -99,7 +101,7 @@ export class LoginComponent implements OnInit {
     let response = factory.getCurrentlanguage();
     this.validationMessages = response['authValidationMessages'];
     let residentServiceJSON = response['header']['residentServices'];
-    console.log(residentServiceJSON); 
+
     //initialization of serviceActivationStatus array
     let size = Object.keys(residentServiceJSON).length;
     for (let i = 0; i < size; i++) {
@@ -132,7 +134,7 @@ export class LoginComponent implements OnInit {
 
   setTimer() {
     const time = Number(this.configService.getConfigByKey(appConstants.CONFIG_KEYS.mosip_kernel_otp_expiry_time));
-    console.log(typeof(time));
+    console.log(time);
     if (!isNaN(time)) {
       const minutes = time / 60;
       const seconds = time % 60;
