@@ -34,7 +34,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   subscription: Subscription;
   constructor(
-    public authService: AuthService,
+    public  authService: AuthService,
     private translate: TranslateService,
     private router: Router,
     private dialog: MatDialog,
@@ -43,6 +43,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   ) {
     this.translate.use(localStorage.getItem('langCode'));
+    localStorage.clear();
   }
 
   ngOnInit() {
@@ -57,7 +58,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.dataService.getConfig().subscribe(
       response => {
         this.configService.setConfig(response);
-        console.log(response);
+       // console.log(response);
         this.loadLanguagesWithConfig();
       },
       error => {
@@ -131,6 +132,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     localStorage.setItem('dir', this.dir);
     localStorage.setItem('secondaryDir', this.secondaryDir);
     this.textDir = localStorage.getItem('dir');
+    
   }
   changeLanguage(): void {
     if (this.selectedLanguage !== appConstants.languageMapping[this.primaryLangFromConfig].langName) {
@@ -156,9 +158,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
     let factory = new LanguageFactory(localStorage.getItem('langCode'));
     let response = factory.getCurrentlanguage();
     this.validationMessages = response['header'];
-    // const route_parts= this.router.url.split('/');
-    //  let url=route_parts[route_parts.length-1];
-    //  console.log(typeof(url));
+    //  const route_parts= this.router.url.split('/');
+    //  let url= route_parts[route_parts.length-2]+"/"+route_parts[route_parts.length-1];
+    //  console.log(url);
     // this.router.navigate(['faq']);
   }
   showErrorMessage() {

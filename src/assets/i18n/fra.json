@@ -295,8 +295,8 @@
     "otp_valid_label": "valable"
   },
   "1": {
-    "sub_text": "Pré-inscription pour",
-    "sub_text_UID": "Numéro d'identification unique",
+    "sub_text": "Generate",
+    "sub_text_UID": "Virtual Identification Number",
     "label_select": "Choisissez votre langue",
     "label_email_num": "Email ID ou numéro de téléphone",
     "label_otp": "Entrez OTP",
@@ -307,8 +307,8 @@
     "otp_valid_label": "valable"
   },
   "2": {
-    "sub_text": "Pré-inscription pour",
-    "sub_text_UID": "Numéro d'identification unique",
+    "sub_text": "Revoke",
+    "sub_text_UID": "Virtual Identification Number",
     "label_select": "Choisissez votre langue",
     "label_email_num": "Email ID ou numéro de téléphone",
     "label_otp": "Entrez OTP",
@@ -319,8 +319,8 @@
     "otp_valid_label": "valable"
   },
   "3": {
-    "sub_text": "Pré-inscription pour",
-    "sub_text_UID": "Numéro d'identification unique",
+    "sub_text": "Check status of",
+    "sub_text_UID": "Virtual Identification Number",
     "label_select": "Choisissez votre langue",
     "label_email_num": "Email ID ou numéro de téléphone",
     "label_otp": "Entrez OTP",
@@ -331,8 +331,8 @@
     "otp_valid_label": "valable"
   },
   "4": {
-    "sub_text": "Pré-inscription pour",
-    "sub_text_UID": "Numéro d'identification unique",
+    "sub_text": "Update",
+    "sub_text_UID": "Virtual Identification Number",
     "label_select": "Choisissez votre langue",
     "label_email_num": "Email ID ou numéro de téléphone",
     "label_otp": "Entrez OTP",
@@ -343,8 +343,8 @@
     "otp_valid_label": "valable"
   },
   "5": {
-    "sub_text": "Pré-inscription pour",
-    "sub_text_UID": "Numéro d'identification unique",
+    "sub_text": "Request/Print",
+    "sub_text_UID": "Virtual Identification Number",
     "label_select": "Choisissez votre langue",
     "label_email_num": "Email ID ou numéro de téléphone",
     "label_otp": "Entrez OTP",
@@ -355,8 +355,8 @@
     "otp_valid_label": "valable"
   },
   "6": {
-    "sub_text": "Pré-inscription pour",
-    "sub_text_UID": "Numéro d'identification unique",
+    "sub_text": "Request",
+    "sub_text_UID": "Electronic Unique Identification Number",
     "label_select": "Choisissez votre langue",
     "label_email_num": "Email ID ou numéro de téléphone",
     "label_otp": "Entrez OTP",
@@ -367,8 +367,8 @@
     "otp_valid_label": "valable"
   },
   "7": {
-    "sub_text": "Pré-inscription pour",
-    "sub_text_UID": "Numéro d'identification unique",
+    "sub_text": "Update",
+    "sub_text_UID": "Demographic Details",
     "label_select": "Choisissez votre langue",
     "label_email_num": "Email ID ou numéro de téléphone",
     "label_otp": "Entrez OTP",
@@ -379,8 +379,8 @@
     "otp_valid_label": "valable"
   },
   "8": {
-    "sub_text": "Pré-inscription pour",
-    "sub_text_UID": "Numéro d'identification unique",
+    "sub_text": "Lock/Unlock",
+    "sub_text_UID": "Authentication",
     "label_select": "Choisissez votre langue",
     "label_email_num": "Email ID ou numéro de téléphone",
     "label_otp": "Entrez OTP",

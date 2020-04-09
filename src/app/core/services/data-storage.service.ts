@@ -362,7 +362,7 @@ export class DataStorageService {
       this.BASE_URL + appConstants.APPEND_URL.master_data + 'workingdays/' + registartionCenterId + '/' + langCode;
     return this.httpClient.get(url);
   }
-
+  
   /**
    * @description This method is responsible to logout the user and invalidate the token.
    *

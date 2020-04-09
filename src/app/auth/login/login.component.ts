@@ -30,7 +30,8 @@ export class LoginComponent implements OnInit {
   disableVerify = false;
   secondaryLanguagelabels: any;
   loggedOutLang: string;
-  errorMessage: string;
+  contactErrorMessage: string;
+  uinErrorMessage: string;
   minutes: string;
   seconds: string;
   showSpinner = true;
@@ -86,7 +87,8 @@ export class LoginComponent implements OnInit {
   this.disableVerify = false;
  // secondaryLanguagelabels: any;
   this.loggedOutLang='';
-  this.errorMessage='';
+  this.uinErrorMessage='';
+  this.contactErrorMessage='';
   this.minutes='';
   this.seconds='';
   this.showSpinner = true;
@@ -108,6 +110,7 @@ export class LoginComponent implements OnInit {
     this.validationMessages = response['authValidationMessages'];
     let residentServiceJSON = response['header']['residentServices'];
     this.activatedServiceJSON =response[id];
+     // console.log(this.activatedServiceJSON);
     //initialization of serviceActivationStatus array
     let size = Object.keys(residentServiceJSON).length;
     for (let i = 0; i < size; i++) {
@@ -119,21 +122,21 @@ export class LoginComponent implements OnInit {
   }
 
   loginIdValidator() {
-    this.errorMessage = undefined;
+    this.contactErrorMessage = undefined;
     const modes = this.configService.getConfigByKey(appConstants.CONFIG_KEYS.mosip_login_mode);
     const emailRegex = new RegExp(this.configService.getConfigByKey(appConstants.CONFIG_KEYS.mosip_regex_email));
     const phoneRegex = new RegExp(this.configService.getConfigByKey(appConstants.CONFIG_KEYS.mosip_regex_phone));
     if (modes === 'email,mobile') {
       if (!(emailRegex.test(this.inputContactDetails) || phoneRegex.test(this.inputContactDetails))) {
-        this.errorMessage = this.validationMessages['invalidInput'];
+        this.contactErrorMessage = this.validationMessages['invalidInput'];
       }
     } else if (modes === 'email') {
       if (!emailRegex.test(this.inputContactDetails)) {
-        this.errorMessage = this.validationMessages['invalidEmail'];
+        this.contactErrorMessage = this.validationMessages['invalidEmail'];
       }
     } else if (modes === 'mobile') {
       if (!phoneRegex.test(this.inputContactDetails)) {
-        this.errorMessage = this.validationMessages['invalidMobile'];
+        this.contactErrorMessage = this.validationMessages['invalidMobile'];
       }
     }
   }
@@ -172,9 +175,26 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  uinValidator(){
+    this.uinErrorMessage = undefined;
+    //const modes = this.configService.getConfigByKey(appConstants.CONFIG_KEYS.mosip_login_mode);
+    //const emailRegex = new RegExp(this.configService.getConfigByKey(appConstants.CONFIG_KEYS.mosip_regex_email));
+    //const phoneRegex = new RegExp(this.configService.getConfigByKey(appConstants.CONFIG_KEYS.mosip_regex_phone));
+    const uinRegex = new RegExp("^([0-9]{10})$");
+    if(!uinRegex.test(this.inputUinDetails)){
+      this.uinErrorMessage = this.validationMessages['invalidUin'];
+    }
+  }
+  verifyUin(uin: any){
+
+  }
   submit(): void {
     this.loginIdValidator();
-    if ((this.showSendOTP || this.showResend) && this.errorMessage === undefined) {
+    this.uinValidator();
+
+
+    this.verifyUin(this.inputUinDetails);
+    if ((this.showSendOTP || this.showResend) && this.contactErrorMessage === undefined && (this.uinErrorMessage === undefined || this.servicesActivationStatus[0]))  {
       this.inputOTP = '';
       this.showResend = true;
       this.showOTP = true;
@@ -222,17 +242,22 @@ export class LoginComponent implements OnInit {
       this.dataService.sendOtp(this.inputContactDetails).subscribe(response => {});
 
       // dynamic update of button text for Resend and Verify
-    } else if (this.showVerify && this.errorMessage === undefined) {
+    } else if (this.showVerify && this.contactErrorMessage === undefined && (this.uinErrorMessage === undefined || this.servicesActivationStatus[0])) {
       this.disableVerify = true;
       this.dataService.verifyOtp(this.inputContactDetails, this.inputOTP).subscribe(
         response => {
           if (!response['errors']) {
             clearInterval(this.timer);
-            localStorage.setItem('loggedIn', 'true');
-            this.authService.setToken();
-            this.regService.setLoginId(this.inputContactDetails);
-            this.disableVerify = false;
-            this.router.navigate(['dashboard']);
+            console.log(response);
+            console.log("otp verified");
+            
+            for (let index = 0; index < this.servicesActivationStatus.length; index++) {
+                    if(this.servicesActivationStatus[index] && index=== 0)
+                        this.preRegLogin();
+                    else if(this.servicesActivationStatus[index] && index=== 1)
+                        this.generatevid();
+            }
+
           } else {
             this.disableVerify = false;
             this.showOtpMessage();
@@ -244,6 +269,16 @@ export class LoginComponent implements OnInit {
         }
       );
     }
+  }
+  preRegLogin(){
+    localStorage.setItem('loggedIn', 'true');
+    this.authService.setToken();
+    this.regService.setLoginId(this.inputContactDetails);
+    this.disableVerify = false;
+    this.router.navigate(['dashboard']);
+  }
+  generatevid(){
+      console.log("generate Vid");
   }
 
   showOtpMessage() {

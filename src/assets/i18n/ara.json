@@ -294,8 +294,8 @@
     "logout_msg": "يجب على مقدم الطلب تسجيل الدخول بنفس الهاتف المحمول / البريد الإلكتروني للوصول إلى التطبيقات التي تم إنشاؤها"
   },
   "1": {
-    "sub_text": "التسجيل المسبق ل",
-    "sub_text_UID": "رقم تعريف فريد",
+    "sub_text": "Generate",
+    "sub_text_UID": "Virtual Identification Number",
     "otp_valid_label": "صالحة ل",
     "label_email_num": "معرف البريد الإلكتروني أو رقم الهاتف",
     "label_otp": "أدخل OTP",
@@ -306,8 +306,8 @@
     "enter_uin":"Enter UIN"
   },
   "2": {
-    "sub_text": "التسجيل المسبق ل",
-    "sub_text_UID": "رقم تعريف فريد",
+    "sub_text": "Revoke",
+    "sub_text_UID": "Virtual Identification Number",
     "otp_valid_label": "صالحة ل",
     "label_email_num": "معرف البريد الإلكتروني أو رقم الهاتف",
     "label_otp": "أدخل OTP",
@@ -318,8 +318,8 @@
     "enter_uin":"Enter UIN"
   },
   "3": {
-    "sub_text": "التسجيل المسبق ل",
-    "sub_text_UID": "رقم تعريف فريد",
+    "sub_text": "Check status of",
+    "sub_text_UID": "Virtual Identification Number",
     "otp_valid_label": "صالحة ل",
     "label_email_num": "معرف البريد الإلكتروني أو رقم الهاتف",
     "label_otp": "أدخل OTP",
@@ -330,8 +330,8 @@
     "enter_uin":"Enter UIN"
   },
   "4": {
-    "sub_text": "التسجيل المسبق ل",
-    "sub_text_UID": "رقم تعريف فريد",
+    "sub_text": "Update",
+    "sub_text_UID": "Virtual Identification Number",
     "otp_valid_label": "صالحة ل",
     "label_email_num": "معرف البريد الإلكتروني أو رقم الهاتف",
     "label_otp": "أدخل OTP",
@@ -342,8 +342,8 @@
     "enter_uin":"Enter UIN"
   },
   "5": {
-    "sub_text": "التسجيل المسبق ل",
-    "sub_text_UID": "رقم تعريف فريد",
+    "sub_text": "Request/Print",
+    "sub_text_UID": "Virtual Identification Number",
     "otp_valid_label": "صالحة ل",
     "label_email_num": "معرف البريد الإلكتروني أو رقم الهاتف",
     "label_otp": "أدخل OTP",
@@ -354,8 +354,8 @@
     "enter_uin":"Enter UIN"
   },
   "6": {
-    "sub_text": "التسجيل المسبق ل",
-    "sub_text_UID": "رقم تعريف فريد",
+    "sub_text": "Request",
+    "sub_text_UID": "Electronic Unique Identification Number",
     "otp_valid_label": "صالحة ل",
     "label_email_num": "معرف البريد الإلكتروني أو رقم الهاتف",
     "label_otp": "أدخل OTP",
@@ -366,8 +366,8 @@
     "enter_uin":"Enter UIN"
   },
   "7": {
-    "sub_text": "التسجيل المسبق ل",
-    "sub_text_UID": "رقم تعريف فريد",
+    "sub_text": "Update",
+    "sub_text_UID": "Demographic Details",
     "otp_valid_label": "صالحة ل",
     "label_email_num": "معرف البريد الإلكتروني أو رقم الهاتف",
     "label_otp": "أدخل OTP",
@@ -378,8 +378,8 @@
     "enter_uin":"Enter UIN"
   },
   "8": {
-    "sub_text": "التسجيل المسبق ل",
-    "sub_text_UID": "رقم تعريف فريد",
+    "sub_text": "Lock/Unlock",
+    "sub_text_UID": "Authentication",
     "otp_valid_label": "صالحة ل",
     "label_email_num": "معرف البريد الإلكتروني أو رقم الهاتف",
     "label_otp": "أدخل OTP",

@@ -10,7 +10,7 @@
 
     <div  *ngFor="let id of servicesActivationStatus; index as i"> 
       <div class="subHeading pinkText" *ngIf= "servicesActivationStatus[i]">
-      {{ activatedServiceJSON.sub_text }} <span class="boldText"> {{ activatedServiceJSON.sub_text_UID }} </span> 
+      {{ activatedServiceJSON.sub_text | translate }} <span class="boldText"> {{ activatedServiceJSON.sub_text_UID | translate}} </span> 
       </div> 
     <div
       style="width: 38vw; max-width: 323px;"
@@ -31,7 +31,7 @@
           />
         </mat-form-field>
       </div>
-      <p class="error" *ngIf="errorMessage && servicesActivationStatus[i]">{{ errorMessage }}</p>
+      <p class="error" *ngIf="uinErrorMessage && servicesActivationStatus[i]">{{ uinErrorMessage }}</p>
     </div>
 
       <div *ngIf="showContactDetails && servicesActivationStatus[i]">
@@ -48,7 +48,7 @@
             />
           </mat-form-field>
         </div>
-        <p class="error" *ngIf="errorMessage && servicesActivationStatus[i]">{{ errorMessage }}</p>
+        <p class="error" *ngIf="contactErrorMessage && servicesActivationStatus[i]">{{ contactErrorMessage }}</p>
       </div>
 
       <div *ngIf="showOTP && servicesActivationStatus[i]">

@@ -280,7 +280,8 @@
   "authValidationMessages":{
     "invalidEmail": "Invalid email id Entered",
     "invalidMobile": "Invalid mobile number Entered",
-    "invalidInput": "Invalid email id or mobile number Entered"
+    "invalidInput": "Invalid email id or mobile number Entered",
+    "invalidUin" : "Invalid UIN"
   },
   "0": {
     "sub_text": "Pre-register for",
