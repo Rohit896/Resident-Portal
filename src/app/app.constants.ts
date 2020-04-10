@@ -19,7 +19,8 @@ export const IDS = {
   sendOtp: 'mosip.pre-registration.login.sendotp',
   validateOtp: 'mosip.pre-registration.login.useridotp',
   documentUpload: 'mosip.pre-registration.document.upload',
-  applicantTypeId: 'mosip.applicanttype.fetch'
+  applicantTypeId: 'mosip.applicanttype.fetch',
+  generateVidId: 'mosip.resident.vid'
 };
 
 export const APPEND_URL = {
@@ -50,7 +51,8 @@ export const APPEND_URL = {
   send_notification: 'notify',
   master_data: 'v1/masterdata/',
   auth: 'login/',
-  cancelAppointment: 'appointment/'
+  cancelAppointment: 'appointment/',
+  vid : '/vid'
 };
 
 export const PARAMS_KEYS = {

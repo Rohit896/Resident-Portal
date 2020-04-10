@@ -248,8 +248,8 @@ export class LoginComponent implements OnInit {
         response => {
           if (!response['errors']) {
             clearInterval(this.timer);
-            console.log(response);
-            console.log("otp verified");
+            //console.log(response);
+            //console.log("otp verified");
             
             for (let index = 0; index < this.servicesActivationStatus.length; index++) {
                     if(this.servicesActivationStatus[index] && index=== 0)
@@ -279,6 +279,10 @@ export class LoginComponent implements OnInit {
   }
   generatevid(){
       console.log("generate Vid");
+      this.dataService.generateVid(this.inputUinDetails,this.inputOTP).subscribe(response=>{
+        console.log(response);
+      })
+
   }
 
   showOtpMessage() {

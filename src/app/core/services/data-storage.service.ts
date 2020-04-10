@@ -373,4 +373,21 @@ export class DataStorageService {
     const url = this.BASE_URL + this.PRE_REG_URL + appConstants.APPEND_URL.auth + appConstants.APPEND_URL.logout;
     return this.httpClient.post(url, '');
   }
+
+  generateVid(otp: string, uin : string){
+
+
+    const request = {
+      individualId: uin,
+      individualIdType: "UIN",
+      otp: otp,
+      transactionID: "0987654321",
+      vidType: "Temporary"
+    };
+
+    const obj = new RequestModel(appConstants.IDS.generateVidId, request);
+
+    const url = this.BASE_URL + appConstants.APPEND_URL.resident+ appConstants.APPEND_URL.vid;
+    return this.httpClient.post(url,obj);
+  }
 }

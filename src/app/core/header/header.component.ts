@@ -58,7 +58,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.dataService.getConfig().subscribe(
       response => {
         this.configService.setConfig(response);
-       // console.log(response);
+        console.log(response);
         this.loadLanguagesWithConfig();
       },
       error => {
@@ -181,7 +181,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     if (this.authService.isAuthenticated()) {
       this.router.navigate(['dashboard']);
     } else {
-      this.router.navigate(['/']);
+      this.router.navigate(['residentServices','0']);
     }
   }
 
@@ -198,7 +198,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   showMessage() {
     let factory = new LanguageFactory(localStorage.getItem('langCode'));
     let response = factory.getCurrentlanguage();
-    const secondaryLanguagelabels = response['login']['logout_msg'];
+    const secondaryLanguagelabels = response['0']['logout_msg'];
     localStorage.removeItem('loggedOutLang');
     localStorage.removeItem('loggedOut');
     const data = {
