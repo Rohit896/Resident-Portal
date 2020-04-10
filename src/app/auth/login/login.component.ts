@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { DialougComponent } from 'src/app/shared/dialoug/dialoug.component';
 import { MatDialog } from '@angular/material';
@@ -16,23 +16,12 @@ import LanguageFactory from '../../../assets/i18n';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  languages: string[] = [];
   inputPlaceholderContact = 'Email ID or Phone Number';
   inputPlaceholderOTP = 'Enter OTP';
   disableBtn = false;
-  timer: any;
+  timer:any ;
   inputOTP: string;
   inputContactDetails = '';
-  secondaryLangCode = '';
-  secondaryDir = '';
-  selectedLanguage = '';
-  langCode = '';
-  dir = '';
-  primaryLangFromConfig = '';
-  primaryLang = '';
-  secondaryLangFromConfig = '';
-  defaultLangCode = appConstants.DEFAULT_LANG_CODE;
-  secondaryLang = '';
   showSendOTP = true;
   showResend = false;
   showVerify = false;
@@ -41,142 +30,115 @@ export class LoginComponent implements OnInit {
   disableVerify = false;
   secondaryLanguagelabels: any;
   loggedOutLang: string;
-  errorMessage: string;
+  contactErrorMessage: string;
+  uinErrorMessage: string;
   minutes: string;
   seconds: string;
   showSpinner = true;
+  selectedLanguage= '';
   validationMessages = {};
-  textDir = localStorage.getItem('dir');
-  LANGUAGE_ERROR_TEXT =
-    'The system has encountered a technical error. Administrator to setup the necessary language configuration(s)';
+  servicesActivationStatus: boolean[] = [];
+  activatedServiceJSON={};
+  inputUinDetails = '';
+
 
   constructor(
     private authService: AuthService,
     private router: Router,
+    private route: ActivatedRoute,
     private translate: TranslateService,
     private dialog: MatDialog,
     private dataService: DataStorageService,
     private regService: RegistrationService,
-    private configService: ConfigService
+    private configService: ConfigService,
   ) {
-    translate.setDefaultLang('fra');
-    localStorage.clear();
   }
 
   ngOnInit() {
-    localStorage.setItem('langCode', 'fra');
-    this.showSpinner = true;
-    this.loadConfigs();
-    if (this.authService.isAuthenticated()) {
-      this.authService.onLogout();
-    }
-  }
+      this.setServiceId();  
 
-  loadValidationMessages() {
-    let factory = new LanguageFactory(localStorage.getItem('langCode'));
+      if (this.authService.isAuthenticated()) {
+        this.authService.onLogout();
+      }
+  }
+  setServiceId(){
+      this.route.paramMap.subscribe((params: ParamMap)=>{
+        this.initializeVariables();
+        this.setTimer();
+        let id = params.get('id');
+        this.loadValidationMessages(id);
+        
+        this.servicesActivationStatus[id]=true;
+        //this.ngOnInit();
+      })
+      
+  }
+  initializeVariables(){
+    this.inputPlaceholderContact = 'Email ID or Phone Number';
+  this.inputPlaceholderOTP = 'Enter OTP';
+  this.disableBtn = false;
+  this.inputOTP='';
+  this.inputContactDetails = '';
+  this.showSendOTP = true;
+  this.showResend = false;
+  this.showVerify = false;
+  this.showContactDetails = true;
+  this.showOTP = false;
+  this.disableVerify = false;
+ // secondaryLanguagelabels: any;
+  this.loggedOutLang='';
+  this.uinErrorMessage='';
+  this.contactErrorMessage='';
+  this.minutes='';
+  this.seconds='';
+  this.showSpinner = true;
+  this.selectedLanguage= '';
+  this.validationMessages = {};
+  this.servicesActivationStatus = [];
+  this.activatedServiceJSON={};
+  this.inputUinDetails = '';
+  clearInterval(this.timer);
+    // if (document.getElementById('timer').style.visibility === 'visible'){
+    // document.getElementById('timer').style.visibility = 'hidden';
+    // }
+  }
+  loadValidationMessages(id: any) {
+    let langCode=localStorage.getItem('langCode');
+    this.selectedLanguage = appConstants.languageMapping[langCode].langName;
+    let factory = new LanguageFactory(langCode);
     let response = factory.getCurrentlanguage();
-    this.validationMessages = response['login'];
+    this.validationMessages = response['authValidationMessages'];
+    let residentServiceJSON = response['header']['residentServices'];
+    this.activatedServiceJSON =response[id];
+     // console.log(this.activatedServiceJSON);
+    //initialization of serviceActivationStatus array
+    let size = Object.keys(residentServiceJSON).length;
+    for (let i = 0; i < size; i++) {
+      this.servicesActivationStatus[i]=false;
+    }
+
+
+    this.showSpinner=false;
   }
 
   loginIdValidator() {
-    this.errorMessage = undefined;
+    this.contactErrorMessage = undefined;
     const modes = this.configService.getConfigByKey(appConstants.CONFIG_KEYS.mosip_login_mode);
     const emailRegex = new RegExp(this.configService.getConfigByKey(appConstants.CONFIG_KEYS.mosip_regex_email));
     const phoneRegex = new RegExp(this.configService.getConfigByKey(appConstants.CONFIG_KEYS.mosip_regex_phone));
     if (modes === 'email,mobile') {
       if (!(emailRegex.test(this.inputContactDetails) || phoneRegex.test(this.inputContactDetails))) {
-        this.errorMessage = this.validationMessages['invalidInput'];
+        this.contactErrorMessage = this.validationMessages['invalidInput'];
       }
     } else if (modes === 'email') {
       if (!emailRegex.test(this.inputContactDetails)) {
-        this.errorMessage = this.validationMessages['invalidEmail'];
+        this.contactErrorMessage = this.validationMessages['invalidEmail'];
       }
     } else if (modes === 'mobile') {
       if (!phoneRegex.test(this.inputContactDetails)) {
-        this.errorMessage = this.validationMessages['invalidMobile'];
+        this.contactErrorMessage = this.validationMessages['invalidMobile'];
       }
     }
-  }
-
-  loadConfigs() {
-    this.dataService.getConfig().subscribe(
-      response => {
-        this.configService.setConfig(response);
-        this.setTimer();
-        this.loadLanguagesWithConfig();
-      },
-      error => {
-        this.showErrorMessage();
-      }
-    );
-  }
-
-  loadLanguagesWithConfig() {
-    this.primaryLangFromConfig = this.configService.getConfigByKey(appConstants.CONFIG_KEYS.mosip_primary_language);
-    this.secondaryLangFromConfig = this.configService.getConfigByKey(appConstants.CONFIG_KEYS.mosip_secondary_language);
-
-    // default secondary language if any of the primary or secondary langugae is not present
-    // this.primaryLangFromConfig === ''
-    //   ? (this.primaryLangFromConfig = this.defaultLangCode)
-    //   : this.primaryLangFromConfig;
-    // this.secondaryLangFromConfig === ''
-    //   ? (this.secondaryLangFromConfig = this.defaultLangCode)
-    //   : this.secondaryLangFromConfig;
-
-    if (
-      !this.primaryLangFromConfig ||
-      !this.secondaryLangFromConfig ||
-      this.primaryLangFromConfig === '' ||
-      this.secondaryLangFromConfig === ''
-    ) {
-      const message = {
-        case: 'MESSAGE',
-        message: this.LANGUAGE_ERROR_TEXT
-      };
-      this.dialog.open(DialougComponent, {
-        width: '350px',
-        data: message,
-        disableClose: true
-      });
-    }
-
-    this.primaryLang = this.primaryLangFromConfig;
-    this.secondaryLang = this.secondaryLangFromConfig;
-
-    this.setLanguageDirection(this.primaryLangFromConfig, this.secondaryLangFromConfig);
-    localStorage.setItem('langCode', this.primaryLangFromConfig);
-    localStorage.setItem('secondaryLangCode', this.secondaryLangFromConfig);
-    this.translate.use(this.primaryLang);
-    this.selectedLanguage = appConstants.languageMapping[this.primaryLang].langName;
-    if (
-      appConstants.languageMapping[this.primaryLangFromConfig] &&
-      appConstants.languageMapping[this.secondaryLangFromConfig]
-    ) {
-      this.languages.push(appConstants.languageMapping[this.primaryLangFromConfig].langName);
-      this.languages.push(appConstants.languageMapping[this.secondaryLangFromConfig].langName);
-    }
-    this.translate.addLangs([this.primaryLangFromConfig, this.secondaryLangFromConfig]);
-    this.showSpinner = false;
-    this.loadValidationMessages();
-  }
-
-  setLanguageDirection(primaryLang: string, secondaryLang: string) {
-    const ltrLangs = this.configService
-      .getConfigByKey(appConstants.CONFIG_KEYS.mosip_left_to_right_orientation)
-      .split(',');
-    if (ltrLangs.includes(primaryLang)) {
-      this.dir = 'ltr';
-    } else {
-      this.dir = 'rtl';
-    }
-    if (ltrLangs.includes(secondaryLang)) {
-      this.secondaryDir = 'ltr';
-    } else {
-      this.secondaryDir = 'rtl';
-    }
-    localStorage.setItem('dir', this.dir);
-    localStorage.setItem('secondaryDir', this.secondaryDir);
-    this.textDir = localStorage.getItem('dir');
   }
 
   setTimer() {
@@ -200,27 +162,6 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  changeLanguage(): void {
-    if (this.selectedLanguage !== appConstants.languageMapping[this.primaryLangFromConfig].langName) {
-      this.secondaryLang = this.configService.getConfigByKey(appConstants.CONFIG_KEYS.mosip_primary_language);
-      this.primaryLang = this.configService.getConfigByKey(appConstants.CONFIG_KEYS.mosip_secondary_language);
-
-      this.setLanguageDirection(this.primaryLang, this.secondaryLang);
-      localStorage.setItem('langCode', this.primaryLang);
-      localStorage.setItem('secondaryLangCode', this.secondaryLang);
-    } else {
-      this.primaryLang = this.configService.getConfigByKey(appConstants.CONFIG_KEYS.mosip_primary_language);
-      this.secondaryLang = this.configService.getConfigByKey(appConstants.CONFIG_KEYS.mosip_secondary_language);
-
-      this.setLanguageDirection(this.primaryLang, this.secondaryLang);
-      localStorage.setItem('langCode', this.primaryLang);
-      localStorage.setItem('secondaryLangCode', this.secondaryLang);
-    }
-
-    this.translate.use(localStorage.getItem('langCode'));
-    this.loadValidationMessages();
-  }
-
   showVerifyBtn() {
     if (
       this.inputOTP.length ===
@@ -234,9 +175,26 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  uinValidator(){
+    this.uinErrorMessage = undefined;
+    //const modes = this.configService.getConfigByKey(appConstants.CONFIG_KEYS.mosip_login_mode);
+    //const emailRegex = new RegExp(this.configService.getConfigByKey(appConstants.CONFIG_KEYS.mosip_regex_email));
+    //const phoneRegex = new RegExp(this.configService.getConfigByKey(appConstants.CONFIG_KEYS.mosip_regex_phone));
+    const uinRegex = new RegExp("^([0-9]{10})$");
+    if(!uinRegex.test(this.inputUinDetails)){
+      this.uinErrorMessage = this.validationMessages['invalidUin'];
+    }
+  }
+  verifyUin(uin: any){
+
+  }
   submit(): void {
     this.loginIdValidator();
-    if ((this.showSendOTP || this.showResend) && this.errorMessage === undefined) {
+    this.uinValidator();
+
+
+    this.verifyUin(this.inputUinDetails);
+    if ((this.showSendOTP || this.showResend) && this.contactErrorMessage === undefined && (this.uinErrorMessage === undefined || this.servicesActivationStatus[0]))  {
       this.inputOTP = '';
       this.showResend = true;
       this.showOTP = true;
@@ -284,17 +242,22 @@ export class LoginComponent implements OnInit {
       this.dataService.sendOtp(this.inputContactDetails).subscribe(response => {});
 
       // dynamic update of button text for Resend and Verify
-    } else if (this.showVerify && this.errorMessage === undefined) {
+    } else if (this.showVerify && this.contactErrorMessage === undefined && (this.uinErrorMessage === undefined || this.servicesActivationStatus[0])) {
       this.disableVerify = true;
       this.dataService.verifyOtp(this.inputContactDetails, this.inputOTP).subscribe(
         response => {
           if (!response['errors']) {
             clearInterval(this.timer);
-            localStorage.setItem('loggedIn', 'true');
-            this.authService.setToken();
-            this.regService.setLoginId(this.inputContactDetails);
-            this.disableVerify = false;
-            this.router.navigate(['dashboard']);
+            //console.log(response);
+            //console.log("otp verified");
+            
+            for (let index = 0; index < this.servicesActivationStatus.length; index++) {
+                    if(this.servicesActivationStatus[index] && index=== 0)
+                        this.preRegLogin();
+                    else if(this.servicesActivationStatus[index] && index=== 1)
+                        this.generatevid();
+            }
+
           } else {
             this.disableVerify = false;
             this.showOtpMessage();
@@ -306,6 +269,20 @@ export class LoginComponent implements OnInit {
         }
       );
     }
+  }
+  preRegLogin(){
+    localStorage.setItem('loggedIn', 'true');
+    this.authService.setToken();
+    this.regService.setLoginId(this.inputContactDetails);
+    this.disableVerify = false;
+    this.router.navigate(['dashboard']);
+  }
+  generatevid(){
+      console.log("generate Vid");
+      this.dataService.generateVid(this.inputUinDetails,this.inputOTP).subscribe(response=>{
+        console.log(response);
+      })
+
   }
 
   showOtpMessage() {

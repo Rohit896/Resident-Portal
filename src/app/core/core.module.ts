@@ -10,12 +10,12 @@ import { ContactComponent } from './contact/contact.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { AuthInterceptorService } from '../shared/auth-interceptor.service';
-import { ResidentservicesComponent } from './residentservices/residentservices.component';
-import { BookmodifyappointmentComponent } from './bookmodifyappointment/bookmodifyappointment.component';
+import { ReactiveFormsModule, FormsModule } from "@angular/forms";
+import { MatMenuModule } from "@angular/material";
 
 @NgModule({
-  imports: [CommonModule, AppRoutingModule, SharedModule],
-  declarations: [HeaderComponent, FooterComponent, AboutUsComponent, FaqComponent, ContactComponent, ResidentservicesComponent,  BookmodifyappointmentComponent],
+  imports: [CommonModule, AppRoutingModule, SharedModule, FormsModule, ReactiveFormsModule, MatMenuModule],
+  declarations: [HeaderComponent, FooterComponent, AboutUsComponent, FaqComponent, ContactComponent],
   exports: [HeaderComponent, FooterComponent, SharedModule],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }]
 })

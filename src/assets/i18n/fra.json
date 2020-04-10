@@ -254,16 +254,35 @@
     ]
   },
   "header": {
-     "link_Resident_services" : "Resident Services",
-     "link_Book_modify_appointment":"Book / Modify Appointment",
+    "link_about": "Commencer",
     "link_faq": "FAQ",
     "link_contact": "CONTACT",
     "link_applications": "Vos Applications",
     "link_logout": "Connectez - Out",
-    "link_login": "S'IDENTIFIER"
+    "link_login": "S'IDENTIFIER",
+    "link_pre-registration": "PRE-REGISTRATION",
+    "link_resident-services": "RESIDENT-SERVICES",
+    "residentServices":{
+      "0" : "Login",
+      "1" : "Generate VID",
+      "2" : "Revoke VID",
+      "3" : "VID Status",
+      "4" : "Update UIN",
+      "5" : "Request/Print UIN",
+      "6" : "Request EUIN",
+      "7" : "Update Demographic Details",
+      "8" : "Lock/Unlock"
+    }
   },
-  "login": {
-    "text": "Étapes rapides et faciles",
+  "authCommonText":{
+    "text": "Étapes rapides et faciles"
+  },
+  "authValidationMessages":{
+    "invalidEmail": "Identifiant email invalide entré",
+    "invalidMobile": "Numéro de téléphone invalide entré",
+    "invalidInput": "Identifiant email ou numéro de portable invalide entré"
+  },
+  "0": {
     "sub_text": "Pré-inscription pour",
     "sub_text_UID": "Numéro d'identification unique",
     "label_select": "Choisissez votre langue",
@@ -273,10 +292,103 @@
     "action_resend": "Renvoyer",
     "action_verify": "Vérifier",
     "logout_msg": "Le demandeur doit se connecter avec le même téléphone portable / courriel pour accéder aux applications créées.",
-    "otp_valid_label": "valable",
-    "invalidEmail": "Identifiant email invalide entré",
-    "invalidMobile": "Numéro de téléphone invalide entré",
-    "invalidInput": "Identifiant email ou numéro de portable invalide entré"
+    "otp_valid_label": "valable"
+  },
+  "1": {
+    "sub_text": "Generate",
+    "sub_text_UID": "Virtual Identification Number",
+    "label_select": "Choisissez votre langue",
+    "label_email_num": "Email ID ou numéro de téléphone",
+    "label_otp": "Entrez OTP",
+    "action_send": "Envoyer OTP",
+    "action_resend": "Renvoyer",
+    "action_verify": "Vérifier",
+    "logout_msg": "Le demandeur doit se connecter avec le même téléphone portable / courriel pour accéder aux applications créées.",
+    "otp_valid_label": "valable"
+  },
+  "2": {
+    "sub_text": "Revoke",
+    "sub_text_UID": "Virtual Identification Number",
+    "label_select": "Choisissez votre langue",
+    "label_email_num": "Email ID ou numéro de téléphone",
+    "label_otp": "Entrez OTP",
+    "action_send": "Envoyer OTP",
+    "action_resend": "Renvoyer",
+    "action_verify": "Vérifier",
+    "logout_msg": "Le demandeur doit se connecter avec le même téléphone portable / courriel pour accéder aux applications créées.",
+    "otp_valid_label": "valable"
+  },
+  "3": {
+    "sub_text": "Check status of",
+    "sub_text_UID": "Virtual Identification Number",
+    "label_select": "Choisissez votre langue",
+    "label_email_num": "Email ID ou numéro de téléphone",
+    "label_otp": "Entrez OTP",
+    "action_send": "Envoyer OTP",
+    "action_resend": "Renvoyer",
+    "action_verify": "Vérifier",
+    "logout_msg": "Le demandeur doit se connecter avec le même téléphone portable / courriel pour accéder aux applications créées.",
+    "otp_valid_label": "valable"
+  },
+  "4": {
+    "sub_text": "Update",
+    "sub_text_UID": "Virtual Identification Number",
+    "label_select": "Choisissez votre langue",
+    "label_email_num": "Email ID ou numéro de téléphone",
+    "label_otp": "Entrez OTP",
+    "action_send": "Envoyer OTP",
+    "action_resend": "Renvoyer",
+    "action_verify": "Vérifier",
+    "logout_msg": "Le demandeur doit se connecter avec le même téléphone portable / courriel pour accéder aux applications créées.",
+    "otp_valid_label": "valable"
+  },
+  "5": {
+    "sub_text": "Request/Print",
+    "sub_text_UID": "Virtual Identification Number",
+    "label_select": "Choisissez votre langue",
+    "label_email_num": "Email ID ou numéro de téléphone",
+    "label_otp": "Entrez OTP",
+    "action_send": "Envoyer OTP",
+    "action_resend": "Renvoyer",
+    "action_verify": "Vérifier",
+    "logout_msg": "Le demandeur doit se connecter avec le même téléphone portable / courriel pour accéder aux applications créées.",
+    "otp_valid_label": "valable"
+  },
+  "6": {
+    "sub_text": "Request",
+    "sub_text_UID": "Electronic Unique Identification Number",
+    "label_select": "Choisissez votre langue",
+    "label_email_num": "Email ID ou numéro de téléphone",
+    "label_otp": "Entrez OTP",
+    "action_send": "Envoyer OTP",
+    "action_resend": "Renvoyer",
+    "action_verify": "Vérifier",
+    "logout_msg": "Le demandeur doit se connecter avec le même téléphone portable / courriel pour accéder aux applications créées.",
+    "otp_valid_label": "valable"
+  },
+  "7": {
+    "sub_text": "Update",
+    "sub_text_UID": "Demographic Details",
+    "label_select": "Choisissez votre langue",
+    "label_email_num": "Email ID ou numéro de téléphone",
+    "label_otp": "Entrez OTP",
+    "action_send": "Envoyer OTP",
+    "action_resend": "Renvoyer",
+    "action_verify": "Vérifier",
+    "logout_msg": "Le demandeur doit se connecter avec le même téléphone portable / courriel pour accéder aux applications créées.",
+    "otp_valid_label": "valable"
+  },
+  "8": {
+    "sub_text": "Lock/Unlock",
+    "sub_text_UID": "Authentication",
+    "label_select": "Choisissez votre langue",
+    "label_email_num": "Email ID ou numéro de téléphone",
+    "label_otp": "Entrez OTP",
+    "action_send": "Envoyer OTP",
+    "action_resend": "Renvoyer",
+    "action_verify": "Vérifier",
+    "logout_msg": "Le demandeur doit se connecter avec le même téléphone portable / courriel pour accéder aux applications créées.",
+    "otp_valid_label": "valable"
   },
   "stepper": {
     "link_demographic": "Détails démographiques",

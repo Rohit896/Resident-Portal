@@ -321,7 +321,7 @@ export class DataStorageService {
   }
 
   getConfig() {
-    //    return this.httpClient.get('./assets/configs.json');
+      //  return this.httpClient.get('./assets/configs.json');
     const url = this.BASE_URL + this.PRE_REG_URL + appConstants.APPEND_URL.auth + appConstants.APPEND_URL.config;
     return this.httpClient.get(url);
   }
@@ -362,7 +362,7 @@ export class DataStorageService {
       this.BASE_URL + appConstants.APPEND_URL.master_data + 'workingdays/' + registartionCenterId + '/' + langCode;
     return this.httpClient.get(url);
   }
-
+  
   /**
    * @description This method is responsible to logout the user and invalidate the token.
    *
@@ -372,5 +372,22 @@ export class DataStorageService {
   onLogout() {
     const url = this.BASE_URL + this.PRE_REG_URL + appConstants.APPEND_URL.auth + appConstants.APPEND_URL.logout;
     return this.httpClient.post(url, '');
+  }
+
+  generateVid(otp: string, uin : string){
+
+
+    const request = {
+      individualId: uin,
+      individualIdType: "UIN",
+      otp: otp,
+      transactionID: "0987654321",
+      vidType: "Temporary"
+    };
+
+    const obj = new RequestModel(appConstants.IDS.generateVidId, request);
+
+    const url = this.BASE_URL + appConstants.APPEND_URL.resident+ appConstants.APPEND_URL.vid;
+    return this.httpClient.post(url,obj);
   }
 }

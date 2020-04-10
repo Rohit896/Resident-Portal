@@ -1,24 +1,33 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { FaqComponent } from './core/faq/faq.component';
+import { AboutUsComponent } from './core/about-us/about-us.component';
 import { ContactComponent } from './core/contact/contact.component';
 import { ParentComponent } from './shared/parent/parent.component';
 import { AuthGuardService } from './auth/auth-guard.service';
-import {ResidentservicesComponent} from './core/residentservices/residentservices.component';
-import {BookmodifyappointmentComponent} from './core/bookmodifyappointment/bookmodifyappointment.component';
+import { LoginComponent } from './auth/login/login.component';
+
 /**
  * @description These are the routes.
  */
 const appRoutes: Routes = [
+  
   { path: 'dashboard', loadChildren: './feature/dashboard/dashboard.module#DashboardModule' },
-  { path: 'Residentservices', component: ResidentservicesComponent },
-  { path: 'Bookmodifyappointment', component:BookmodifyappointmentComponent},
-  //{path: 'Bookmodifyappointment', redirectTo :'https://dev.mosip.io/pre-registration-ui/#/' , pathMatch :'full'},
+  { path: 'about-us', component: AboutUsComponent },
   { path: 'faq', component: FaqComponent },
   { path: 'contact', component: ContactComponent },
+  { path: 'residentServices/:id', component: LoginComponent},
+  { path: 'residentServices/:id', component: LoginComponent},
+  { path: 'residentServices/:id', component: LoginComponent},
+  { path: 'residentServices/:id', component: LoginComponent},
+  { path: 'residentServices/:id', component: LoginComponent},
+  { path: 'residentServices/:id', component: LoginComponent},
+  { path: 'residentServices/:id', component: LoginComponent},
+  { path: 'residentServices/:id', component: LoginComponent},
+  { path: 'residentServices/:id', component: LoginComponent},
 
   {
-    path: 'pre-registration', 
+    path: 'pre-registration',
     component: ParentComponent,
     canActivate: [AuthGuardService],
     children: [
@@ -42,5 +51,3 @@ const appRoutes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
-/*export const routingcomponents=[BookmodifyappointmentComponent , ResidentservicesComponent]*/
-
