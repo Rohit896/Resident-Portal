@@ -386,8 +386,9 @@ export class DataStorageService {
     };
 
     const obj = new RequestModel(appConstants.IDS.generateVidId, request);
-
-    const url = this.BASE_URL + appConstants.APPEND_URL.resident+ appConstants.APPEND_URL.vid;
+    const url= this.BASE_URL+'resident/v1/vid';
+//    const url = this.BASE_URL + appConstants.APPEND_URL.resident+ appConstants.APPEND_URL.vid;
     return this.httpClient.post(url,obj);
+
   }
 }

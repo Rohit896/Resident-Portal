@@ -27,7 +27,7 @@ describe('AppComponent', () => {
   it('can load instance', () => {
     expect(component).toBeTruthy();
   });
-  it('title defaults to: pre-registration', () => {
-    expect(component.title).toEqual('pre-registration');
+  it('title defaults to: Resident Portal', () => {
+    expect(component.title).toEqual('Resident Portal');
   });
 });
