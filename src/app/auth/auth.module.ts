@@ -8,6 +8,7 @@ import { AppRoutingModule } from '../app-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { MainpageComponent } from './mainpage/mainpage.component';
 
+
 @NgModule({
   declarations: [LoginComponent, MainpageComponent],
   imports: [FormsModule, CommonModule, ReactiveFormsModule, AuthRoutingModule, AppRoutingModule, SharedModule]

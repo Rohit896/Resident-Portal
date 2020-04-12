@@ -246,3 +246,6 @@ mat-keyboard-container mat-keyboard-key .mat-keyboard-key {
 .ng2-pdf-viewer-container > div {
   position: relative;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
