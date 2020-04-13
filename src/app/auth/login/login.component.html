@@ -10,7 +10,11 @@
 
     <div  *ngFor="let id of servicesActivationStatus; index as i"> 
       <div class="subHeading pinkText" *ngIf= "servicesActivationStatus[i]">
+<<<<<<< HEAD
       {{ activatedServiceJSON.sub_text | translate }} <span class="boldText"> {{ activatedServiceJSON.sub_text_UID | translate}} </span> 
+=======
+      {{ activatedServiceJSON.sub_text }} <span class="boldText"> {{ activatedServiceJSON.sub_text_UID }} </span> 
+>>>>>>> 42c1877c2f4cac2911a65ed6915567fd3ff092ca
       </div> 
     <div
       style="width: 38vw; max-width: 323px;"
@@ -24,14 +28,24 @@
             class="input_pri"
             autofocus="autofocus"
             matInput
+<<<<<<< HEAD
             [(ngModel)]="inputUinDetails" 
             placeholder="{{ activatedServiceJSON.enter_uin | translate }}"
             id="inputFieldUin"
+=======
+            [(ngModel)]="UINDetails" 
+            placeholder="{{ activatedServiceJSON.enter_uin | translate }}"
+            id="inputFieldUIN"
+>>>>>>> 42c1877c2f4cac2911a65ed6915567fd3ff092ca
             required
           />
         </mat-form-field>
       </div>
+<<<<<<< HEAD
       <p class="error" *ngIf="uinErrorMessage && servicesActivationStatus[i]">{{ uinErrorMessage }}</p>
+=======
+      <p class="error" *ngIf="errorMessage && servicesActivationStatus[i]">{{ errorMessage }}</p>
+>>>>>>> 42c1877c2f4cac2911a65ed6915567fd3ff092ca
     </div>
 
       <div *ngIf="showContactDetails && servicesActivationStatus[i]">
@@ -48,7 +62,11 @@
             />
           </mat-form-field>
         </div>
+<<<<<<< HEAD
         <p class="error" *ngIf="contactErrorMessage && servicesActivationStatus[i]">{{ contactErrorMessage }}</p>
+=======
+        <p class="error" *ngIf="errorMessage && servicesActivationStatus[i]">{{ errorMessage }}</p>
+>>>>>>> 42c1877c2f4cac2911a65ed6915567fd3ff092ca
       </div>
 
       <div *ngIf="showOTP && servicesActivationStatus[i]">
@@ -69,7 +87,11 @@
         <button
           mat-raised-button
           class="btn_axn-pri"
+<<<<<<< HEAD
           [disabled]="inputContactDetails.length > 0 && (inputUinDetails.length > 0 || servicesActivationStatus[0]) ? false : true"
+=======
+          [disabled]="inputContactDetails.length > 0 ? false : true"
+>>>>>>> 42c1877c2f4cac2911a65ed6915567fd3ff092ca
           (click)="submit()"
         >
           {{ activatedServiceJSON.action_send | translate }}
@@ -104,7 +126,41 @@
     
     
     
+<<<<<<< HEAD
   </div>
+=======
+    </div>
+
+
+    <!-- <div class="subHeading pinkText" *ngIf="servicesActivationStatus[0]">
+      {{ '0.sub_text' | translate }} <span class="boldText"> {{ '0.sub_text_UID' | translate }} </span>
+    </div>
+    <div class="subHeading pinkText" *ngIf="servicesActivationStatus[1]">
+      {{ '1.sub_text' | translate }} <span class="boldText"> {{ '1.sub_text_UID' | translate }} </span>
+    </div>
+    <div class="subHeading pinkText" *ngIf="servicesActivationStatus[2]">
+      {{ '2.sub_text' | translate }} <span class="boldText"> {{ '2.sub_text_UID' | translate }} </span>
+    </div>
+    <div class="subHeading pinkText" *ngIf="servicesActivationStatus[3]">
+      {{ '3.sub_text' | translate }} <span class="boldText"> {{ '3.sub_text_UID' | translate }} </span>
+    </div>
+    <div class="subHeading pinkText" *ngIf="servicesActivationStatus[4]">
+      {{ '4.sub_text' | translate }} <span class="boldText"> {{ '4.sub_text_UID' | translate }} </span>
+    </div>
+    <div class="subHeading pinkText" *ngIf="servicesActivationStatus[5]">
+      {{ '5.sub_text' | translate }} <span class="boldText"> {{ '5.sub_text_UID' | translate }} </span>
+    </div>
+    <div class="subHeading pinkText" *ngIf="servicesActivationStatus[6]">
+      {{ '6.sub_text' | translate }} <span class="boldText"> {{ '6.sub_text_UID' | translate }} </span>
+    </div>
+    <div class="subHeading pinkText" *ngIf="servicesActivationStatus[7]">
+      {{ '7.sub_text' | translate }} <span class="boldText"> {{ '7.sub_text_UID' | translate }} </span>
+    </div>
+    <div class="subHeading pinkText" *ngIf="servicesActivationStatus[8]">
+      {{ '8.sub_text' | translate }} <span class="boldText"> {{ '8.sub_text_UID' | translate }} </span>
+    </div> -->
+
+>>>>>>> 42c1877c2f4cac2911a65ed6915567fd3ff092ca
     
   </div>
 </div>

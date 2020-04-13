@@ -19,7 +19,6 @@ import * as appConstants from '../../app.constants';
 })
 export class MainpageComponent implements OnInit {
 
-
   constructor() { }
 
   ngOnInit() {

@@ -30,8 +30,12 @@ export class LoginComponent implements OnInit {
   disableVerify = false;
   secondaryLanguagelabels: any;
   loggedOutLang: string;
+<<<<<<< HEAD
   contactErrorMessage: string;
   uinErrorMessage: string;
+=======
+  errorMessage: string;
+>>>>>>> 42c1877c2f4cac2911a65ed6915567fd3ff092ca
   minutes: string;
   seconds: string;
   showSpinner = true;
@@ -39,7 +43,11 @@ export class LoginComponent implements OnInit {
   validationMessages = {};
   servicesActivationStatus: boolean[] = [];
   activatedServiceJSON={};
+<<<<<<< HEAD
   inputUinDetails = '';
+=======
+  UINDetails = '';
+>>>>>>> 42c1877c2f4cac2911a65ed6915567fd3ff092ca
 
 
   constructor(
@@ -87,8 +95,12 @@ export class LoginComponent implements OnInit {
   this.disableVerify = false;
  // secondaryLanguagelabels: any;
   this.loggedOutLang='';
+<<<<<<< HEAD
   this.uinErrorMessage='';
   this.contactErrorMessage='';
+=======
+  this.errorMessage='';
+>>>>>>> 42c1877c2f4cac2911a65ed6915567fd3ff092ca
   this.minutes='';
   this.seconds='';
   this.showSpinner = true;
@@ -96,7 +108,10 @@ export class LoginComponent implements OnInit {
   this.validationMessages = {};
   this.servicesActivationStatus = [];
   this.activatedServiceJSON={};
+<<<<<<< HEAD
   this.inputUinDetails = '';
+=======
+>>>>>>> 42c1877c2f4cac2911a65ed6915567fd3ff092ca
   clearInterval(this.timer);
     // if (document.getElementById('timer').style.visibility === 'visible'){
     // document.getElementById('timer').style.visibility = 'hidden';
@@ -110,7 +125,10 @@ export class LoginComponent implements OnInit {
     this.validationMessages = response['authValidationMessages'];
     let residentServiceJSON = response['header']['residentServices'];
     this.activatedServiceJSON =response[id];
+<<<<<<< HEAD
      // console.log(this.activatedServiceJSON);
+=======
+>>>>>>> 42c1877c2f4cac2911a65ed6915567fd3ff092ca
     //initialization of serviceActivationStatus array
     let size = Object.keys(residentServiceJSON).length;
     for (let i = 0; i < size; i++) {
@@ -122,12 +140,17 @@ export class LoginComponent implements OnInit {
   }
 
   loginIdValidator() {
+<<<<<<< HEAD
     this.contactErrorMessage = undefined;
+=======
+    this.errorMessage = undefined;
+>>>>>>> 42c1877c2f4cac2911a65ed6915567fd3ff092ca
     const modes = this.configService.getConfigByKey(appConstants.CONFIG_KEYS.mosip_login_mode);
     const emailRegex = new RegExp(this.configService.getConfigByKey(appConstants.CONFIG_KEYS.mosip_regex_email));
     const phoneRegex = new RegExp(this.configService.getConfigByKey(appConstants.CONFIG_KEYS.mosip_regex_phone));
     if (modes === 'email,mobile') {
       if (!(emailRegex.test(this.inputContactDetails) || phoneRegex.test(this.inputContactDetails))) {
+<<<<<<< HEAD
         this.contactErrorMessage = this.validationMessages['invalidInput'];
       }
     } else if (modes === 'email') {
@@ -137,12 +160,27 @@ export class LoginComponent implements OnInit {
     } else if (modes === 'mobile') {
       if (!phoneRegex.test(this.inputContactDetails)) {
         this.contactErrorMessage = this.validationMessages['invalidMobile'];
+=======
+        this.errorMessage = this.validationMessages['invalidInput'];
+      }
+    } else if (modes === 'email') {
+      if (!emailRegex.test(this.inputContactDetails)) {
+        this.errorMessage = this.validationMessages['invalidEmail'];
+      }
+    } else if (modes === 'mobile') {
+      if (!phoneRegex.test(this.inputContactDetails)) {
+        this.errorMessage = this.validationMessages['invalidMobile'];
+>>>>>>> 42c1877c2f4cac2911a65ed6915567fd3ff092ca
       }
     }
   }
 
   setTimer() {
     const time = Number(this.configService.getConfigByKey(appConstants.CONFIG_KEYS.mosip_kernel_otp_expiry_time));
+<<<<<<< HEAD
+=======
+    console.log(time);
+>>>>>>> 42c1877c2f4cac2911a65ed6915567fd3ff092ca
     if (!isNaN(time)) {
       const minutes = time / 60;
       const seconds = time % 60;
@@ -175,6 +213,7 @@ export class LoginComponent implements OnInit {
     }
   }
 
+<<<<<<< HEAD
   uinValidator(){
     this.uinErrorMessage = undefined;
     //const modes = this.configService.getConfigByKey(appConstants.CONFIG_KEYS.mosip_login_mode);
@@ -195,6 +234,11 @@ export class LoginComponent implements OnInit {
 
     this.verifyUin(this.inputUinDetails);
     if ((this.showSendOTP || this.showResend) && this.contactErrorMessage === undefined && (this.uinErrorMessage === undefined || this.servicesActivationStatus[0]))  {
+=======
+  submit(): void {
+    this.loginIdValidator();
+    if ((this.showSendOTP || this.showResend) && this.errorMessage === undefined) {
+>>>>>>> 42c1877c2f4cac2911a65ed6915567fd3ff092ca
       this.inputOTP = '';
       this.showResend = true;
       this.showOTP = true;
@@ -242,12 +286,17 @@ export class LoginComponent implements OnInit {
       this.dataService.sendOtp(this.inputContactDetails).subscribe(response => {});
 
       // dynamic update of button text for Resend and Verify
+<<<<<<< HEAD
     } else if (this.showVerify && this.contactErrorMessage === undefined && (this.uinErrorMessage === undefined || this.servicesActivationStatus[0])) {
+=======
+    } else if (this.showVerify && this.errorMessage === undefined) {
+>>>>>>> 42c1877c2f4cac2911a65ed6915567fd3ff092ca
       this.disableVerify = true;
       this.dataService.verifyOtp(this.inputContactDetails, this.inputOTP).subscribe(
         response => {
           if (!response['errors']) {
             clearInterval(this.timer);
+<<<<<<< HEAD
             //console.log(response);
             //console.log("otp verified");
             
@@ -258,6 +307,13 @@ export class LoginComponent implements OnInit {
                         this.generatevid();
             }
 
+=======
+            localStorage.setItem('loggedIn', 'true');
+            this.authService.setToken();
+            this.regService.setLoginId(this.inputContactDetails);
+            this.disableVerify = false;
+            this.router.navigate(['dashboard']);
+>>>>>>> 42c1877c2f4cac2911a65ed6915567fd3ff092ca
           } else {
             this.disableVerify = false;
             this.showOtpMessage();
@@ -270,6 +326,7 @@ export class LoginComponent implements OnInit {
       );
     }
   }
+<<<<<<< HEAD
   preRegLogin(){
     localStorage.setItem('loggedIn', 'true');
     this.authService.setToken();
@@ -284,6 +341,8 @@ export class LoginComponent implements OnInit {
       })
 
   }
+=======
+>>>>>>> 42c1877c2f4cac2911a65ed6915567fd3ff092ca
 
   showOtpMessage() {
     this.inputOTP = '';

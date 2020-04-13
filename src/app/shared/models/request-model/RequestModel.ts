@@ -6,4 +6,7 @@ export class RequestModel {
   requesttime = Utils.getCurrentDate();
   constructor(private id: string, private request: any, private metadata?: any) {}
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 42c1877c2f4cac2911a65ed6915567fd3ff092ca

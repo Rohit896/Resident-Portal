@@ -145,7 +145,7 @@ describe('DataStorageService', () => {
 
   it('deleteFile', () => {
     let response = null;
-    service.deleteFile('12345').subscribe(value => {
+    service.deleteFile('12345','123').subscribe(value => {
       response = value;
     });
     expect(response.message).toBe('success');

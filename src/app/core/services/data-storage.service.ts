@@ -17,7 +17,6 @@ import { RequestModel} from 'src/app/shared/models/request-model/RequestModel';
 @Injectable({
   providedIn: 'root'
 })
-
 export class DataStorageService {
   /**
    * @description Creates an instance of DataStorageService.
