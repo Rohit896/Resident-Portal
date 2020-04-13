@@ -30,17 +30,8 @@ export class LoginComponent implements OnInit {
   disableVerify = false;
   secondaryLanguagelabels: any;
   loggedOutLang: string;
-<<<<<<< HEAD
-<<<<<<< HEAD
   contactErrorMessage: string;
   uinErrorMessage: string;
-=======
-  errorMessage: string;
->>>>>>> 42c1877c2f4cac2911a65ed6915567fd3ff092ca
-=======
-  contactErrorMessage: string;
-  uinErrorMessage: string;
->>>>>>> 95ba7d75ddac90ff33dfc6b84647629e23de1696
   minutes: string;
   seconds: string;
   showSpinner = true;
@@ -48,15 +39,7 @@ export class LoginComponent implements OnInit {
   validationMessages = {};
   servicesActivationStatus: boolean[] = [];
   activatedServiceJSON={};
-<<<<<<< HEAD
-<<<<<<< HEAD
   inputUinDetails = '';
-=======
-  UINDetails = '';
->>>>>>> 42c1877c2f4cac2911a65ed6915567fd3ff092ca
-=======
-  inputUinDetails = '';
->>>>>>> 95ba7d75ddac90ff33dfc6b84647629e23de1696
 
 
   constructor(
@@ -104,17 +87,8 @@ export class LoginComponent implements OnInit {
   this.disableVerify = false;
  // secondaryLanguagelabels: any;
   this.loggedOutLang='';
-<<<<<<< HEAD
-<<<<<<< HEAD
   this.uinErrorMessage='';
   this.contactErrorMessage='';
-=======
-  this.errorMessage='';
->>>>>>> 42c1877c2f4cac2911a65ed6915567fd3ff092ca
-=======
-  this.uinErrorMessage='';
-  this.contactErrorMessage='';
->>>>>>> 95ba7d75ddac90ff33dfc6b84647629e23de1696
   this.minutes='';
   this.seconds='';
   this.showSpinner = true;
@@ -122,14 +96,7 @@ export class LoginComponent implements OnInit {
   this.validationMessages = {};
   this.servicesActivationStatus = [];
   this.activatedServiceJSON={};
-<<<<<<< HEAD
-<<<<<<< HEAD
   this.inputUinDetails = '';
-=======
->>>>>>> 42c1877c2f4cac2911a65ed6915567fd3ff092ca
-=======
-  this.inputUinDetails = '';
->>>>>>> 95ba7d75ddac90ff33dfc6b84647629e23de1696
   clearInterval(this.timer);
     // if (document.getElementById('timer').style.visibility === 'visible'){
     // document.getElementById('timer').style.visibility = 'hidden';
@@ -143,14 +110,7 @@ export class LoginComponent implements OnInit {
     this.validationMessages = response['authValidationMessages'];
     let residentServiceJSON = response['header']['residentServices'];
     this.activatedServiceJSON =response[id];
-<<<<<<< HEAD
-<<<<<<< HEAD
      // console.log(this.activatedServiceJSON);
-=======
->>>>>>> 42c1877c2f4cac2911a65ed6915567fd3ff092ca
-=======
-     // console.log(this.activatedServiceJSON);
->>>>>>> 95ba7d75ddac90ff33dfc6b84647629e23de1696
     //initialization of serviceActivationStatus array
     let size = Object.keys(residentServiceJSON).length;
     for (let i = 0; i < size; i++) {
@@ -162,24 +122,12 @@ export class LoginComponent implements OnInit {
   }
 
   loginIdValidator() {
-<<<<<<< HEAD
-<<<<<<< HEAD
     this.contactErrorMessage = undefined;
-=======
-    this.errorMessage = undefined;
->>>>>>> 42c1877c2f4cac2911a65ed6915567fd3ff092ca
-=======
-    this.contactErrorMessage = undefined;
->>>>>>> 95ba7d75ddac90ff33dfc6b84647629e23de1696
     const modes = this.configService.getConfigByKey(appConstants.CONFIG_KEYS.mosip_login_mode);
     const emailRegex = new RegExp(this.configService.getConfigByKey(appConstants.CONFIG_KEYS.mosip_regex_email));
     const phoneRegex = new RegExp(this.configService.getConfigByKey(appConstants.CONFIG_KEYS.mosip_regex_phone));
     if (modes === 'email,mobile') {
       if (!(emailRegex.test(this.inputContactDetails) || phoneRegex.test(this.inputContactDetails))) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 95ba7d75ddac90ff33dfc6b84647629e23de1696
         this.contactErrorMessage = this.validationMessages['invalidInput'];
       }
     } else if (modes === 'email') {
@@ -189,33 +137,12 @@ export class LoginComponent implements OnInit {
     } else if (modes === 'mobile') {
       if (!phoneRegex.test(this.inputContactDetails)) {
         this.contactErrorMessage = this.validationMessages['invalidMobile'];
-<<<<<<< HEAD
-=======
-        this.errorMessage = this.validationMessages['invalidInput'];
-      }
-    } else if (modes === 'email') {
-      if (!emailRegex.test(this.inputContactDetails)) {
-        this.errorMessage = this.validationMessages['invalidEmail'];
-      }
-    } else if (modes === 'mobile') {
-      if (!phoneRegex.test(this.inputContactDetails)) {
-        this.errorMessage = this.validationMessages['invalidMobile'];
->>>>>>> 42c1877c2f4cac2911a65ed6915567fd3ff092ca
-=======
->>>>>>> 95ba7d75ddac90ff33dfc6b84647629e23de1696
       }
     }
   }
 
   setTimer() {
     const time = Number(this.configService.getConfigByKey(appConstants.CONFIG_KEYS.mosip_kernel_otp_expiry_time));
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-    console.log(time);
->>>>>>> 42c1877c2f4cac2911a65ed6915567fd3ff092ca
-=======
->>>>>>> 95ba7d75ddac90ff33dfc6b84647629e23de1696
     if (!isNaN(time)) {
       const minutes = time / 60;
       const seconds = time % 60;
@@ -248,10 +175,6 @@ export class LoginComponent implements OnInit {
     }
   }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 95ba7d75ddac90ff33dfc6b84647629e23de1696
   uinValidator(){
     this.uinErrorMessage = undefined;
     //const modes = this.configService.getConfigByKey(appConstants.CONFIG_KEYS.mosip_login_mode);
@@ -272,14 +195,6 @@ export class LoginComponent implements OnInit {
 
     this.verifyUin(this.inputUinDetails);
     if ((this.showSendOTP || this.showResend) && this.contactErrorMessage === undefined && (this.uinErrorMessage === undefined || this.servicesActivationStatus[0]))  {
-<<<<<<< HEAD
-=======
-  submit(): void {
-    this.loginIdValidator();
-    if ((this.showSendOTP || this.showResend) && this.errorMessage === undefined) {
->>>>>>> 42c1877c2f4cac2911a65ed6915567fd3ff092ca
-=======
->>>>>>> 95ba7d75ddac90ff33dfc6b84647629e23de1696
       this.inputOTP = '';
       this.showResend = true;
       this.showOTP = true;
@@ -327,24 +242,12 @@ export class LoginComponent implements OnInit {
       this.dataService.sendOtp(this.inputContactDetails).subscribe(response => {});
 
       // dynamic update of button text for Resend and Verify
-<<<<<<< HEAD
-<<<<<<< HEAD
     } else if (this.showVerify && this.contactErrorMessage === undefined && (this.uinErrorMessage === undefined || this.servicesActivationStatus[0])) {
-=======
-    } else if (this.showVerify && this.errorMessage === undefined) {
->>>>>>> 42c1877c2f4cac2911a65ed6915567fd3ff092ca
-=======
-    } else if (this.showVerify && this.contactErrorMessage === undefined && (this.uinErrorMessage === undefined || this.servicesActivationStatus[0])) {
->>>>>>> 95ba7d75ddac90ff33dfc6b84647629e23de1696
       this.disableVerify = true;
       this.dataService.verifyOtp(this.inputContactDetails, this.inputOTP).subscribe(
         response => {
           if (!response['errors']) {
             clearInterval(this.timer);
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 95ba7d75ddac90ff33dfc6b84647629e23de1696
             //console.log(response);
             //console.log("otp verified");
             
@@ -355,16 +258,6 @@ export class LoginComponent implements OnInit {
                         this.generatevid();
             }
 
-<<<<<<< HEAD
-=======
-            localStorage.setItem('loggedIn', 'true');
-            this.authService.setToken();
-            this.regService.setLoginId(this.inputContactDetails);
-            this.disableVerify = false;
-            this.router.navigate(['dashboard']);
->>>>>>> 42c1877c2f4cac2911a65ed6915567fd3ff092ca
-=======
->>>>>>> 95ba7d75ddac90ff33dfc6b84647629e23de1696
           } else {
             this.disableVerify = false;
             this.showOtpMessage();
@@ -377,10 +270,6 @@ export class LoginComponent implements OnInit {
       );
     }
   }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 95ba7d75ddac90ff33dfc6b84647629e23de1696
   preRegLogin(){
     localStorage.setItem('loggedIn', 'true');
     this.authService.setToken();
@@ -395,11 +284,6 @@ export class LoginComponent implements OnInit {
       })
 
   }
-<<<<<<< HEAD
-=======
->>>>>>> 42c1877c2f4cac2911a65ed6915567fd3ff092ca
-=======
->>>>>>> 95ba7d75ddac90ff33dfc6b84647629e23de1696
 
   showOtpMessage() {
     this.inputOTP = '';

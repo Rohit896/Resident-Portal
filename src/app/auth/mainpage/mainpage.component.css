@@ -1,6 +1,7 @@
 .nav.menu.custom-menu-layout {
     padding: 0px;
     margin: 0px;
+list-style-type:none;
 }
 .item-page.no-background ul.menu.custom-menu-layout > li {
     background: #fff;
