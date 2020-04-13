@@ -255,7 +255,7 @@
   },
   "header": {
     "link_about": "ابدء",
-    "link_faq": "FAQ",
+    "link_faq": "التعليمات",
     "link_contact": "اتصل",
     "link_applications": "تطبيقاتك",
     "link_logout": "الخروج",
@@ -294,8 +294,8 @@
     "logout_msg": "يجب على مقدم الطلب تسجيل الدخول بنفس الهاتف المحمول / البريد الإلكتروني للوصول إلى التطبيقات التي تم إنشاؤها"
   },
   "1": {
-    "sub_text": "Generate",
-    "sub_text_UID": "Virtual Identification Number",
+    "sub_text": "انشاء",
+    "sub_text_UID": "رقم التعريف الظاهري",
     "otp_valid_label": "صالحة ل",
     "label_email_num": "معرف البريد الإلكتروني أو رقم الهاتف",
     "label_otp": "أدخل OTP",
@@ -303,11 +303,11 @@
     "action_resend": "إعادة إرسال",
     "action_verify": "التحقق",
     "logout_msg": "يجب على مقدم الطلب تسجيل الدخول بنفس الهاتف المحمول / البريد الإلكتروني للوصول إلى التطبيقات التي تم إنشاؤها",
-    "enter_uin":"Enter UIN"
+    "enter_uin":"أدخل UIN"
   },
   "2": {
-    "sub_text": "Revoke",
-    "sub_text_UID": "Virtual Identification Number",
+    "sub_text": "سحب او إبطال",
+    "sub_text_UID": "رقم التعريف الظاهري",
     "otp_valid_label": "صالحة ل",
     "label_email_num": "معرف البريد الإلكتروني أو رقم الهاتف",
     "label_otp": "أدخل OTP",
@@ -315,11 +315,11 @@
     "action_resend": "إعادة إرسال",
     "action_verify": "التحقق",
     "logout_msg": "يجب على مقدم الطلب تسجيل الدخول بنفس الهاتف المحمول / البريد الإلكتروني للوصول إلى التطبيقات التي تم إنشاؤها",
-    "enter_uin":"Enter UIN"
+    "enter_uin":"أدخل UIN"
   },
   "3": {
-    "sub_text": "Check status of",
-    "sub_text_UID": "Virtual Identification Number",
+    "sub_text": "تحقق من حالة",
+    "sub_text_UID": "رقم التعريف الظاهري",
     "otp_valid_label": "صالحة ل",
     "label_email_num": "معرف البريد الإلكتروني أو رقم الهاتف",
     "label_otp": "أدخل OTP",
@@ -327,11 +327,11 @@
     "action_resend": "إعادة إرسال",
     "action_verify": "التحقق",
     "logout_msg": "يجب على مقدم الطلب تسجيل الدخول بنفس الهاتف المحمول / البريد الإلكتروني للوصول إلى التطبيقات التي تم إنشاؤها",
-    "enter_uin":"Enter UIN"
+    "enter_uin":"أدخل UIN"
   },
   "4": {
-    "sub_text": "Update",
-    "sub_text_UID": "Virtual Identification Number",
+    "sub_text": "تحديث",
+    "sub_text_UID": "رقم تعريف فريد",
     "otp_valid_label": "صالحة ل",
     "label_email_num": "معرف البريد الإلكتروني أو رقم الهاتف",
     "label_otp": "أدخل OTP",
@@ -339,11 +339,11 @@
     "action_resend": "إعادة إرسال",
     "action_verify": "التحقق",
     "logout_msg": "يجب على مقدم الطلب تسجيل الدخول بنفس الهاتف المحمول / البريد الإلكتروني للوصول إلى التطبيقات التي تم إنشاؤها",
-    "enter_uin":"Enter UIN"
+    "enter_uin":"أدخل UIN"
   },
   "5": {
-    "sub_text": "Request/Print",
-    "sub_text_UID": "Virtual Identification Number",
+    "sub_text": "طلب / طباعة",
+    "sub_text_UID": "رقم تعريف فريد",
     "otp_valid_label": "صالحة ل",
     "label_email_num": "معرف البريد الإلكتروني أو رقم الهاتف",
     "label_otp": "أدخل OTP",
@@ -351,11 +351,11 @@
     "action_resend": "إعادة إرسال",
     "action_verify": "التحقق",
     "logout_msg": "يجب على مقدم الطلب تسجيل الدخول بنفس الهاتف المحمول / البريد الإلكتروني للوصول إلى التطبيقات التي تم إنشاؤها",
-    "enter_uin":"Enter UIN"
+    "enter_uin":"أدخل UIN"
   },
   "6": {
-    "sub_text": "Request",
-    "sub_text_UID": "Electronic Unique Identification Number",
+    "sub_text": "طلب",
+    "sub_text_UID": "رقم التعريف الفريد الإلكتروني",
     "otp_valid_label": "صالحة ل",
     "label_email_num": "معرف البريد الإلكتروني أو رقم الهاتف",
     "label_otp": "أدخل OTP",
@@ -363,11 +363,11 @@
     "action_resend": "إعادة إرسال",
     "action_verify": "التحقق",
     "logout_msg": "يجب على مقدم الطلب تسجيل الدخول بنفس الهاتف المحمول / البريد الإلكتروني للوصول إلى التطبيقات التي تم إنشاؤها",
-    "enter_uin":"Enter UIN"
+    "enter_uin":"أدخل UIN"
   },
   "7": {
-    "sub_text": "Update",
-    "sub_text_UID": "Demographic Details",
+    "sub_text": "تحديث",
+    "sub_text_UID": "التفاصيل الديموغرافية",
     "otp_valid_label": "صالحة ل",
     "label_email_num": "معرف البريد الإلكتروني أو رقم الهاتف",
     "label_otp": "أدخل OTP",
@@ -375,11 +375,11 @@
     "action_resend": "إعادة إرسال",
     "action_verify": "التحقق",
     "logout_msg": "يجب على مقدم الطلب تسجيل الدخول بنفس الهاتف المحمول / البريد الإلكتروني للوصول إلى التطبيقات التي تم إنشاؤها",
-    "enter_uin":"Enter UIN"
+    "enter_uin":"أدخل UIN"
   },
   "8": {
-    "sub_text": "Lock/Unlock",
-    "sub_text_UID": "Authentication",
+    "sub_text": "قفل / فتح",
+    "sub_text_UID": "المصادقة",
     "otp_valid_label": "صالحة ل",
     "label_email_num": "معرف البريد الإلكتروني أو رقم الهاتف",
     "label_otp": "أدخل OTP",
@@ -387,7 +387,7 @@
     "action_resend": "إعادة إرسال",
     "action_verify": "التحقق",
     "logout_msg": "يجب على مقدم الطلب تسجيل الدخول بنفس الهاتف المحمول / البريد الإلكتروني للوصول إلى التطبيقات التي تم إنشاؤها",
-    "enter_uin":"Enter UIN"
+    "enter_uin":"أدخل UIN"
   },
   "stepper": {
     "link_demographic": "التفاصيل الديموغرافية",
@@ -683,7 +683,7 @@
   },
   "mainpage":{
     "genVID": "إنشاء معرف افتراضي",
-    "checkVIDStatus" : "تحقق من حالة VID",
+    "checkVIDStatus" : "تحقق من حالة المعرف الافتراضي",
     "twotypesVID" : "المعرّف الظاهري من نوعين: دائم ومؤقت",
     "aboutVIDStatus": "للتحقق من حالة VID ، سيكون عليك إطعام UIN الخاص بك وملء OTP",
     "subtext" : "المعرّف الظاهري هو رقم عشوائي يتم تعيينه برقم تعريف فريد. يمكن إنشاؤها فقط من قبل مستخدم مسجل.",
@@ -691,7 +691,26 @@
     "revVID" : "إبطال المعرف الافتراضي",
     "aboutrevVID" : "لإلغاء VID ، سيكون عليك إطعام UIN الخاص بك وملء OTP لإلغاء الهوية الافتراضية.",
     "aboutrevokeVID" : "المعرّف الظاهري هو رقم عشوائي يتم تعيينه برقم تعريف فريد. يمكن إبطالها عند الحاجة من قبل مستخدم مسجل.",
-    "aboutVID" : "يمكن للمستخدمين استخدام معرفهم الظاهري (VID) بدلاً من تقديم رقم التعريف الفريد الخاص بهم"
+    "aboutVID" : "يمكن للمستخدمين استخدام معرفهم الظاهري (VID) بدلاً من تقديم رقم التعريف الفريد الخاص بهم",
+    "UpdateUIN":"تحديث رقم التعريف الفريد",
+    "aboutUIN1":"لتحديث UIN ، يجب عليك تغذية UIN الخاص بك وملء OTP لتلقي UIN",
+    "aboutUIN":"UIN هو رقم التعريف الفريد المعطى لكل مقيم",
+    "bookmodifyappointment":"حجز / تعديل موعد",
+    "aboutappointment":"يمكنك حجز موعد للتسجيل المسبق",
+    "aboutappointment1":"لحجز موعد ، سيكون عليك تغذية تفاصيل الاتصال الخاصة بك وملء OTP للوصول إلى لوحة القيادة",
+    "reqprintuin":"طلب طباعة UIN",
+    "aboutprintuin":"يمكنك طلب تسليم بطاقة UIN عن طريق البريد",
+    "aboutprintuin1":"لإنشاء طلب الطباعة ، سيتعين عليك إطعام UIN الخاص بك وملء OTP والتحقق من نفسك",
+    "reqeuin":"طلب Euina ",
+    "abouteuin":"E-UIN هي النسخة الإلكترونية لبطاقة UIN الخاصة بك",
+    "abouteuin1":"لإنشاء نسخة إلكترونية من بطاقة UIN ، سيتعين عليك إطعام UIN الخاص بك وملء OTP وإثبات نفسك",
+    "Updatedemographic":"تحديث التفاصيل الديموغرافية",
+    "aboutdemographic":"يمكن تغيير التفاصيل الديموغرافية مثل الاسم والعنوان والجنس هنا",
+    "aboutdemographic1":"لتحديث التفاصيل الديموغرافية ، سيكون عليك إطعام UIN الخاص بك وملء OTP والتحقق من نفسك",
+    "lockunlock":"قفل / فتح",
+    "aboutlockunlock":"يمكنك قفل / فتح قفل استخدامات التفاصيل البيومترية الخاصة بك",
+    "aboutlockunlock1":"للقفل / إلغاء القفل ، سيكون عليك إطعام UIN الخاص بك وملء OTP والتحقق من نفسك"
+  
   },
   "error": {
     "error": "حدث خطأ فني ولا يمكن إتمام العملية. لا يجوز حفظ أي بيانات مقدمة",

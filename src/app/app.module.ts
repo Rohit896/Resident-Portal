@@ -3,9 +3,11 @@ import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { NgxPrintModule } from 'ngx-print';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { AppComponent } from './app.component';
 import { AppConfigService } from './app-config.service';
 import { BookingService } from './feature/booking/booking.service';
+
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
 import { AuthModule } from './auth/auth.module';

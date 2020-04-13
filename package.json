@@ -1,11 +1,16 @@
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
   "name": "pre-registration",
   "version": "1.0.6",
 =======
   "name": "resident-portal",
   "version": "1.0",
 >>>>>>> 42c1877c2f4cac2911a65ed6915567fd3ff092ca
+=======
+  "name": "resident portal",
+  "version": "1.0",
+>>>>>>> 95ba7d75ddac90ff33dfc6b84647629e23de1696
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -19,17 +24,23 @@
   "private": true,
   "dependencies": {
 <<<<<<< HEAD
+<<<<<<< HEAD
     "@angular/animations": "^7.2.0",
     "@angular/cdk": "^7.3.7",
 =======
     "@angular/animations": "7.2.0",
     "@angular/cdk": "^7.2.1",
 >>>>>>> 42c1877c2f4cac2911a65ed6915567fd3ff092ca
+=======
+    "@angular/animations": "7.2.0",
+    "@angular/cdk": "^7.2.1",
+>>>>>>> 95ba7d75ddac90ff33dfc6b84647629e23de1696
     "@angular/common": "7.2.0",
     "@angular/compiler": "7.2.0",
     "@angular/core": "7.2.0",
     "@angular/forms": "7.2.0",
     "@angular/http": "7.2.0",
+<<<<<<< HEAD
 <<<<<<< HEAD
     "@angular/material": "^7.3.7",
     "@angular/material-moment-adapter": "^7.3.7",
@@ -37,11 +48,16 @@
     "@angular/material": "^7.2.1",
     "@angular/material-moment-adapter": "^7.2.1",
 >>>>>>> 42c1877c2f4cac2911a65ed6915567fd3ff092ca
+=======
+    "@angular/material": "^7.2.1",
+    "@angular/material-moment-adapter": "^7.2.1",
+>>>>>>> 95ba7d75ddac90ff33dfc6b84647629e23de1696
     "@angular/platform-browser": "7.2.0",
     "@angular/platform-browser-dynamic": "7.2.0",
     "@angular/router": "7.2.0",
     "@ngx-translate/core": "^10.0.2",
     "@ngx-translate/http-loader": "^3.0.1",
+<<<<<<< HEAD
 <<<<<<< HEAD
     "angular-user-idle": "^2.2.2",
     "core-js": "^2.6.11",
@@ -58,6 +74,8 @@
     "smoothscroll-polyfill": "^0.4.4",
     "zone.js": "^0.8.29"
 =======
+=======
+>>>>>>> 95ba7d75ddac90ff33dfc6b84647629e23de1696
     "angular-user-idle": "^2.1.1",
     "core-js": "^2.5.4",
     "hammerjs": "^2.0.8",
@@ -72,7 +90,10 @@
     "rxjs": "^6.0.0",
     "smoothscroll-polyfill": "^0.4.4",
     "zone.js": "~0.8.26"
+<<<<<<< HEAD
 >>>>>>> 42c1877c2f4cac2911a65ed6915567fd3ff092ca
+=======
+>>>>>>> 95ba7d75ddac90ff33dfc6b84647629e23de1696
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.7.0",
@@ -80,31 +101,43 @@
     "@angular/compiler-cli": "7.2.0",
     "@angular/language-service": "7.2.0",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "@types/jasmine": "^2.8.16",
     "@types/jasminewd2": "^2.0.8",
     "@types/node": "~8.9.4",
     "codelyzer": "^4.5.0",
 =======
+=======
+>>>>>>> 95ba7d75ddac90ff33dfc6b84647629e23de1696
     "@types/jasmine": "~2.8.6",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
     "codelyzer": "^4.2.1",
+<<<<<<< HEAD
 >>>>>>> 42c1877c2f4cac2911a65ed6915567fd3ff092ca
+=======
+>>>>>>> 95ba7d75ddac90ff33dfc6b84647629e23de1696
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~1.7.1",
     "karma-chrome-launcher": "~2.2.0",
+<<<<<<< HEAD
 <<<<<<< HEAD
     "karma-coverage-istanbul-reporter": "^2.0.6",
     "karma-jasmine": "~1.1.1",
     "karma-jasmine-html-reporter": "^0.2.2",
     "protractor": "^5.4.3",
 =======
+=======
+>>>>>>> 95ba7d75ddac90ff33dfc6b84647629e23de1696
     "karma-coverage-istanbul-reporter": "~2.0.0",
     "karma-jasmine": "~1.1.1",
     "karma-jasmine-html-reporter": "^0.2.2",
     "protractor": "~5.4.0",
+<<<<<<< HEAD
 >>>>>>> 42c1877c2f4cac2911a65ed6915567fd3ff092ca
+=======
+>>>>>>> 95ba7d75ddac90ff33dfc6b84647629e23de1696
     "ts-node": "~5.0.1",
     "tslint": "~5.9.1",
     "typescript": "3.2.2",

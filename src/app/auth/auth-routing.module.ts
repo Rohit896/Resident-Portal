@@ -3,10 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { MainpageComponent } from './mainpage/mainpage.component';
 
-
 //const authRoutes: Routes = [{ path: '', component: LoginComponent }];
 const authRoutes: Routes = [{ path: '', component: MainpageComponent }];
-//const authRoutes: Routes = [{ path: '', component: FrontpageComponent }];
+
 @NgModule({
   imports: [RouterModule.forChild(authRoutes)],
   exports: [RouterModule]

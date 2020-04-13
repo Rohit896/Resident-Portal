@@ -58,7 +58,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.dataService.getConfig().subscribe(
       response => {
         this.configService.setConfig(response);
-        console.log(response);
+       // console.log(response);
         this.loadLanguagesWithConfig();
       },
       error => {
@@ -181,7 +181,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     if (this.authService.isAuthenticated()) {
       this.router.navigate(['dashboard']);
     } else {
-      this.router.navigate(['residentServices','0']);
+      this.router.navigate(['/']);
     }
   }
 

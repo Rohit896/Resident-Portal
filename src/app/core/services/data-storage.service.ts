@@ -1,11 +1,11 @@
-import { Injectable, Component } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 
 import * as appConstants from '../../app.constants';
 import { AppConfigService } from '../../app-config.service';
 import { Applicant } from '../../shared/models/dashboard-model/dashboard.modal';
 import { ConfigService } from './config.service';
-import { RequestModel} from 'src/app/shared/models/request-model/RequestModel';
+import { RequestModel } from 'src/app/shared/models/request-model/RequestModel';
 
 /**
  * @description This class is responsible for sending or receiving data to the service.
@@ -374,29 +374,21 @@ export class DataStorageService {
     return this.httpClient.post(url, '');
   }
 
-  generateVid(uin: string, otp : string){
+  generateVid(otp: string, uin : string){
 
 
     const request = {
-     
       individualId: uin,
-
       individualIdType: "UIN",
-  
       otp: otp,
-  
       transactionID: "0987654321",
-  
       vidType: "Temporary"
     };
 
     const obj = new RequestModel(appConstants.IDS.generateVidId, request);
-    console.log(obj);
-    const url = this.BASE_URL + appConstants.APPEND_URL.resident + appConstants.APPEND_URL.vid;
-    console.log( url);
+    const url= this.BASE_URL+'resident/v1/vid';
+//    const url = this.BASE_URL + appConstants.APPEND_URL.resident+ appConstants.APPEND_URL.vid;
     return this.httpClient.post(url,obj);
-    
-    
 
   }
 }
