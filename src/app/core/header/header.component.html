@@ -1,11 +1,11 @@
-<mat-sidenav-container>
-  <mat-sidenav #sidenav role="navigation" position="start" mode="push">
-    <button mat-button [matMenuTriggerFor]="menu" (click)="sidenav.toggle()">{{ 'header.link_resident-services' | translate}}</button>
+<mat-sidenav-container >
+  <mat-sidenav #sidenav role="navigation" position="start" mode="push" >
+    <!--<button mat-button [matMenuTriggerFor]="menu" (click)="sidenav.toggle()">{{ 'header.link_resident-services' | translate}}</button>-->
         
     <mat-nav-list class="sidenav-list">
       
-      <a mat-list-item routerLink="/residentServices/0" (click)="sidenav.toggle()">{{ 'header.link_pre-registration' | translate }}</a>
-      <a mat-list-item routerLink="/about-us" (click)="sidenav.toggle()"> {{ 'header.link_about' | translate }}</a>
+      <!-- <a mat-list-item routerLink="/residentServices/0" (click)="sidenav.toggle()">{{ 'header.link_pre-registration' | translate }}</a> -->
+      <a mat-list-item routerLink="/about-us" (click)="sidenav.toggle()"> {{ 'header.link_about' | translate }}</a> 
       <a mat-list-item routerLink="/faq" (click)="sidenav.toggle()">{{ 'header.link_faq' | translate }}</a>
       <a mat-list-item routerLink="/contact" (click)="sidenav.toggle()">{{ 'header.link_contact' | translate }}</a>
      
@@ -22,13 +22,13 @@
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar>
-      <div class="sidenav-button">
+      <!--<div class="sidenav-button">
         <button mat-icon-button (click)="sidenav.toggle()"><mat-icon>menu</mat-icon></button>
-      </div>
-      <a (click)="onLogoClick()"><img src="assets\logo-final.png" class="header--logo" style="max-height: 40px"/></a>
-      <!-- <div style="margin-left:5px;"><a routerLink="/" class="logo">logo</a></div> -->
+      </div>-->
+      <a (click)="onLogoClick()"><img src="assets\logo-final.png" class="header--logo" /></a>
+      <div style="margin-left:5px;"><a routerLink="/" class="logo"></a></div>
      
-      <div style="font-size: 14px; color: #fff; margin-left: 20px;">
+      <!--<div style="font-size: 14px; color: #fff; margin-left: 20px;">
         <button mat-button [matMenuTriggerFor]="menu">{{ 'header.link_resident-services' | translate}}</button>
         <mat-menu #menu="matMenu">
           <button mat-menu-item routerLink="/residentServices/1">{{ 'header.residentServices.1' | translate }}</button>       
@@ -40,13 +40,12 @@
           <button mat-menu-item routerLink="/residentServices/7">{{ 'header.residentServices.7' | translate }}</button>
           <button mat-menu-item routerLink="/residentServices/8">{{ 'header.residentServices.8' | translate }}</button>
       </mat-menu>
-      </div>
-    
+      </div>-->
+   
       <mat-nav-list class="list-item">
-        <a mat-list-item routerLink="/residentServices/0">{{ 'header.link_pre-registration' | translate }}</a>
-        <a mat-list-item routerLink="/about-us">{{ 'header.link_about' | translate }}</a>
+        <!--<a mat-list-item routerLink="/residentServices/0">{{ 'header.link_pre-registration' | translate }}</a>-->
+        <a mat-list-item routerLink="/about-us" >{{ 'header.link_about' | translate }}</a>
         <a mat-list-item routerLink="/faq">{{ 'header.link_faq' | translate }}</a>
-        
         <a mat-list-item routerLink="/contact">{{ 'header.link_contact' | translate }}</a>
         
         
@@ -75,12 +74,13 @@
       </mat-nav-list> -->
       <div *ngIf="!(authService.myProp$ | async)">
         <mat-form-field appearance="legacy" style="font-size: 14px; color: #fff;">
-          <mat-select
+          <mat-select 
             disableOptionCentering
             panelClass="select-option"
             [(ngModel)]="selectedLanguage"
             (selectionChange)="changeLanguage()"
             placeholder="Select your language"
+            style="font-weight: bold; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;"
           >
             <mat-option *ngFor="let lang of languages" [value]="lang">{{ lang }}</mat-option>
           </mat-select>

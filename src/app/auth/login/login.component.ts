@@ -193,7 +193,7 @@ export class LoginComponent implements OnInit {
     this.uinValidator();
 
 
-    this.verifyUin(this.inputUinDetails);
+   // this.verifyUin(this.inputUinDetails);
     if ((this.showSendOTP || this.showResend) && this.contactErrorMessage === undefined && (this.uinErrorMessage === undefined || this.servicesActivationStatus[0]))  {
       this.inputOTP = '';
       this.showResend = true;
@@ -281,6 +281,7 @@ export class LoginComponent implements OnInit {
       console.log("generate Vid");
       this.dataService.generateVid(this.inputUinDetails,this.inputOTP).subscribe(response=>{
         console.log(response);
+        console.log("error");
       })
 
   }
