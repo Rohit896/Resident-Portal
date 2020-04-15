@@ -1,7 +1,7 @@
 .nav.menu.custom-menu-layout {
     padding: 0px;
     margin: 0px;
-list-style-type:none;
+
 }
 .item-page.no-background ul.menu.custom-menu-layout > li {
     background: #fff;
@@ -12,6 +12,7 @@ list-style-type:none;
     margin-bottom: 20px;
     padding-bottom: 15px;
     padding-left: 0px;
+    list-style-type:none;
 }
 .item-page ul li {
     list-style: square;
@@ -135,6 +136,7 @@ html {
     font-family: sans-serif;
     -webkit-text-size-adjust: 100%;
 }
+ul{ list-style-type: none; }
 
 .page-header {
     padding-bottom: 9px;
