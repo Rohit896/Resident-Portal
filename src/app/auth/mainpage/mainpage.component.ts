@@ -24,9 +24,4 @@ export class MainpageComponent implements OnInit {
   ngOnInit() {
   }
 
-generateVid()
-{
- // this.router.
-}
-
 }

@@ -62,6 +62,7 @@ export class LoginComponent implements OnInit {
       }
   }
   setServiceId(){
+      
       this.route.paramMap.subscribe((params: ParamMap)=>{
         this.initializeVariables();
         this.setTimer();
