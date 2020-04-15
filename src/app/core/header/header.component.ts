@@ -181,7 +181,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     if (this.authService.isAuthenticated()) {
       this.router.navigate(['src/app/auth/mainpage']);
     } else {
-      this.router.navigate(['src/app/auth/mainpage']);
+      this.router.navigate(['/']);
     }
   }
 

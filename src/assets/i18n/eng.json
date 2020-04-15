@@ -260,7 +260,7 @@
     "link_applications": "Your Applications",
     "link_logout": "Logout",
     "link_login": "LOGIN",
-    "link_pre-registration": "PRE-REGISTRATION",
+    "link_pre-registration": "Book / Modify Appointment",
     "link_resident-services": "RESIDENT-SERVICES",
     "residentServices":{
       "0" : "Login",
@@ -268,7 +268,7 @@
       "2" : "Revoke VID",
       "3" : "VID Status",
       "4" : "Update UIN",
-      "5" : "Request/Print UIN",
+      "5" : "Request Print UIN",
       "6" : "Request EUIN",
       "7" : "Update Demographic Details",
       "8" : "Lock/Unlock"
@@ -313,12 +313,11 @@
   "authValidationMessages":{
     "invalidEmail": "Invalid email id Entered",
     "invalidMobile": "Invalid mobile number Entered",
-    "invalidInput": "Invalid email id or mobile number Entered",
-    "invalidUin" : "Invalid UIN"
+    "invalidInput": "Invalid email id or mobile number Entered"
   },
   "0": {
-    "sub_text": "Pre-register for",
-    "sub_text_UID": "Unique Identification Number",
+    "sub_text": "Book/Modify appointment for",
+    "sub_text_UID": "UIN",
     "label_email_num": "Email ID or Phone Number",
     "label_otp": "Enter OTP",
     "action_send": "Send OTP",
@@ -338,7 +337,7 @@
     "action_verify": "Verify",
     "logout_msg": "Applicant has to login with same Mobile/Email to access the created applications",
     "otp_valid_label": "Valid for",
-    "enter_uin":"UIN"
+    "enter_uin":"Enter UIN"
   },
   "2":{
     "sub_text": "Revoke",
@@ -350,7 +349,7 @@
     "action_verify": "Verify",
     "logout_msg": "Applicant has to login with same Mobile/Email to access the created applications",
     "otp_valid_label": "Valid for",
-    "enter_uin":"UIN"
+    "enter_uin":"Enter UIN"
   },
   "3":{
     "sub_text": "Check status of",
@@ -362,7 +361,7 @@
     "action_verify": "Verify",
     "logout_msg": "Applicant has to login with same Mobile/Email to access the created applications",
     "otp_valid_label": "Valid for",
-    "enter_uin":"UIN"
+    "enter_uin":"Enter UIN"
   },
   "4":{
     "sub_text": "Update",
@@ -374,7 +373,7 @@
     "action_verify": "Verify",
     "logout_msg": "Applicant has to login with same Mobile/Email to access the created applications",
     "otp_valid_label": "Valid for",
-    "enter_uin":"UIN"
+    "enter_uin":"Enter UIN"
   },
   "5":{
     "sub_text": "Request/Print",
@@ -386,7 +385,7 @@
     "action_verify": "Verify",
     "logout_msg": "Applicant has to login with same Mobile/Email to access the created applications",
     "otp_valid_label": "Valid for",
-    "enter_uin":"UIN"
+    "enter_uin":"Enter UIN"
   },
   "6":{
     "sub_text": "Request",
@@ -398,7 +397,7 @@
     "action_verify": "Verify",
     "logout_msg": "Applicant has to login with same Mobile/Email to access the created applications",
     "otp_valid_label": "Valid for",
-    "enter_uin":"UIN"
+    "enter_uin":"Enter UIN"
   },
   "7":{
     "sub_text": "Update",
@@ -410,7 +409,7 @@
     "action_verify": "Verify",
     "logout_msg": "Applicant has to login with same Mobile/Email to access the created applications",
     "otp_valid_label": "Valid for",
-    "enter_uin":"UIN"
+    "enter_uin":"Enter UIN"
   },
   "8":{
     "sub_text": "Lock/Unlock",
@@ -422,7 +421,7 @@
     "action_verify": "Verify",
     "logout_msg": "Applicant has to login with same Mobile/Email to access the created applications",
     "otp_valid_label": "Valid for",
-    "enter_uin":"UIN"
+    "enter_uin":"Enter UIN"
   },
   
   "stepper": {

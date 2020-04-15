@@ -260,18 +260,18 @@
     "link_applications": "تطبيقاتك",
     "link_logout": "الخروج",
     "link_login": "تسجيل الدخول",
-    "link_pre-registration": "PRE-REGISTRATION",
-    "link_resident-services": "RESIDENT-SERVICES",
+    "link_pre-registration": "حجز / تعديل موعد",
+    "link_resident-services": "خدمات المقيمين",
     "residentServices":{
-      "0" : "Login",
-      "1" : "Generate VID",
-      "2" : "Revoke VID",
-      "3" : "VID Status",
-      "4" : "Update UIN",
-      "5" : "Request/Print UIN",
-      "6" : "Request EUIN",
-      "7" : "Update Demographic Details",
-      "8" : "Lock/Unlock"
+      "0" : "تسجيل الدخول",
+      "1" : "توليد VID",
+      "2" : "إبطال VID",
+      "3" : "حالة VID",
+      "4" : "تحديث UIN",
+      "5" : "طلب طباعة UIN",
+      "6" : "طلب EUIN",
+      "7" : "تحديث التفاصيل الديموغرافية",
+      "8" : "قفل / فتح"
     }
   },
   "authCommonText":{
@@ -302,6 +302,7 @@
     "action_send": "إرسال OTP",
     "action_resend": "إعادة إرسال",
     "action_verify": "التحقق",
+    "enter_UIN":"أدخل UIN",
     "logout_msg": "يجب على مقدم الطلب تسجيل الدخول بنفس الهاتف المحمول / البريد الإلكتروني للوصول إلى التطبيقات التي تم إنشاؤها",
     "enter_uin":"أدخل UIN"
   },
@@ -314,6 +315,7 @@
     "action_send": "إرسال OTP",
     "action_resend": "إعادة إرسال",
     "action_verify": "التحقق",
+    "enter_UIN":"أدخل UIN",
     "logout_msg": "يجب على مقدم الطلب تسجيل الدخول بنفس الهاتف المحمول / البريد الإلكتروني للوصول إلى التطبيقات التي تم إنشاؤها",
     "enter_uin":"أدخل UIN"
   },
@@ -326,6 +328,7 @@
     "action_send": "إرسال OTP",
     "action_resend": "إعادة إرسال",
     "action_verify": "التحقق",
+    "enter_UIN":"أدخل UIN",
     "logout_msg": "يجب على مقدم الطلب تسجيل الدخول بنفس الهاتف المحمول / البريد الإلكتروني للوصول إلى التطبيقات التي تم إنشاؤها",
     "enter_uin":"أدخل UIN"
   },
@@ -338,6 +341,7 @@
     "action_send": "إرسال OTP",
     "action_resend": "إعادة إرسال",
     "action_verify": "التحقق",
+    "enter_UIN":"أدخل UIN",
     "logout_msg": "يجب على مقدم الطلب تسجيل الدخول بنفس الهاتف المحمول / البريد الإلكتروني للوصول إلى التطبيقات التي تم إنشاؤها",
     "enter_uin":"أدخل UIN"
   },
@@ -350,6 +354,7 @@
     "action_send": "إرسال OTP",
     "action_resend": "إعادة إرسال",
     "action_verify": "التحقق",
+    "enter_UIN":"أدخل UIN",
     "logout_msg": "يجب على مقدم الطلب تسجيل الدخول بنفس الهاتف المحمول / البريد الإلكتروني للوصول إلى التطبيقات التي تم إنشاؤها",
     "enter_uin":"أدخل UIN"
   },
@@ -362,6 +367,7 @@
     "action_send": "إرسال OTP",
     "action_resend": "إعادة إرسال",
     "action_verify": "التحقق",
+    "enter_UIN":"أدخل UIN",
     "logout_msg": "يجب على مقدم الطلب تسجيل الدخول بنفس الهاتف المحمول / البريد الإلكتروني للوصول إلى التطبيقات التي تم إنشاؤها",
     "enter_uin":"أدخل UIN"
   },
@@ -374,6 +380,7 @@
     "action_send": "إرسال OTP",
     "action_resend": "إعادة إرسال",
     "action_verify": "التحقق",
+    "enter_UIN":"أدخل UIN",
     "logout_msg": "يجب على مقدم الطلب تسجيل الدخول بنفس الهاتف المحمول / البريد الإلكتروني للوصول إلى التطبيقات التي تم إنشاؤها",
     "enter_uin":"أدخل UIN"
   },
@@ -386,6 +393,7 @@
     "action_send": "إرسال OTP",
     "action_resend": "إعادة إرسال",
     "action_verify": "التحقق",
+    "enter_UIN":"أدخل UIN",
     "logout_msg": "يجب على مقدم الطلب تسجيل الدخول بنفس الهاتف المحمول / البريد الإلكتروني للوصول إلى التطبيقات التي تم إنشاؤها",
     "enter_uin":"أدخل UIN"
   },
