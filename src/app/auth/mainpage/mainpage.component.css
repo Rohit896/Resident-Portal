@@ -1,8 +1,4 @@
-.nav.menu.custom-menu-layout {
-    padding: 0px;
-    margin: 0px;
-list-style-type:none;
-}
+
 .item-page.no-background ul.menu.custom-menu-layout > li {
     background: #fff;
     border-radius: 5px;
@@ -29,6 +25,7 @@ list-style-type:none;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+    list-style: none;
 }
 .col-xs-12 {
     width: 100%;
