@@ -179,9 +179,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   onLogoClick() {
     if (this.authService.isAuthenticated()) {
-      this.router.navigate(['dashboard']);
+      this.router.navigate(['src/app/auth/mainpage']);
     } else {
-      this.router.navigate(['/']);
+      this.router.navigate(['src/app/auth/mainpage']);
     }
   }
 
