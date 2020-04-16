@@ -263,7 +263,8 @@ export class LoginComponent implements OnInit {
             this.preRegLogin();
         else if(this.servicesActivationStatus[index] && index=== 1)
             this.generatevid();
-
+        else if(this.servicesActivationStatus[index] && index=== 2)
+        this.revokeVid();
     
         }
     }
@@ -298,6 +299,15 @@ export class LoginComponent implements OnInit {
         console.log(response);
         console.log("error");
       })
+
+  }
+
+  revokeVid() {
+    console.log("revoke Vid-login component function");
+    this.dataService.revokeVid(this.inputUinDetails,this.inputOTP).subscribe(response=>{
+      console.log(response);
+      console.log("error");
+    })
 
   }
 

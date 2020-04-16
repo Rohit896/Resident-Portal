@@ -341,20 +341,20 @@ export class DataStorageService {
   }
 
     sendOtpForServices(uin: string){
-
+      console.log("in sendotpforservices");
      //    let transactionID = "0987654321";
           let idType='VID';
       const obj = new RequestModelSendOtp(uin,idType);
   
       //const url = this.BASE_URL + this.PRE_REG_URL + appConstants.APPEND_URL.auth + appConstants.APPEND_URL.send_otp;
       const url= this.BASE_URL+'idauthentication/v1/internal/otp';
+      console.log("in sendotpforservices");
       
       return this.httpClient.post(url, obj);
 
     }
+
     generateVid(uin: string, otp : string){
-
-
       const request = {
         individualId: uin,
         individualIdType: "UIN",
@@ -370,19 +370,22 @@ export class DataStorageService {
   
     }
 
-    revokeVid(uin:string, otp:string, vid: string){
+    revokeVid(vid:string, otp:string){
+      console.log("inside revokeVID-service");
       const request = {
-        individualId: uin,
+        individualId: vid,
         individualIdType: "VID",
         otp: otp,
         transactionID: "0987654321",
         vidStatus: "REVOKED"
       };
       const obj = new RequestModel(appConstants.IDS.revokeVid, request);
-      const url= this.BASE_URL+'resident/v1/vid';
+      const url= this.BASE_URL+'resident/v1/vid/'+vid;
   //    const url = this.BASE_URL + appConstants.APPEND_URL.resident+ appConstants.APPEND_URL.vid;
       return this.httpClient.post(url,obj);
     }
+
+
   verifyOtp(userId: string, otp: string) {
     const request = {
       otp: otp,
@@ -418,7 +421,7 @@ export class DataStorageService {
   onLogout() {
     const url = this.BASE_URL + this.PRE_REG_URL + appConstants.APPEND_URL.auth + appConstants.APPEND_URL.logout;
     return this.httpClient.post(url, '');
-  }
+  } 
 
   
 }
