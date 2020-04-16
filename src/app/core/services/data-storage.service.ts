@@ -5,7 +5,10 @@ import * as appConstants from '../../app.constants';
 import { AppConfigService } from '../../app-config.service';
 import { Applicant } from '../../shared/models/dashboard-model/dashboard.modal';
 import { ConfigService } from './config.service';
-import { RequestModel } from 'src/app/shared/models/request-model/RequestModel';
+import { RequestModel} from 'src/app/shared/models/request-model/RequestModel';
+import { RequestModelSendOtp} from 'src/app/shared/models/request-model/RequestModelSendOtp';
+
+import Utils from 'src/app/app.util';
 
 /**
  * @description This class is responsible for sending or receiving data to the service.
@@ -337,6 +340,49 @@ export class DataStorageService {
     return this.httpClient.post(url, obj);
   }
 
+    sendOtpForServices(uin: string){
+
+     //    let transactionID = "0987654321";
+          let idType='VID';
+      const obj = new RequestModelSendOtp(uin,idType);
+  
+      //const url = this.BASE_URL + this.PRE_REG_URL + appConstants.APPEND_URL.auth + appConstants.APPEND_URL.send_otp;
+      const url= this.BASE_URL+'idauthentication/v1/internal/otp';
+      
+      return this.httpClient.post(url, obj);
+
+    }
+    generateVid(uin: string, otp : string){
+
+
+      const request = {
+        individualId: uin,
+        individualIdType: "UIN",
+        otp: otp,
+        transactionID: "0987654321",
+        vidType: "Temporary"
+      };
+  
+      const obj = new RequestModel(appConstants.IDS.generateVidId, request);
+      const url= this.BASE_URL+'resident/v1/vid';
+  //    const url = this.BASE_URL + appConstants.APPEND_URL.resident+ appConstants.APPEND_URL.vid;
+      return this.httpClient.post(url,obj);
+  
+    }
+
+    revokeVid(uin:string, otp:string, vid: string){
+      const request = {
+        individualId: uin,
+        individualIdType: "VID",
+        otp: otp,
+        transactionID: "0987654321",
+        vidStatus: "REVOKED"
+      };
+      const obj = new RequestModel(appConstants.IDS.revokeVid, request);
+      const url= this.BASE_URL+'resident/v1/vid';
+  //    const url = this.BASE_URL + appConstants.APPEND_URL.resident+ appConstants.APPEND_URL.vid;
+      return this.httpClient.post(url,obj);
+    }
   verifyOtp(userId: string, otp: string) {
     const request = {
       otp: otp,
@@ -374,21 +420,5 @@ export class DataStorageService {
     return this.httpClient.post(url, '');
   }
 
-  generateVid(otp: string, uin : string){
-
-
-    const request = {
-      individualId: uin,
-      individualIdType: "UIN",
-      otp: otp,
-      transactionID: "0987654321",
-      vidType: "Temporary"
-    };
-
-    const obj = new RequestModel(appConstants.IDS.generateVidId, request);
-    const url= this.BASE_URL+'resident/v1/vid';
-//    const url = this.BASE_URL + appConstants.APPEND_URL.resident+ appConstants.APPEND_URL.vid;
-    return this.httpClient.post(url,obj);
-
-  }
+  
 }

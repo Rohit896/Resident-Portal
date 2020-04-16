@@ -20,7 +20,9 @@ export const IDS = {
   validateOtp: 'mosip.pre-registration.login.useridotp',
   documentUpload: 'mosip.pre-registration.document.upload',
   applicantTypeId: 'mosip.applicanttype.fetch',
-  generateVidId: 'mosip.resident.vid'
+  generateVidId: 'mosip.resident.vid',
+  sendOtpForServices:'mosip.identity.otp.internal',
+  revokeVid: 'mosip.resident.vidstatus'
 };
 
 export const APPEND_URL = {

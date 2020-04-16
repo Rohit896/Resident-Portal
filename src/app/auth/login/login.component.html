@@ -18,7 +18,7 @@
       [ngClass]="selectedLanguage !== 'Arabic' ? 'form_fields_wrapper form_fields_padding' : 'form_fields_wrapper'"
     >
 
-    <div *ngIf="servicesActivationStatus[i] && !(servicesActivationStatus[0])">
+    <div *ngIf=" showUinDetail && servicesActivationStatus[i] && !(servicesActivationStatus[0])">
       <div [dir]="textDir">
         <mat-form-field appearance="outline">
           <input
@@ -35,7 +35,7 @@
       <p class="error" *ngIf="uinErrorMessage && servicesActivationStatus[i]">{{ uinErrorMessage }}</p>
     </div>
 
-      <div *ngIf="showContactDetails && servicesActivationStatus[i]">
+      <div *ngIf="showContactDetails && servicesActivationStatus[i] && i === 0">
         <div [dir]="textDir">
           <mat-form-field appearance="outline">
             <input
@@ -70,7 +70,7 @@
         <button
           mat-raised-button
           class="btn_axn-pri"
-          [disabled]="inputContactDetails.length > 0 && (inputUinDetails.length > 0 || servicesActivationStatus[0]) ? false : true"
+          [disabled]="inputContactDetails.length > 0 || inputUinDetails.length > 0 ? false : true"
           (click)="submit()"
         >
           {{ activatedServiceJSON.action_send | translate }}

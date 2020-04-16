@@ -40,6 +40,7 @@ export class LoginComponent implements OnInit {
   servicesActivationStatus: boolean[] = [];
   activatedServiceJSON={};
   inputUinDetails = '';
+  showUinDetail = true;
 
 
   constructor(
@@ -62,7 +63,7 @@ export class LoginComponent implements OnInit {
       }
   }
   setServiceId(){
-      
+
       this.route.paramMap.subscribe((params: ParamMap)=>{
         this.initializeVariables();
         this.setTimer();
@@ -78,7 +79,7 @@ export class LoginComponent implements OnInit {
     this.inputPlaceholderContact = 'Email ID or Phone Number';
   this.inputPlaceholderOTP = 'Enter OTP';
   this.disableBtn = false;
-  this.inputOTP='';
+  this.inputOTP=undefined;
   this.inputContactDetails = '';
   this.showSendOTP = true;
   this.showResend = false;
@@ -88,16 +89,17 @@ export class LoginComponent implements OnInit {
   this.disableVerify = false;
  // secondaryLanguagelabels: any;
   this.loggedOutLang='';
-  this.uinErrorMessage='';
-  this.contactErrorMessage='';
-  this.minutes='';
-  this.seconds='';
+  this.uinErrorMessage=undefined;
+  this.contactErrorMessage= undefined;
+  this.minutes=undefined;
+  this.seconds=undefined;
   this.showSpinner = true;
   this.selectedLanguage= '';
   this.validationMessages = {};
   this.servicesActivationStatus = [];
   this.activatedServiceJSON={};
   this.inputUinDetails = '';
+  this.showUinDetail = true;
   clearInterval(this.timer);
     // if (document.getElementById('timer').style.visibility === 'visible'){
     // document.getElementById('timer').style.visibility = 'hidden';
@@ -190,10 +192,14 @@ export class LoginComponent implements OnInit {
 
   }
   submit(): void {
-    this.loginIdValidator();
-    this.uinValidator();
+    if(this.servicesActivationStatus[0]){
+      console.log("inside 0");  
+      this.loginIdValidator();
+    }
+  //  this.uinValidator();
 
-
+    console.log("inside submit");
+    console.log(this.contactErrorMessage);
    // this.verifyUin(this.inputUinDetails);
     if ((this.showSendOTP || this.showResend) && this.contactErrorMessage === undefined && (this.uinErrorMessage === undefined || this.servicesActivationStatus[0]))  {
       this.inputOTP = '';
@@ -201,6 +207,8 @@ export class LoginComponent implements OnInit {
       this.showOTP = true;
       this.showSendOTP = false;
       this.showContactDetails = false;
+      this.showUinDetail = false;
+      console.log("inside submit111");
 
       const timerFn = () => {
         let secValue = Number(document.getElementById('secondsSpan').innerText);
@@ -215,6 +223,7 @@ export class LoginComponent implements OnInit {
             this.showResend = false;
             this.showOTP = false;
             this.showVerify = false;
+            this.showUinDetail = true;
             document.getElementById('minutesSpan').innerText = this.minutes;
             document.getElementById('timer').style.visibility = 'hidden';
             clearInterval(this.timer);
@@ -239,44 +248,49 @@ export class LoginComponent implements OnInit {
         document.getElementById('timer').style.visibility = 'visible';
         this.timer = setInterval(timerFn, 1000);
       }
-
-      this.dataService.sendOtp(this.inputContactDetails).subscribe(response => {});
-
+      if(this.servicesActivationStatus[0])
+        this.dataService.sendOtp(this.inputContactDetails).subscribe(response => {});
+      else
+        this.dataService.sendOtpForServices(this.inputUinDetails).subscribe(response=>{
+          console.log("otp generated");
+        });
       // dynamic update of button text for Resend and Verify
     } else if (this.showVerify && this.contactErrorMessage === undefined && (this.uinErrorMessage === undefined || this.servicesActivationStatus[0])) {
       this.disableVerify = true;
-      this.dataService.verifyOtp(this.inputContactDetails, this.inputOTP).subscribe(
-        response => {
-          if (!response['errors']) {
-            clearInterval(this.timer);
-            //console.log(response);
-            //console.log("otp verified");
-            
-            for (let index = 0; index < this.servicesActivationStatus.length; index++) {
-                    if(this.servicesActivationStatus[index] && index=== 0)
-                        this.preRegLogin();
-                    else if(this.servicesActivationStatus[index] && index=== 1)
-                        this.generatevid();
-            }
+      
+      for (let index = 0; index < this.servicesActivationStatus.length; index++) {
+        if(this.servicesActivationStatus[index] && index=== 0)
+            this.preRegLogin();
+        else if(this.servicesActivationStatus[index] && index=== 1)
+            this.generatevid();
 
-          } else {
-            this.disableVerify = false;
-            this.showOtpMessage();
-          }
-        },
-        error => {
-          this.disableVerify = false;
-          this.showErrorMessage();
+    
         }
-      );
     }
-  }
+  
+}
   preRegLogin(){
-    localStorage.setItem('loggedIn', 'true');
-    this.authService.setToken();
-    this.regService.setLoginId(this.inputContactDetails);
-    this.disableVerify = false;
-    this.router.navigate(['dashboard']);
+
+    this.dataService.verifyOtp(this.inputContactDetails, this.inputOTP).subscribe(
+      response => {
+        if (!response['errors']) {
+          clearInterval(this.timer);
+          localStorage.setItem('loggedIn', 'true');
+          this.authService.setToken();
+          this.regService.setLoginId(this.inputContactDetails);
+          this.disableVerify = false;
+          this.router.navigate(['dashboard']);
+        } else {
+          this.disableVerify = false;
+          this.showOtpMessage();
+        }
+      },
+      error => {
+        this.disableVerify = false;
+        this.showErrorMessage();
+      }
+    );
+    
   }
   generatevid(){
       console.log("generate Vid");
