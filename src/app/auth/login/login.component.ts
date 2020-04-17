@@ -264,7 +264,19 @@ export class LoginComponent implements OnInit {
         else if(this.servicesActivationStatus[index] && index=== 1)
             this.generatevid();
         else if(this.servicesActivationStatus[index] && index=== 2)
-        this.revokeVid();
+            this.revokeVid();
+        else if(this.servicesActivationStatus[index] && index=== 3)
+             this.checkVidStatus();
+        else if(this.servicesActivationStatus[index] && index=== 4)
+             this.updateUIN();
+        else if(this.servicesActivationStatus[index] && index=== 5)
+             this.printUIN();
+        else if(this.servicesActivationStatus[index] && index=== 6)
+             this.getEUIN();
+        else if(this.servicesActivationStatus[index] && index=== 7)
+             this.updateDetails();
+        else if(this.servicesActivationStatus[index] && index=== 8)
+              this.lockUnlock();
     
         }
     }
@@ -298,18 +310,50 @@ export class LoginComponent implements OnInit {
       this.dataService.generateVid(this.inputUinDetails,this.inputOTP).subscribe(response=>{
         console.log(response);
         console.log("error");
-      })
+      });
 
   }
-
   revokeVid() {
     console.log("revoke Vid-login component function");
     this.dataService.revokeVid(this.inputUinDetails,this.inputOTP).subscribe(response=>{
       console.log(response);
       console.log("error");
-    })
+    });
 
   }
+
+  checkVidStatus()
+  {
+
+  }
+
+  updateUIN()
+  {
+
+  }
+  
+  printUIN(){
+
+  }
+
+  getEUIN(){
+
+  }
+
+  updateDetails(){
+
+  }
+
+  lockUnlock(){
+    
+  }
+
+
+
+
+
+
+
 
   showOtpMessage() {
     this.inputOTP = '';
