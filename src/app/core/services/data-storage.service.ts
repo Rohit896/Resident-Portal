@@ -343,7 +343,7 @@ export class DataStorageService {
     sendOtpForServices(uin: string){
       console.log("in sendotpforservices");
      //    let transactionID = "0987654321";
-          let idType='VID';
+          let idType='UIN';
       const obj = new RequestModelSendOtp(uin,idType);
   
       //const url = this.BASE_URL + this.PRE_REG_URL + appConstants.APPEND_URL.auth + appConstants.APPEND_URL.send_otp;
@@ -384,6 +384,41 @@ export class DataStorageService {
   //    const url = this.BASE_URL + appConstants.APPEND_URL.resident+ appConstants.APPEND_URL.vid;
       return this.httpClient.post(url,obj);
     }
+
+    checkVidStatus(vid:string, otp:string){
+    }
+    updateUIN(userId: string, otp: string) {
+    
+    }
+    printUIN(uin: string, otp : string) {
+      const req = {
+        individualId: uin,
+        individualIdType: "UIN",
+        otp: otp,
+        transactionID: "0987654321",
+        cardType: "MASKED_UIN"
+      };
+  
+      const obj = new RequestModel(appConstants.IDS.printUIN, req);
+  
+      const url = this.BASE_URL +'resident/v1/req/print-uin';
+      return this.httpClient.post(url, obj);
+    }
+    getEUIN(uin: string, otp : string) {
+      const req = {
+        individualId: uin,
+        individualIdType: "UIN",
+        otp: otp,
+        transactionID: "0987654321",
+        cardType: "MASKED_UIN"
+      };
+  
+      const obj = new RequestModel(appConstants.IDS.getEUIN, req);
+  
+      const url = this.BASE_URL +'resident/v1/req/euin';
+      return this.httpClient.post(url, obj);
+    }
+  
 
 
   verifyOtp(userId: string, otp: string) {

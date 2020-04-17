@@ -310,6 +310,9 @@ export class LoginComponent implements OnInit {
       this.dataService.generateVid(this.inputUinDetails,this.inputOTP).subscribe(response=>{
         console.log(response);
         console.log("error");
+      },error => {
+        this.disableVerify = false;
+        this.showErrorMessage();
       });
 
   }
@@ -318,25 +321,46 @@ export class LoginComponent implements OnInit {
     this.dataService.revokeVid(this.inputUinDetails,this.inputOTP).subscribe(response=>{
       console.log(response);
       console.log("error");
-    });
+    },
+    error => {
+      this.disableVerify = false;
+      this.showErrorMessage();
+    }
+    );
 
   }
 
   checkVidStatus()
   {
-
+    
   }
 
   updateUIN()
   {
-
+   
   }
   
   printUIN(){
+    console.log("cprint UIN-login component function");
+    this.dataService.printUIN(this.inputUinDetails,this.inputOTP).subscribe(response=>{
+      console.log(response);
+      console.log("error");
+    },error => {
+      this.disableVerify = false;
+      this.showErrorMessage();
+    });
 
   }
 
   getEUIN(){
+    console.log("get EUIN-login component function");
+    this.dataService.getEUIN(this.inputUinDetails,this.inputOTP).subscribe(response=>{
+      console.log(response);
+      console.log("error");
+    },error => {
+      this.disableVerify = false;
+      this.showErrorMessage();
+    });
 
   }
 
@@ -345,7 +369,7 @@ export class LoginComponent implements OnInit {
   }
 
   lockUnlock(){
-    
+
   }
 
 
