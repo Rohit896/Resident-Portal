@@ -161,6 +161,9 @@ export class ServiceReqStatusCheckComponent implements OnInit {
 }
   servReqStatusCheck(){
     console.log("Service Request Status Check");
+    this.dataService.serviceRequest(this.inputDetails).subscribe(response=>{
+      console.log(response);
+    })
   }
 
   showOtpMessage() {

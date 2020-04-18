@@ -161,6 +161,9 @@ export class RequestUinComponent implements OnInit {
 }
   requestPrintUin(){
     console.log("reqPrintUin");
+    this.dataService.printUIN(this.inputDetails,this.inputOTP).subscribe(response=>{
+      console.log(response);
+    })
   }
 
   showOtpMessage() {

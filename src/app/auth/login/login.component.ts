@@ -273,7 +273,7 @@ export class LoginComponent implements OnInit {
       }
     );
     
-  }
+    }
 
   showOtpMessage() {
     this.inputOTP = '';

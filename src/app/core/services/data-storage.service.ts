@@ -364,9 +364,57 @@ export class DataStorageService {
     }
 
 
+
+    serviceRequest(rid: string)
+    {
+      console.log("insde status check");
+      const req = {
+        individualId: rid,
+        individualIdType: "RID",
+      };
+  
+      const obj = new RequestModel(appConstants.IDS.serviceRequest, req);
+  
+      const url = this.BASE_URL +'resident/v1/rid/check-status';
+      return this.httpClient.post(url, obj);
+    }
+    
+    getEUIN(vid: string, otp : string) {
+      console.log("inside euin");
+      const req = {
+        individualId: vid,
+        individualIdType: "VID",
+        otp: otp,
+        transactionID: "0987654321",
+        cardType: "MASKED_UIN"
+      };
+  
+      const obj = new RequestModel(appConstants.IDS.getEUIN, req);
+  
+      const url = this.BASE_URL +'resident/v1/req/euin';
+      return this.httpClient.post(url, obj);
+    }
+
+
+    printUIN(vid: string, otp : string) {
+      console.log("inside print uin");
+      const req = {
+        individualId: vid,
+        individualIdType: "VID",
+        otp: otp,
+        transactionID: "0987654321",
+        cardType: "MASKED_UIN"
+      };
+  
+      const obj = new RequestModel(appConstants.IDS.printUIN, req);
+  
+      const url = this.BASE_URL +'resident/v1/req/print-uin';
+      return this.httpClient.post(url, obj);
+    }
+
+
     generateVid(uin: string, otp : string){
-
-
+      console.log("inside generate VId");
       const request = {
         individualId: uin,
         individualIdType: "UIN",
@@ -381,22 +429,73 @@ export class DataStorageService {
   
     }
 
-    revokeVid(uin:string, otp:string, vid: string){
+    revokeVid(vid:string, otp:string){
+      console.log("inside revokeVID-service");
       const request = {
-        individualId: uin,
+        individualId: vid,
         individualIdType: "VID",
         otp: otp,
         transactionID: "0987654321",
         vidStatus: "REVOKED"
       };
       const obj = new RequestModel(appConstants.IDS.revokeVid, request);
-      const url= this.BASE_URL+'resident/v1/vid';
+      const url= this.BASE_URL+'resident/v1/vid/'+vid;
       return this.httpClient.post(url,obj);
     }
 
-    lockAuth(){
-      
+    updateDemographic(userId: string, otp: string) {
+    
     }
+
+    lockUIN(uin: string, otp: string,authArray:string[]){
+      console.log("inside lock");
+      const request = {
+        individualId: uin,
+        individualIdType: "UIN",
+        otp: otp,
+        transactionID: "0987654321",
+        authType:authArray
+      };
+      const obj = new RequestModel(appConstants.IDS.lockUIN, request);
+      const url= this.BASE_URL+'resident/v1/req/auth-lock';
+  //    const url = this.BASE_URL + appConstants.APPEND_URL.resident+ appConstants.APPEND_URL.vid;
+      return this.httpClient.post(url,obj);
+    }
+
+
+    unlockUIN(uin: string, otp: string,authArray:string[]){
+      console.log("inside unlock");
+      const request = {
+        individualId: uin,
+        individualIdType: "UIN",
+        otp: otp,
+        transactionID: "0987654321",
+        authType:authArray
+      };
+      const obj = new RequestModel(appConstants.IDS.unlockUIN, request);
+      const url= this.BASE_URL+'resident/v1/req/auth-unlock';
+  //    const url = this.BASE_URL + appConstants.APPEND_URL.resident+ appConstants.APPEND_URL.vid;
+      return this.httpClient.post(url,obj);
+
+    }
+
+    authHistory(uin: string, otp: string)
+    {
+      console.log("inside auth history");
+      const request = {
+        individualId: uin,
+        individualIdType: "UIN",
+        otp: otp,
+        transactionID: "0987654321",
+      };
+      const obj = new RequestModel(appConstants.IDS.authHistory, request);
+      const url= this.BASE_URL+'resident/v1/req/auth-history';
+  //    const url = this.BASE_URL + appConstants.APPEND_URL.resident+ appConstants.APPEND_URL.vid;
+      return this.httpClient.post(url,obj);
+    }
+
+    
+    
 
 
   verifyOtp(userId: string, otp: string) {
@@ -434,7 +533,7 @@ export class DataStorageService {
   onLogout() {
     const url = this.BASE_URL + this.PRE_REG_URL + appConstants.APPEND_URL.auth + appConstants.APPEND_URL.logout;
     return this.httpClient.post(url, '');
-  }
+  } 
 
   
 }

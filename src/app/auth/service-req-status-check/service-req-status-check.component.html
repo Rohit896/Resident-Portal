@@ -54,7 +54,7 @@
           mat-raised-button
           class="btn_axn-pri"
           [disabled]="inputDetails.length > 0 ? false : true"
-          (click)="submit()"
+          (click)="servReqStatusCheck()"
         >
           {{ 'authCommonText.action_send' | translate }}
         </button>

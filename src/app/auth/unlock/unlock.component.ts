@@ -168,6 +168,17 @@ export class UnlockComponent implements OnInit {
     console.log(this.bioFir);
     console.log(this.bioIir);
     console.log(this.bioFace);
+    let auth: string[]=[];
+      if(this.bioFace)
+        auth.push('bio-FACE');
+      if(this.bioFir)
+        auth.push('bio-FMR');
+      if(this.bioIir)
+        auth.push('bio-IIR');
+
+      this.dataService.unlockUIN(this.inputDetails,this.inputOTP,auth).subscribe(response=>{
+        console.log(response);
+      });
   }
 
   showOtpMessage() {

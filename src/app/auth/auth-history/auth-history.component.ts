@@ -161,6 +161,9 @@ export class AuthHistoryComponent implements OnInit {
 }
   getAuthHistory(){
     console.log("getAuthHistory");
+    this.dataService.authHistory(this.inputDetails,this.inputOTP).subscribe(response=>{
+      console.log(response);
+    });
   }
 
   showOtpMessage() {

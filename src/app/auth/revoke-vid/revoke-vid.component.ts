@@ -160,6 +160,9 @@ export class RevokeVidComponent implements OnInit {
 }
   revokeVid(){
     console.log("revokeVid");
+    this.dataService.revokeVid(this.inputVidDetails,this.inputOTP).subscribe(response=>{
+      console.log(response);
+    })
   }
 
   showOtpMessage() {

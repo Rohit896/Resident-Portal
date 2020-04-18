@@ -160,6 +160,9 @@ export class RequestEuinComponent implements OnInit {
 }
 requestEuin(){
     console.log("request Euin");
+    this.dataService.getEUIN(this.inputDetails,this.inputOTP).subscribe(response=>{
+      console.log(response);
+    })
   }
 
   showOtpMessage() {
