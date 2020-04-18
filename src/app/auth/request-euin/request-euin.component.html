@@ -8,48 +8,32 @@
     <div class="heading">
       <span>{{ 'authCommonText.text' | translate }}</span>
     </div>
- 
+
+    
       <div class="subHeading pinkText">
-      {{ 'bookModifyAppointment.sub_text' | translate }} <span class="boldText"> {{ 'bookModifyAppointment.sub_text_UID' | translate}} </span> 
+      {{ 'requestEuin.sub_text' | translate }} <span class="boldText"> {{ 'requestEuin.sub_text_UID' | translate}} </span> 
       </div> 
     <div
       style="width: 38vw; max-width: 323px;"
       [ngClass]="selectedLanguage !== 'Arabic' ? 'form_fields_wrapper form_fields_padding' : 'form_fields_wrapper'"
     >
 
-    <!-- <div *ngIf=" showUinDetail && servicesActivationStatus[i] && !(servicesActivationStatus[0])">
+    <div *ngIf="showDetail">
       <div [dir]="textDir">
         <mat-form-field appearance="outline">
           <input
             class="input_pri"
             autofocus="autofocus"
             matInput
-            [(ngModel)]="inputUinDetails" 
-            placeholder="{{ activatedServiceJSON.enter_uin | translate }}"
-            id="inputFieldUin"
+            [(ngModel)]="inputDetails" 
+            placeholder="{{ 'requestEuin.enter_uin' | translate }}"
+            id="inputField"
             required
           />
         </mat-form-field>
       </div>
-      <p class="error" *ngIf="uinErrorMessage && servicesActivationStatus[i]">{{ uinErrorMessage }}</p>
-    </div> -->
-
-      <div *ngIf="showContactDetails">
-        <div [dir]="textDir">
-          <mat-form-field appearance="outline">
-            <input
-              class="input_pri"
-              autofocus="autofocus"
-              matInput
-              [(ngModel)]="inputContactDetails"
-              placeholder="{{ 'bookModifyAppointment.label_email_num' | translate }}"
-              id="inputFieldContact"
-              required
-            />
-          </mat-form-field>
-        </div>
-        <p class="error" *ngIf="contactErrorMessage">{{ contactErrorMessage }}</p>
-      </div>
+      <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+    </div>
 
       <div *ngIf="showOTP">
         <mat-form-field appearance="outline">
@@ -69,7 +53,7 @@
         <button
           mat-raised-button
           class="btn_axn-pri"
-          [disabled]="inputContactDetails.length > 0 ? false : true"
+          [disabled]="inputDetails.length > 0 ? false : true"
           (click)="submit()"
         >
           {{ 'authCommonText.action_send' | translate }}
@@ -88,20 +72,19 @@
         </button>
       </div>
 
-      <div *ngIf="showResend">
+      <div *ngIf="showResend ">
         <button mat-raised-button class="btn_axn-pri" disabled="{{ disableBtn }}" (click)="submit()">
           {{ 'authCommonText.action_resend' | translate }}
         </button>
       </div>
 
-      <div class="pinkText boldText" id="timer">
+      <div class="pinkText boldText" id="timer" >
         <span>{{ 'authCommonText.otp_valid_label' | translate }}&nbsp;</span><span id="minutesSpan">{{ minutes }}</span
         >:<span id="secondsSpan">{{ seconds }}</span>
       </div>
 
 
     </div>
-    
     
   </div>
 </div>

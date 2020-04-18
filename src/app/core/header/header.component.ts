@@ -198,7 +198,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   showMessage() {
     let factory = new LanguageFactory(localStorage.getItem('langCode'));
     let response = factory.getCurrentlanguage();
-    const secondaryLanguagelabels = response['0']['logout_msg'];
+    const secondaryLanguagelabels = response['bookModifyAppointment']['logout_msg'];
     localStorage.removeItem('loggedOutLang');
     localStorage.removeItem('loggedOut');
     const data = {

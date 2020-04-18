@@ -328,6 +328,19 @@ export class DataStorageService {
     const url = this.BASE_URL + this.PRE_REG_URL + appConstants.APPEND_URL.auth + appConstants.APPEND_URL.config;
     return this.httpClient.get(url);
   }
+  generateToken(){
+    const req={
+      clientId: "residentUser_iiitB",
+      secretKey: "92d5ee2f-4dc5-4fdf-a112-ed4ec91c942b",
+      appId: "resident"
+    }
+    const obj= new RequestModel(appConstants.IDS.residentTokenId,req);
+
+    const url=this.BASE_URL+'v1/authmanager/authenticate/clientidsecretkey'
+
+    return this.httpClient.post(url,obj);
+
+  }
 
   sendOtp(userId: string) {
     const req = {
@@ -340,18 +353,17 @@ export class DataStorageService {
     return this.httpClient.post(url, obj);
   }
 
-    sendOtpForServices(uin: string){
+    sendOtpForServices(uin: string, idType:string){
 
-     //    let transactionID = "0987654321";
-          let idType='VID';
+      this.generateToken().subscribe(response=>{});
+
       const obj = new RequestModelSendOtp(uin,idType);
-  
-      //const url = this.BASE_URL + this.PRE_REG_URL + appConstants.APPEND_URL.auth + appConstants.APPEND_URL.send_otp;
       const url= this.BASE_URL+'idauthentication/v1/internal/otp';
-      
       return this.httpClient.post(url, obj);
 
     }
+
+
     generateVid(uin: string, otp : string){
 
 
@@ -365,7 +377,6 @@ export class DataStorageService {
   
       const obj = new RequestModel(appConstants.IDS.generateVidId, request);
       const url= this.BASE_URL+'resident/v1/vid';
-  //    const url = this.BASE_URL + appConstants.APPEND_URL.resident+ appConstants.APPEND_URL.vid;
       return this.httpClient.post(url,obj);
   
     }
@@ -380,9 +391,14 @@ export class DataStorageService {
       };
       const obj = new RequestModel(appConstants.IDS.revokeVid, request);
       const url= this.BASE_URL+'resident/v1/vid';
-  //    const url = this.BASE_URL + appConstants.APPEND_URL.resident+ appConstants.APPEND_URL.vid;
       return this.httpClient.post(url,obj);
     }
+
+    lockAuth(){
+      
+    }
+
+
   verifyOtp(userId: string, otp: string) {
     const request = {
       otp: otp,

@@ -22,7 +22,8 @@ export const IDS = {
   applicantTypeId: 'mosip.applicanttype.fetch',
   generateVidId: 'mosip.resident.vid',
   sendOtpForServices:'mosip.identity.otp.internal',
-  revokeVid: 'mosip.resident.vidstatus'
+  revokeVid: 'mosip.resident.vidstatus',
+  residentTokenId:'io.mosip.resident'
 };
 
 export const APPEND_URL = {
