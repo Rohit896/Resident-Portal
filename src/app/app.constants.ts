@@ -60,7 +60,17 @@ export const APPEND_URL = {
   master_data: 'v1/masterdata/',
   auth: 'login/',
   cancelAppointment: 'appointment/',
-  vid : '/vid'
+  vid : '/vid',
+  otp_service:'idauthentication/v1/internal/otp',
+  resident_service:'resident/v1/',
+  check_status:'rid/check-status',
+  euin:'req/euin',
+  print_uin:'req/print-uin',
+  vid_service:'vid',
+  lock_service:'req/auth-lock',
+  unlock_service:'req/auth-unlock',
+  authHistory:'req/auth-history'
+
 };
 
 export const PARAMS_KEYS = {

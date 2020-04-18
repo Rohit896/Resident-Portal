@@ -347,14 +347,12 @@ export class DataStorageService {
       const obj = new RequestModelSendOtp(uin,idType);
   
       //const url = this.BASE_URL + this.PRE_REG_URL + appConstants.APPEND_URL.auth + appConstants.APPEND_URL.send_otp;
-      const url= this.BASE_URL+'idauthentication/v1/internal/otp';
+      const url= this.BASE_URL+appConstants.APPEND_URL.otp_service;
       console.log("in sendotpforservices");
       
       return this.httpClient.post(url, obj);
 
     }
-
-
 
     serviceRequest(rid: string)
     {
@@ -365,7 +363,7 @@ export class DataStorageService {
   
       const obj = new RequestModel(appConstants.IDS.serviceRequest, req);
   
-      const url = this.BASE_URL +'resident/v1/rid/check-status';
+      const url = this.BASE_URL + appConstants.APPEND_URL.resident_service + appConstants.APPEND_URL.check_status;
       return this.httpClient.post(url, obj);
     }
     
@@ -380,7 +378,7 @@ export class DataStorageService {
   
       const obj = new RequestModel(appConstants.IDS.getEUIN, req);
   
-      const url = this.BASE_URL +'resident/v1/req/euin';
+      const url = this.BASE_URL + appConstants.APPEND_URL.resident_service +appConstants.APPEND_URL.euin;
       return this.httpClient.post(url, obj);
     }
 
@@ -396,7 +394,7 @@ export class DataStorageService {
   
       const obj = new RequestModel(appConstants.IDS.printUIN, req);
   
-      const url = this.BASE_URL +'resident/v1/req/print-uin';
+      const url = this.BASE_URL + appConstants.APPEND_URL.resident_service +appConstants.APPEND_URL.print_uin ;
       return this.httpClient.post(url, obj);
     }
 
@@ -411,7 +409,7 @@ export class DataStorageService {
       };
   
       const obj = new RequestModel(appConstants.IDS.generateVidId, request);
-      const url= this.BASE_URL+'resident/v1/vid';
+      const url= this.BASE_URL + appConstants.APPEND_URL.resident_service + appConstants.APPEND_URL.vid_service;
   //    const url = this.BASE_URL + appConstants.APPEND_URL.resident+ appConstants.APPEND_URL.vid;
       return this.httpClient.post(url,obj);
   
@@ -427,7 +425,7 @@ export class DataStorageService {
         vidStatus: "REVOKED"
       };
       const obj = new RequestModel(appConstants.IDS.revokeVid, request);
-      const url= this.BASE_URL+'resident/v1/vid/'+vid;
+      const url= this.BASE_URL+  appConstants.APPEND_URL.resident_service + appConstants.APPEND_URL.vid_service + '/' +vid;
   //    const url = this.BASE_URL + appConstants.APPEND_URL.resident+ appConstants.APPEND_URL.vid;
       return this.httpClient.post(url,obj);
     }
@@ -446,7 +444,7 @@ export class DataStorageService {
         authType:authArray
       };
       const obj = new RequestModel(appConstants.IDS.lockUIN, request);
-      const url= this.BASE_URL+'resident/v1/req/auth-lock';
+      const url= this.BASE_URL+ appConstants.APPEND_URL.resident_service +appConstants.APPEND_URL.lock_service;
   //    const url = this.BASE_URL + appConstants.APPEND_URL.resident+ appConstants.APPEND_URL.vid;
       return this.httpClient.post(url,obj);
     }
@@ -462,7 +460,7 @@ export class DataStorageService {
         authType:authArray
       };
       const obj = new RequestModel(appConstants.IDS.unlockUIN, request);
-      const url= this.BASE_URL+'resident/v1/req/auth-unlock';
+      const url= this.BASE_URL+appConstants.APPEND_URL.resident_service +appConstants.APPEND_URL.unlock_service;
   //    const url = this.BASE_URL + appConstants.APPEND_URL.resident+ appConstants.APPEND_URL.vid;
       return this.httpClient.post(url,obj);
 
@@ -478,14 +476,12 @@ export class DataStorageService {
         transactionID: "0987654321",
       };
       const obj = new RequestModel(appConstants.IDS.authHistory, request);
-      const url= this.BASE_URL+'resident/v1/req/auth-history';
+      const url= this.BASE_URL+ appConstants.APPEND_URL.resident_service + appConstants.APPEND_URL.unlock_service;
   //    const url = this.BASE_URL + appConstants.APPEND_URL.resident+ appConstants.APPEND_URL.vid;
       return this.httpClient.post(url,obj);
     }
 
     
-    
-
 
   verifyOtp(userId: string, otp: string) {
     const request = {
