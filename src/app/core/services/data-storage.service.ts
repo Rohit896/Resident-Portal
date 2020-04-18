@@ -354,6 +354,53 @@ export class DataStorageService {
 
     }
 
+
+
+    serviceRequest(rid: string)
+    {
+      const req = {
+        individualId: rid,
+        individualIdType: "RID",
+      };
+  
+      const obj = new RequestModel(appConstants.IDS.serviceRequest, req);
+  
+      const url = this.BASE_URL +'resident/v1/rid/check-status';
+      return this.httpClient.post(url, obj);
+    }
+    
+    getEUIN(vid: string, otp : string) {
+      const req = {
+        individualId: vid,
+        individualIdType: "VID",
+        otp: otp,
+        transactionID: "0987654321",
+        cardType: "MASKED_UIN"
+      };
+  
+      const obj = new RequestModel(appConstants.IDS.getEUIN, req);
+  
+      const url = this.BASE_URL +'resident/v1/req/euin';
+      return this.httpClient.post(url, obj);
+    }
+
+
+    printUIN(vid: string, otp : string) {
+      const req = {
+        individualId: vid,
+        individualIdType: "VID",
+        otp: otp,
+        transactionID: "0987654321",
+        cardType: "MASKED_UIN"
+      };
+  
+      const obj = new RequestModel(appConstants.IDS.printUIN, req);
+  
+      const url = this.BASE_URL +'resident/v1/req/print-uin';
+      return this.httpClient.post(url, obj);
+    }
+
+
     generateVid(uin: string, otp : string){
       const request = {
         individualId: uin,
@@ -385,40 +432,59 @@ export class DataStorageService {
       return this.httpClient.post(url,obj);
     }
 
-    checkVidStatus(vid:string, otp:string){
-    }
     updateUIN(userId: string, otp: string) {
     
     }
-    printUIN(uin: string, otp : string) {
-      const req = {
+
+    lockUIN(uin: string, otp: string,authArray:string[]){
+      console.log("inside lock");
+      const request = {
         individualId: uin,
         individualIdType: "UIN",
         otp: otp,
         transactionID: "0987654321",
-        cardType: "MASKED_UIN"
+        authType:authArray
       };
-  
-      const obj = new RequestModel(appConstants.IDS.printUIN, req);
-  
-      const url = this.BASE_URL +'resident/v1/req/print-uin';
-      return this.httpClient.post(url, obj);
+      const obj = new RequestModel(appConstants.IDS.lockUIN, request);
+      const url= this.BASE_URL+'resident/v1/req/auth-lock';
+  //    const url = this.BASE_URL + appConstants.APPEND_URL.resident+ appConstants.APPEND_URL.vid;
+      return this.httpClient.post(url,obj);
     }
-    getEUIN(uin: string, otp : string) {
-      const req = {
+
+
+    unlockUIN(uin: string, otp: string,authArray:string[]){
+      console.log("inside unlock");
+      const request = {
         individualId: uin,
         individualIdType: "UIN",
         otp: otp,
         transactionID: "0987654321",
-        cardType: "MASKED_UIN"
+        authType:authArray
       };
-  
-      const obj = new RequestModel(appConstants.IDS.getEUIN, req);
-  
-      const url = this.BASE_URL +'resident/v1/req/euin';
-      return this.httpClient.post(url, obj);
+      const obj = new RequestModel(appConstants.IDS.unlockUIN, request);
+      const url= this.BASE_URL+'resident/v1/req/auth-unlock';
+  //    const url = this.BASE_URL + appConstants.APPEND_URL.resident+ appConstants.APPEND_URL.vid;
+      return this.httpClient.post(url,obj);
+
     }
-  
+
+    authHistory(uin: string, otp: string)
+    {
+      console.log("inside auth history");
+      const request = {
+        individualId: uin,
+        individualIdType: "UIN",
+        otp: otp,
+        transactionID: "0987654321",
+      };
+      const obj = new RequestModel(appConstants.IDS.authHistory, request);
+      const url= this.BASE_URL+'resident/v1/req/auth-history';
+  //    const url = this.BASE_URL + appConstants.APPEND_URL.resident+ appConstants.APPEND_URL.vid;
+      return this.httpClient.post(url,obj);
+    }
+
+    
+    
 
 
   verifyOtp(userId: string, otp: string) {

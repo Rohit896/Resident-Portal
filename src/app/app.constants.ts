@@ -24,7 +24,11 @@ export const IDS = {
   sendOtpForServices:'mosip.identity.otp.internal',
   revokeVid: 'mosip.resident.vidstatus',
   printUIN: 'mosip.resident.reprintuin',
-  getEUIN: 'mosip.resident.euin'
+  getEUIN: 'mosip.resident.euin',
+  serviceRequest:'mosip.resident.uinstatus',
+  authHistory:'mosip.resident.authhistory',
+  lockUIN:'mosip.resident.authlock',
+  unlockUIN:'mosip.resident.authunlock'
 };
 
 export const APPEND_URL = {
