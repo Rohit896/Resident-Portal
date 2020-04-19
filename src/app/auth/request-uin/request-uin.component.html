@@ -18,8 +18,31 @@
       [ngClass]="selectedLanguage !== 'Arabic' ? 'form_fields_wrapper form_fields_padding' : 'form_fields_wrapper'"
     >
 
+    <div >
+      <mat-radio-group
+      aria-labelledby="example-radio-group-label"
+      class="radio-group"
+      [(ngModel)]="idType" style="flex-direction: column;">
+      <mat-radio-button value="UIN">{{ 'authCommonText.uin' | translate }}</mat-radio-button>
+      <mat-radio-button value="VID">{{ 'authCommonText.vid' | translate }}</mat-radio-button>
+    </mat-radio-group>
+  </div>
+
     <div *ngIf="showDetail">
-      <div [dir]="textDir">
+      <div [dir]="textDir" *ngIf="(idType === 'VID')">
+        <mat-form-field appearance="outline">
+          <input
+            class="input_pri"
+            autofocus="autofocus"
+            matInput
+            [(ngModel)]="inputDetails" 
+            placeholder="{{ 'reqPrintUin.enter_vid' | translate }}"
+            id="inputField"
+            required
+          />
+        </mat-form-field>
+      </div>
+      <div [dir]="textDir" *ngIf="(idType === 'UIN')">
         <mat-form-field appearance="outline">
           <input
             class="input_pri"

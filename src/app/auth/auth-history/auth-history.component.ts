@@ -35,7 +35,7 @@ export class AuthHistoryComponent implements OnInit {
   validationMessages = {};
   inputDetails = '';
   showDetail = true;
-
+  idType:string
 
   constructor(
     private authService: AuthService,
@@ -147,7 +147,7 @@ export class AuthHistoryComponent implements OnInit {
         this.timer = setInterval(timerFn, 1000);
       }
 
-        this.dataService.sendOtpForServices(this.inputDetails,"VID").subscribe(response=>{
+        this.dataService.sendOtpForServices(this.inputDetails,this.idType).subscribe(response=>{
           console.log("otp generated");
         });
       // dynamic update of button text for Resend and Verify

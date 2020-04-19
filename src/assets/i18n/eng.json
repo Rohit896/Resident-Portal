@@ -302,7 +302,9 @@
     "action_send": "Send OTP",
     "action_resend": "Resend",
     "action_verify": "Verify",
-    "otp_valid_label": "Valid for"
+    "otp_valid_label": "Valid for",
+    "vid":"Enter VID",
+    "uin":"Enter UIN"
   },
   "authValidationMessages":{
     "invalidEmail": "Invalid email id Entered",
@@ -333,22 +335,26 @@
   "reqPrintUin":{
     "sub_text": "Request/Print",
     "sub_text_UID": "Unique Identification Number",
-    "enter_uin":"Enter VID"
+    "enter_uin":"Enter UIN",
+    "enter_vid": "Enter VID"
   },
   "requestEuin":{
     "sub_text": "Request",
     "sub_text_UID": "Electronic Unique Identification Number",
-    "enter_uin":"Enter VID"
+    "enter_uin":"Enter UIN",
+    "enter_vid": "Enter VID"
   },
   "updateDemographic":{
     "sub_text": "Update",
     "sub_text_UID": "Demographic Details",
-    "enter_uin":"Enter UIN"
+    "enter_uin":"Enter UIN",
+    "enter_vid":"Enter VID"
   },
   "lock":{
     "sub_text": "Lock",
     "sub_text_UID": "Authentication",
     "enter_uin":"Enter UIN",
+    "enter_vid":"Enter VID",
     "checkBoxHeading" : "Select Biometrics to Lock",
     "action_lock":"LOCK",
     "faceBio":"Face Biometric",
@@ -359,6 +365,7 @@
     "sub_text": "Unlock",
     "sub_text_UID": "Authentication",
     "enter_uin":"Enter UIN",
+    "enter_vid":"Enter VID",
     "checkBoxHeading" : "Select Biometrics to Unlock",
     "action_lock":"UNLOCK",
     "faceBio":"Face Biometric",
@@ -368,7 +375,8 @@
   "authHistory":{
     "sub_text": "View",
     "sub_text_UID": "Authentication History",
-    "enter_uin":"Enter UIN"
+    "enter_uin":"Enter UIN",
+     "enter_vid":"Enter VID"
   },
   "stepper": {
     "link_demographic": "Demographics Details",
