@@ -152,7 +152,7 @@ export class LockComponent implements OnInit {
         this.timer = setInterval(timerFn, 1000);
       }
 
-        this.dataService.sendOtpForServices(this.inputDetails,"VID").subscribe(response=>{
+        this.dataService.sendOtpForServices(this.inputDetails,"UIN").subscribe(response=>{
           console.log("otp generated");
         });
       // dynamic update of button text for Resend and Verify

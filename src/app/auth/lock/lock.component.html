@@ -100,8 +100,11 @@
       [ngClass]="selectedLanguage !== 'Arabic' ? 'form_fields_wrapper form_fields_padding' : 'form_fields_wrapper'"
     >
   <div *ngIf="!login" class="checkBox">
+    
     <mat-checkbox [(ngModel)]="bioFir">{{ 'lock.fingureBio' | translate }}</mat-checkbox>
+    <br>
     <mat-checkbox [(ngModel)]="bioIir">{{ 'lock.irisBio' | translate }}</mat-checkbox>
+   <br>
     <mat-checkbox [(ngModel)]="bioFace">{{ 'lock.faceBio' | translate }}</mat-checkbox>
   </div>
   <div >
