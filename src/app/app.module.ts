@@ -13,6 +13,7 @@ import { CoreModule } from './core/core.module';
 import { AuthModule } from './auth/auth.module';
 import { SharedModule } from './shared/shared.module';
 import { ConfigService } from 'src/app/core/services/config.service';
+import { UpdatedemoComponent } from './feature/updatedemo/updatedemo.component';
 
 const appInitialization = (appConfig: AppConfigService) => {
   return () => {
@@ -21,7 +22,7 @@ const appInitialization = (appConfig: AppConfigService) => {
 };
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, UpdatedemoComponent],
   imports: [
     BrowserModule,
     HttpClientModule,

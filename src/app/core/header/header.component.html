@@ -1,8 +1,12 @@
+
+
 <mat-sidenav-container >
+
   <mat-sidenav #sidenav role="navigation" position="start" mode="push" >
     <!--<button mat-button [matMenuTriggerFor]="menu" (click)="sidenav.toggle()">{{ 'header.link_resident-services' | translate}}</button>-->
-        
+    
     <mat-nav-list class="sidenav-list">
+      
       
       <!-- <a mat-list-item routerLink="/residentServices/0" (click)="sidenav.toggle()">{{ 'header.link_pre-registration' | translate }}</a> -->
       <a mat-list-item routerLink="/about-us" (click)="sidenav.toggle()"> {{ 'header.link_about' | translate }}</a> 
@@ -12,7 +16,8 @@
       
       
       <a *ngIf="!(authService.myProp$ | async)" href="./" mat-list-item> {{ 'header.link_login' | translate }}</a>
-      <a mat-list-item *ngIf="authService.myProp$ | async" (click)="onHome(); sidenav.toggle()">{{
+      <a mat-list-item *ngIf="authService.myProp$ | async" (click)="onHome(); sidenav.toggle()">
+        {{
         'header.link_applications' | translate
       }}</a>
       <a mat-list-item *ngIf="authService.myProp$ | async" (click)="doLogout(); sidenav.toggle()">{{
@@ -21,10 +26,15 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
+    
+    <mat-toolbar class="head">
+     <span style="width: 450px;"></span> <h1 class="mat-headline">Resident Portal</h1>
+      <span class="spacer"></span><button class="mat-button" (click)="onLogoClick()">Home</button></mat-toolbar>
     <mat-toolbar>
       <!--<div class="sidenav-button">
         <button mat-icon-button (click)="sidenav.toggle()"><mat-icon>menu</mat-icon></button>
       </div>-->
+      
       <a (click)="onLogoClick()"><img src="assets\logo-final.png" class="header--logo" /></a>
       <div style="margin-left:5px;"><a routerLink="/" class="logo"></a></div>
      
@@ -85,8 +95,12 @@
           >
             <mat-option *ngFor="let lang of languages" [value]="lang">{{ lang }}</mat-option>
           </mat-select>
+         
+         
         </mat-form-field>
+       
       </div>
+      
 
       <mat-nav-list *ngIf="authService.myProp$ | async" class="list-item">
         <a mat-list-item class="header__actions" (click)="onHome()">
@@ -96,10 +110,14 @@
           <mat-icon class="icon">power_settings_new</mat-icon>&nbsp;{{ 'header.link_logout' | translate }}
         </a>
       </mat-nav-list>
+     
     </mat-toolbar>
+  
     <main>
       <router-outlet></router-outlet>
       <app-footer></app-footer>
     </main>
+    
   </mat-sidenav-content>
+ 
 </mat-sidenav-container>
