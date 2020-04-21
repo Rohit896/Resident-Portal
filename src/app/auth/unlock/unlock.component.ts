@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { DialougComponent } from 'src/app/shared/dialoug/dialoug.component';
@@ -15,7 +15,7 @@ import LanguageFactory from '../../../assets/i18n';
   templateUrl: './unlock.component.html',
   styleUrls: ['./unlock.component.css']
 })
-export class UnlockComponent implements OnInit {
+export class UnlockComponent implements OnInit,OnDestroy {
 
   
   disableBtn = false;
@@ -176,9 +176,11 @@ idType:string;
       if(this.bioIir)
         auth.push('bio-IIR');
 
-      this.dataService.unlockUIN(this.inputDetails,this.inputOTP,auth).subscribe(response=>{
+      this.dataService.generateToken().subscribe(response=>{
+      this.dataService.unlockUIN(this.inputDetails,this.inputOTP,auth,this.idType).subscribe(response=>{
         console.log(response);
       });
+    });
   }
 
   showOtpMessage() {
@@ -208,6 +210,10 @@ idType:string;
       width: '350px',
       data: message
     });
+  }
+
+  ngOnDestroy(){
+    clearInterval(this.timer);
   }
 
 

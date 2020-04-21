@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { DialougComponent } from 'src/app/shared/dialoug/dialoug.component';
@@ -14,7 +14,7 @@ import LanguageFactory from '../../../assets/i18n';
   templateUrl: './revoke-vid.component.html',
   styleUrls: ['./revoke-vid.component.css']
 })
-export class RevokeVidComponent implements OnInit {
+export class RevokeVidComponent implements OnInit,OnDestroy {
 
   disableBtn = false;
   timer:any ;
@@ -145,10 +145,11 @@ export class RevokeVidComponent implements OnInit {
         document.getElementById('timer').style.visibility = 'visible';
         this.timer = setInterval(timerFn, 1000);
       }
-
+        this.dataService.generateToken().subscribe(response=>{
         this.dataService.sendOtpForServices(this.inputVidDetails,"VID").subscribe(response=>{
           console.log("otp generated");
         });
+      });
       // dynamic update of button text for Resend and Verify
     } else if (this.showVerify && this.vidErrorMessage === undefined ) {
             this.disableVerify = true;
@@ -193,5 +194,8 @@ export class RevokeVidComponent implements OnInit {
       data: message
     });
   }
-
+  ngOnDestroy(){
+    // console.log("component changed");
+     clearInterval(this.timer);
+   }
 }

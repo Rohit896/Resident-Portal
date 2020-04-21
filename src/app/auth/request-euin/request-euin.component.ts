@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { DialougComponent } from 'src/app/shared/dialoug/dialoug.component';
@@ -15,7 +15,7 @@ import LanguageFactory from '../../../assets/i18n';
   templateUrl: './request-euin.component.html',
   styleUrls: ['./request-euin.component.css']
 })
-export class RequestEuinComponent implements OnInit {
+export class RequestEuinComponent implements OnInit,OnDestroy {
   disableBtn = false;
   timer:any ;
   inputOTP: string;
@@ -146,10 +146,11 @@ export class RequestEuinComponent implements OnInit {
         document.getElementById('timer').style.visibility = 'visible';
         this.timer = setInterval(timerFn, 1000);
       }
-
+        this.dataService.generateToken().subscribe(response=>{
         this.dataService.sendOtpForServices(this.inputDetails,this.idType).subscribe(response=>{
-          console.log("otp generated");
+          console.log(response);
         });
+      });
       // dynamic update of button text for Resend and Verify
     } else if (this.showVerify && this.errorMessage === undefined ) {
             this.disableVerify = true;
@@ -161,7 +162,7 @@ export class RequestEuinComponent implements OnInit {
 }
 requestEuin(){
     console.log("request Euin");
-    this.dataService.getEUIN(this.inputDetails,this.inputOTP).subscribe(response=>{
+    this.dataService.getEUIN(this.inputDetails,this.inputOTP,this.idType).subscribe(response=>{
       console.log(response);
     })
   }
@@ -193,6 +194,10 @@ requestEuin(){
       width: '350px',
       data: message
     });
+  }
+  ngOnDestroy(){
+   // console.log("component changed");
+    clearInterval(this.timer);
   }
 
 }

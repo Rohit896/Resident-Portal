@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { DialougComponent } from 'src/app/shared/dialoug/dialoug.component';
@@ -15,7 +15,7 @@ import LanguageFactory from '../../../assets/i18n';
   templateUrl: './auth-history.component.html',
   styleUrls: ['./auth-history.component.css']
 })
-export class AuthHistoryComponent implements OnInit {
+export class AuthHistoryComponent implements OnInit,OnDestroy {
 
   disableBtn = false;
   timer:any ;
@@ -147,8 +147,22 @@ export class AuthHistoryComponent implements OnInit {
         this.timer = setInterval(timerFn, 1000);
       }
 
-        this.dataService.sendOtpForServices(this.inputDetails,this.idType).subscribe(response=>{
-          console.log("otp generated");
+        this.dataService.generateToken().subscribe(response=>{
+          this.dataService.sendOtpForServices(this.inputDetails,this.idType).subscribe(response=>{
+             console.log("otp generated");
+            // if()
+            // this.showOtpMessage();
+            if (!response['errors']) {
+                this.showOtpMessage();
+            } else {
+              this.disableVerify = false;
+              this.showOtpMessage();
+            }
+          },
+          error => {
+            this.disableVerify = false;
+            this.showErrorMessage();
+          });
         });
       // dynamic update of button text for Resend and Verify
     } else if (this.showVerify && this.errorMessage === undefined ) {
@@ -161,16 +175,16 @@ export class AuthHistoryComponent implements OnInit {
 }
   getAuthHistory(){
     console.log("getAuthHistory");
-    this.dataService.authHistory(this.inputDetails,this.inputOTP).subscribe(response=>{
+    this.dataService.authHistory(this.inputDetails,this.inputOTP,this.idType).subscribe(response=>{
       console.log(response);
     });
   }
 
   showOtpMessage() {
-    this.inputOTP = '';
+    //this.inputOTP = '';
     let factory = new LanguageFactory(localStorage.getItem('langCode'));
     let response = factory.getCurrentlanguage();
-    let otpmessage = response['message']['login']['msg3'];
+    let otpmessage = response['authCommonText']['otpSent'];
     const message = {
       case: 'MESSAGE',
       message: otpmessage
@@ -194,6 +208,10 @@ export class AuthHistoryComponent implements OnInit {
       data: message
     });
   }
+  ngOnDestroy(){
+    // console.log("component changed");
+     clearInterval(this.timer);
+   }
 
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { DialougComponent } from 'src/app/shared/dialoug/dialoug.component';
@@ -15,7 +15,7 @@ import LanguageFactory from '../../../assets/i18n';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit,OnDestroy {
   inputPlaceholderContact = 'Email ID or Phone Number';
   inputPlaceholderOTP = 'Enter OTP';
   disableBtn = false;
@@ -64,64 +64,13 @@ export class LoginComponent implements OnInit {
         this.authService.onLogout();
       }
   }
-  // setServiceId(){
 
-  //     this.route.paramMap.subscribe((params: ParamMap)=>{
-  //       this.initializeVariables();
-  //       this.setTimer();
-  //       let id = params.get('id');
-  //       this.loadValidationMessages(id);
-        
-  //       this.servicesActivationStatus[id]=true;
-  //       //this.ngOnInit();
-  //     })
-      
-  // }
-//   initializeVariables(){
-//     this.inputPlaceholderContact = 'Email ID or Phone Number';
-//   this.inputPlaceholderOTP = 'Enter OTP';
-//   this.disableBtn = false;
-//   this.inputOTP=undefined;
-//   this.inputContactDetails = '';
-//   this.showSendOTP = true;
-//   this.showResend = false;
-//   this.showVerify = false;
-//   this.showContactDetails = true;
-//   this.showOTP = false;
-//   this.disableVerify = false;
-//  // secondaryLanguagelabels: any;
-//   this.loggedOutLang='';
-//   this.uinErrorMessage=undefined;
-//   this.contactErrorMessage= undefined;
-//   this.minutes=undefined;
-//   this.seconds=undefined;
-//   this.showSpinner = true;
-//   this.selectedLanguage= '';
-//   this.validationMessages = {};
-//   this.servicesActivationStatus = [];
-//   this.activatedServiceJSON={};
-//   this.inputUinDetails = '';
-//   this.showUinDetail = true;
-//   clearInterval(this.timer);
-//     // if (document.getElementById('timer').style.visibility === 'visible'){
-//     // document.getElementById('timer').style.visibility = 'hidden';
-//     // }
-//   }
   loadValidationMessages() {
     let langCode=localStorage.getItem('langCode');
     this.selectedLanguage = appConstants.languageMapping[langCode].langName;
     let factory = new LanguageFactory(langCode);
     let response = factory.getCurrentlanguage();
     this.validationMessages = response['authValidationMessages'];
-    // let residentServiceJSON = response['header']['residentServices'];
-    // this.activatedServiceJSON =response[id];
-    //  // console.log(this.activatedServiceJSON);
-    // //initialization of serviceActivationStatus array
-    // let size = Object.keys(residentServiceJSON).length;
-    // for (let i = 0; i < size; i++) {
-    //   this.servicesActivationStatus[i]=false;
-    // }
-
 
     this.showSpinner=false;
   }
@@ -180,19 +129,6 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  // uinValidator(){
-  //   this.uinErrorMessage = undefined;
-  //   //const modes = this.configService.getConfigByKey(appConstants.CONFIG_KEYS.mosip_login_mode);
-  //   //const emailRegex = new RegExp(this.configService.getConfigByKey(appConstants.CONFIG_KEYS.mosip_regex_email));
-  //   //const phoneRegex = new RegExp(this.configService.getConfigByKey(appConstants.CONFIG_KEYS.mosip_regex_phone));
-  //   const uinRegex = new RegExp("^([0-9]{10})$");
-  //   if(!uinRegex.test(this.inputUinDetails)){
-  //     this.uinErrorMessage = this.validationMessages['invalidUin'];
-  //   }
-  // }
-  // verifyUin(uin: any){
-
-  // }
   submit(): void {  
       this.loginIdValidator();
   
@@ -303,4 +239,8 @@ export class LoginComponent implements OnInit {
       data: message
     });
   }
+  ngOnDestroy(){
+    // console.log("component changed");
+     clearInterval(this.timer);
+   }
 }

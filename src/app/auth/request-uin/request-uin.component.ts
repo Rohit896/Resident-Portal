@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { DialougComponent } from 'src/app/shared/dialoug/dialoug.component';
@@ -15,7 +15,7 @@ import LanguageFactory from '../../../assets/i18n';
   templateUrl: './request-uin.component.html',
   styleUrls: ['./request-uin.component.css']
 })
-export class RequestUinComponent implements OnInit {
+export class RequestUinComponent implements OnInit,OnDestroy {
 
   disableBtn = false;
   timer:any ;
@@ -148,9 +148,12 @@ export class RequestUinComponent implements OnInit {
         this.timer = setInterval(timerFn, 1000);
       }
 
+
+        this.dataService.generateToken().subscribe(response=>{
         this.dataService.sendOtpForServices(this.inputDetails,this.idType).subscribe(response=>{
           console.log("otp generated");
         });
+      });
       // dynamic update of button text for Resend and Verify
     } else if (this.showVerify && this.errorMessage === undefined ) {
             this.disableVerify = true;
@@ -162,7 +165,7 @@ export class RequestUinComponent implements OnInit {
 }
   requestPrintUin(){
     console.log("reqPrintUin");
-    this.dataService.printUIN(this.inputDetails,this.inputOTP).subscribe(response=>{
+    this.dataService.printUIN(this.inputDetails,this.inputOTP,this.idType).subscribe(response=>{
       console.log(response);
     })
   }
@@ -195,6 +198,9 @@ export class RequestUinComponent implements OnInit {
       data: message
     });
   }
-
+  ngOnDestroy(){
+    // console.log("component changed");
+     clearInterval(this.timer);
+   }
 
 }

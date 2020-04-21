@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { DialougComponent } from 'src/app/shared/dialoug/dialoug.component';
@@ -15,7 +15,7 @@ import LanguageFactory from '../../../assets/i18n';
   templateUrl: './service-req-status-check.component.html',
   styleUrls: ['./service-req-status-check.component.css']
 })
-export class ServiceReqStatusCheckComponent implements OnInit {
+export class ServiceReqStatusCheckComponent implements OnInit,OnDestroy {
 
   
   disableBtn = false;
@@ -147,10 +147,11 @@ export class ServiceReqStatusCheckComponent implements OnInit {
         document.getElementById('timer').style.visibility = 'visible';
         this.timer = setInterval(timerFn, 1000);
       }
-
+        this.dataService.generateToken().subscribe(response=>{
         this.dataService.sendOtpForServices(this.inputDetails,"RID").subscribe(response=>{
           console.log("otp generated");
         });
+      });
       // dynamic update of button text for Resend and Verify
     } else if (this.showVerify && this.errorMessage === undefined ) {
             this.disableVerify = true;
@@ -194,6 +195,9 @@ export class ServiceReqStatusCheckComponent implements OnInit {
       data: message
     });
   }
-
+  ngOnDestroy(){
+    // console.log("component changed");
+     clearInterval(this.timer);
+   }
 
 }

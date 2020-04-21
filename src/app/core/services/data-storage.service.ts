@@ -355,11 +355,14 @@ export class DataStorageService {
 
     sendOtpForServices(uin: string, idType:string){
 
-      this.generateToken().subscribe(response=>{});
-
       const obj = new RequestModelSendOtp(uin,idType);
       const url= this.BASE_URL+'idauthentication/v1/internal/otp';
+      
+      this.generateToken().subscribe(response=>{
+        
+      });
       return this.httpClient.post(url, obj);
+      
 
     }
 
@@ -379,11 +382,11 @@ export class DataStorageService {
       return this.httpClient.post(url, obj);
     }
     
-    getEUIN(vid: string, otp : string) {
+    getEUIN(authId: string, otp : string, idType:string) {
       console.log("inside euin");
       const req = {
-        individualId: vid,
-        individualIdType: "VID",
+        individualId: authId,
+        individualIdType: idType,
         otp: otp,
         transactionID: "0987654321",
         cardType: "MASKED_UIN"
@@ -396,11 +399,11 @@ export class DataStorageService {
     }
 
 
-    printUIN(vid: string, otp : string) {
+    printUIN(authId: string, otp : string, idType:string) {
       console.log("inside print uin");
       const req = {
-        individualId: vid,
-        individualIdType: "VID",
+        individualId: authId,
+        individualIdType: idType,
         otp: otp,
         transactionID: "0987654321",
         cardType: "MASKED_UIN"
@@ -447,11 +450,11 @@ export class DataStorageService {
     
     }
 
-    lockUIN(uin: string, otp: string,authArray:string[]){
+    lockUIN(authId: string, otp: string,authArray:string[], idType:string){
       console.log("inside lock");
       const request = {
-        individualId: uin,
-        individualIdType: "UIN",
+        individualId: authId,
+        individualIdType: idType,
         otp: otp,
         transactionID: "0987654321",
         authType:authArray
@@ -463,11 +466,11 @@ export class DataStorageService {
     }
 
 
-    unlockUIN(uin: string, otp: string,authArray:string[]){
+    unlockUIN(authId: string, otp: string,authArray:string[],idType:string){
       console.log("inside unlock");
       const request = {
-        individualId: uin,
-        individualIdType: "UIN",
+        individualId: authId,
+        individualIdType: idType,
         otp: otp,
         transactionID: "0987654321",
         authType:authArray
@@ -479,12 +482,12 @@ export class DataStorageService {
 
     }
 
-    authHistory(uin: string, otp: string)
+    authHistory(authId: string, otp: string, idType:string)
     {
       console.log("inside auth history");
       const request = {
-        individualId: uin,
-        individualIdType: "UIN",
+        individualId: authId,
+        individualIdType: idType,
         otp: otp,
         transactionID: "0987654321",
       };
