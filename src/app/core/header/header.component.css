@@ -15,11 +15,11 @@
 .head > .mat-headline{
   text-align: center;
   color: rgb(250, 227, 200);
-  font-size: 40px;
+  font-size: 50px;
   font-weight: 300;
-  font-stretch: extra-expanded;
-  font-family: Arial Bolder;
-  animation-direction: alternate;
+
+  font-family: 'Arial Bold';
+  font-stretch: wider;
 }
 .head > .mat-button{
   display: inline-block;
