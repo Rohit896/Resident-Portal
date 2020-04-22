@@ -1,0 +1,25 @@
+
+div{
+    border:groove 0px #000000;
+    -moz-border-radius: 24px;
+    -webkit-border-radius: 24px;
+    border-radius: 24px;
+    
+    }
+    input[type=text], textarea{
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      resize: vertical;
+    }
+    .form-horizontal
+    {
+    padding: 10px
+    
+    }
+    .insideform{
+    padding: 10px
+    }
+    
