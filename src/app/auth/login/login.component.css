@@ -59,7 +59,7 @@ mat-form-field {
 
 .pinkText {
   color: #a72a55;
-  font-weight: bold;
+  /*font-weight: bold;*/
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 

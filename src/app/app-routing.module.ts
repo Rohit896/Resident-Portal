@@ -15,12 +15,13 @@ import { ServiceReqStatusCheckComponent } from './auth/service-req-status-check/
 import { LockComponent } from './auth/lock/lock.component';
 import { UnlockComponent } from './auth/unlock/unlock.component';
 import { AuthHistoryComponent } from "./auth/auth-history/auth-history.component";
+import { UpdatedemoComponent } from './feature/updatedemo/updatedemo.component';
 
 /**
  * @description These are the routes.
  */
 const appRoutes: Routes = [
-  
+  {path :'updatedemo', component:UpdatedemoComponent},
   { path: 'dashboard', loadChildren: './feature/dashboard/dashboard.module#DashboardModule' },
   { path: 'about-us', component: AboutUsComponent },
   { path: 'faq', component: FaqComponent },

@@ -34,8 +34,9 @@ export class UpdateDemographicComponent implements OnInit {
   selectedLanguage= '';
   validationMessages = {};
   inputDetails = '';
+  inputUinDetails = '';
   showDetail = true;
-
+ 
 
   constructor(
     private authService: AuthService,
@@ -154,13 +155,32 @@ export class UpdateDemographicComponent implements OnInit {
     } else if (this.showVerify && this.errorMessage === undefined ) {
             this.disableVerify = true;
             clearInterval(this.timer);
-            this.revokeVid();   
+            this.updateDemo();   
 
       }
   
 }
-  revokeVid(){
-    console.log("revokeVid");
+  
+updateDemo(){
+
+  this.dataService.generateVid(this.inputUinDetails,this.inputOTP).subscribe(response=>{
+    if (!response['errors']) {
+      clearInterval(this.timer);
+      localStorage.setItem('loggedIn', 'true');
+      this.authService.setToken();
+      this.regService.setLoginId(this.inputUinDetails);
+      this.disableVerify = false;
+      this.router.navigate(['updatedemo']);
+    } else {
+      this.disableVerify = false;
+      this.showOtpMessage();
+    }},
+    error => {
+      this.disableVerify = false;
+      this.showErrorMessage();
+    }
+  );
+  
   }
 
   showOtpMessage() {
