@@ -254,14 +254,15 @@
     ]
   },
   "header": {
+    "home":"Home",
     "link_about": "Getting Started",
     "link_faq": "FAQ",
     "link_contact": "Contact Us",
     "link_applications": "Your Applications",
     "link_logout": "Logout",
     "link_login": "LOGIN",
-    "link_pre-registration": "Book / Modify Appointment"
-    
+    "link_pre-registration": "Book / Modify Appointment",
+    "mainheading": "Resident Portal"
   },
   "mainpage":{
     "aboutResident" : "The Resident Services will provide a host of services to an individual which can be availed after the creation of their Unique Identification Number(UIN).",

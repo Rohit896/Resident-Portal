@@ -62,6 +62,8 @@ export class LockComponent implements OnInit {
         this.authService.onLogout();
       }
   }
+
+
   loadValidationMessages() {
     let langCode=localStorage.getItem('langCode');
     this.selectedLanguage = appConstants.languageMapping[langCode].langName;
