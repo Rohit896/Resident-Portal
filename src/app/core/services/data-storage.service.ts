@@ -328,6 +328,19 @@ export class DataStorageService {
     const url = this.BASE_URL + this.PRE_REG_URL + appConstants.APPEND_URL.auth + appConstants.APPEND_URL.config;
     return this.httpClient.get(url);
   }
+  generateToken(){
+    const req={
+      clientId: "residentUser_iiitB",
+      secretKey: "92d5ee2f-4dc5-4fdf-a112-ed4ec91c942b",
+      appId: "resident"
+    }
+    const obj= new RequestModel(appConstants.IDS.residentTokenId,req);
+
+    const url=this.BASE_URL+'v1/authmanager/authenticate/clientidsecretkey'
+
+    return this.httpClient.post(url,obj);
+
+  }
 
   sendOtp(userId: string) {
     const req = {
@@ -340,22 +353,25 @@ export class DataStorageService {
     return this.httpClient.post(url, obj);
   }
 
-    sendOtpForServices(uin: string){
-      console.log("in sendotpforservices");
-     //    let transactionID = "0987654321";
-          let idType='UIN';
+    sendOtpForServices(uin: string, idType:string){
+
       const obj = new RequestModelSendOtp(uin,idType);
   
       //const url = this.BASE_URL + this.PRE_REG_URL + appConstants.APPEND_URL.auth + appConstants.APPEND_URL.send_otp;
       const url= this.BASE_URL+appConstants.APPEND_URL.otp_service;
       console.log("in sendotpforservices");
       
+      this.generateToken().subscribe(response=>{
+        
+      });
       return this.httpClient.post(url, obj);
+      
 
     }
 
     serviceRequest(rid: string)
     {
+      console.log("insde status check");
       const req = {
         individualId: rid,
         individualIdType: "RID",
@@ -367,10 +383,11 @@ export class DataStorageService {
       return this.httpClient.post(url, obj);
     }
     
-    getEUIN(vid: string, otp : string) {
+    getEUIN(authId: string, otp : string, idType:string) {
+      console.log("inside euin");
       const req = {
-        individualId: vid,
-        individualIdType: "VID",
+        individualId: authId,
+        individualIdType: idType,
         otp: otp,
         transactionID: "0987654321",
         cardType: "MASKED_UIN"
@@ -383,10 +400,11 @@ export class DataStorageService {
     }
 
 
-    printUIN(vid: string, otp : string) {
+    printUIN(authId: string, otp : string, idType:string) {
+      console.log("inside print uin");
       const req = {
-        individualId: vid,
-        individualIdType: "VID",
+        individualId: authId,
+        individualIdType: idType,
         otp: otp,
         transactionID: "0987654321",
         cardType: "MASKED_UIN"
@@ -400,6 +418,7 @@ export class DataStorageService {
 
 
     generateVid(uin: string, otp : string){
+      console.log("inside generate VId");
       const request = {
         individualId: uin,
         individualIdType: "UIN",
@@ -430,15 +449,15 @@ export class DataStorageService {
       return this.httpClient.post(url,obj);
     }
 
-    updateUIN(userId: string, otp: string) {
+    updateDemographic(userId: string, otp: string) {
     
     }
 
-    lockUIN(uin: string, otp: string,authArray:string[]){
+    lockUIN(authId: string, otp: string,authArray:string[], idType:string){
       console.log("inside lock");
       const request = {
-        individualId: uin,
-        individualIdType: "UIN",
+        individualId: authId,
+        individualIdType: idType,
         otp: otp,
         transactionID: "0987654321",
         authType:authArray
@@ -450,11 +469,11 @@ export class DataStorageService {
     }
 
 
-    unlockUIN(uin: string, otp: string,authArray:string[]){
+    unlockUIN(authId: string, otp: string,authArray:string[],idType:string){
       console.log("inside unlock");
       const request = {
-        individualId: uin,
-        individualIdType: "UIN",
+        individualId: authId,
+        individualIdType: idType,
         otp: otp,
         transactionID: "0987654321",
         authType:authArray
@@ -466,12 +485,12 @@ export class DataStorageService {
 
     }
 
-    authHistory(uin: string, otp: string)
+    authHistory(authId: string, otp: string, idType:string)
     {
       console.log("inside auth history");
       const request = {
-        individualId: uin,
-        individualIdType: "UIN",
+        individualId: authId,
+        individualIdType: idType,
         otp: otp,
         transactionID: "0987654321",
       };

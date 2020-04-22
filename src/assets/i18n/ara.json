@@ -260,141 +260,85 @@
     "link_applications": "تطبيقاتك",
     "link_logout": "الخروج",
     "link_login": "تسجيل الدخول",
-    "link_pre-registration": "حجز / تعديل موعد",
-    "link_resident-services": "خدمات المقيمين",
-    "residentServices":{
-      "0" : "تسجيل الدخول",
-      "1" : "توليد VID",
-      "2" : "إبطال VID",
-      "3" : "حالة VID",
-      "4" : "تحديث UIN",
-      "5" : "طلب طباعة UIN",
-      "6" : "طلب EUIN",
-      "7" : "تحديث التفاصيل الديموغرافية",
-      "8" : "قفل / فتح"
-    }
+    "link_pre-registration": "حجز / تعديل موعد"
   },
   "authCommonText":{
-    "text": "خطوات سريعة وسهلة"
+    "text": "خطوات سريعة وسهلة",
+    "label_otp": "أدخل OTP",
+    "action_send": "إرسال OTP",
+    "action_resend": "إعادة إرسال",
+    "action_verify": "التحقق",
+    "otp_valid_label": "صالحة ل"
   },
   "authValidationMessages":{
     "invalidEmail": "تم إدخال معرف البريد الإلكتروني غير صالح",
     "invalidMobile": "تم إدخال رقم جوال غير صالح",
     "invalidInput": "تم إدخال معرف البريد الإلكتروني أو رقم الجوال غير صالح"
   },
-  "0": {
+  "bookModifyAppointment": {
     "sub_text": "التسجيل المسبق ل",
     "sub_text_UID": "رقم تعريف فريد",
-    "otp_valid_label": "صالحة ل",
     "label_email_num": "معرف البريد الإلكتروني أو رقم الهاتف",
-    "label_otp": "أدخل OTP",
-    "action_send": "إرسال OTP",
-    "action_resend": "إعادة إرسال",
-    "action_verify": "التحقق",
     "logout_msg": "يجب على مقدم الطلب تسجيل الدخول بنفس الهاتف المحمول / البريد الإلكتروني للوصول إلى التطبيقات التي تم إنشاؤها"
   },
-  "1": {
+  "generateVid": {
     "sub_text": "انشاء",
     "sub_text_UID": "رقم التعريف الظاهري",
-    "otp_valid_label": "صالحة ل",
-    "label_email_num": "معرف البريد الإلكتروني أو رقم الهاتف",
-    "label_otp": "أدخل OTP",
-    "action_send": "إرسال OTP",
-    "action_resend": "إعادة إرسال",
-    "action_verify": "التحقق",
-    "enter_UIN":"أدخل UIN",
-    "logout_msg": "يجب على مقدم الطلب تسجيل الدخول بنفس الهاتف المحمول / البريد الإلكتروني للوصول إلى التطبيقات التي تم إنشاؤها",
-    "enter_uin":"أدخل UIN"
+   "enter_uin":"أدخل UIN"
   },
-  "2": {
+  "revokeVid": {
     "sub_text": "سحب او إبطال",
     "sub_text_UID": "رقم التعريف الظاهري",
-    "otp_valid_label": "صالحة ل",
-    "label_email_num": "معرف البريد الإلكتروني أو رقم الهاتف",
-    "label_otp": "أدخل OTP",
-    "action_send": "إرسال OTP",
-    "action_resend": "إعادة إرسال",
-    "action_verify": "التحقق",
-    "enter_UIN":"أدخل UIN",
-    "logout_msg": "يجب على مقدم الطلب تسجيل الدخول بنفس الهاتف المحمول / البريد الإلكتروني للوصول إلى التطبيقات التي تم إنشاؤها",
-    "enter_uin":"أدخل UIN"
+   "enter_uin":"أدخل VID"
   },
-  "3": {
+  "servReqStatusCheck": {
     "sub_text": "تحقق من حالة",
-    "sub_text_UID": "رقم التعريف الظاهري",
-    "otp_valid_label": "صالحة ل",
-    "label_email_num": "معرف البريد الإلكتروني أو رقم الهاتف",
-    "label_otp": "أدخل OTP",
-    "action_send": "إرسال OTP",
-    "action_resend": "إعادة إرسال",
-    "action_verify": "التحقق",
-    "enter_UIN":"أدخل UIN",
-    "logout_msg": "يجب على مقدم الطلب تسجيل الدخول بنفس الهاتف المحمول / البريد الإلكتروني للوصول إلى التطبيقات التي تم إنشاؤها",
-    "enter_uin":"أدخل UIN"
+    "sub_text_UID": "Registered Identification Number",
+   "enter_uin":"أدخل RID"
   },
-  "4": {
+  "updateUin": {
     "sub_text": "تحديث",
     "sub_text_UID": "رقم تعريف فريد",
-    "otp_valid_label": "صالحة ل",
-    "label_email_num": "معرف البريد الإلكتروني أو رقم الهاتف",
-    "label_otp": "أدخل OTP",
-    "action_send": "إرسال OTP",
-    "action_resend": "إعادة إرسال",
-    "action_verify": "التحقق",
-    "enter_UIN":"أدخل UIN",
-    "logout_msg": "يجب على مقدم الطلب تسجيل الدخول بنفس الهاتف المحمول / البريد الإلكتروني للوصول إلى التطبيقات التي تم إنشاؤها",
-    "enter_uin":"أدخل UIN"
+   "enter_uin":"أدخل UIN"
   },
-  "5": {
+  "reqPrintUin": {
     "sub_text": "طلب / طباعة",
     "sub_text_UID": "رقم تعريف فريد",
-    "otp_valid_label": "صالحة ل",
-    "label_email_num": "معرف البريد الإلكتروني أو رقم الهاتف",
-    "label_otp": "أدخل OTP",
-    "action_send": "إرسال OTP",
-    "action_resend": "إعادة إرسال",
-    "action_verify": "التحقق",
-    "enter_UIN":"أدخل UIN",
-    "logout_msg": "يجب على مقدم الطلب تسجيل الدخول بنفس الهاتف المحمول / البريد الإلكتروني للوصول إلى التطبيقات التي تم إنشاؤها",
-    "enter_uin":"أدخل UIN"
+   "enter_uin":"أدخل VID"
   },
-  "6": {
+  "requestEuin": {
     "sub_text": "طلب",
     "sub_text_UID": "رقم التعريف الفريد الإلكتروني",
-    "otp_valid_label": "صالحة ل",
-    "label_email_num": "معرف البريد الإلكتروني أو رقم الهاتف",
-    "label_otp": "أدخل OTP",
-    "action_send": "إرسال OTP",
-    "action_resend": "إعادة إرسال",
-    "action_verify": "التحقق",
-    "enter_UIN":"أدخل UIN",
-    "logout_msg": "يجب على مقدم الطلب تسجيل الدخول بنفس الهاتف المحمول / البريد الإلكتروني للوصول إلى التطبيقات التي تم إنشاؤها",
-    "enter_uin":"أدخل UIN"
+   "enter_uin":"أدخل VID"
   },
-  "7": {
+  "updateDemographic": {
     "sub_text": "تحديث",
     "sub_text_UID": "التفاصيل الديموغرافية",
-    "otp_valid_label": "صالحة ل",
-    "label_email_num": "معرف البريد الإلكتروني أو رقم الهاتف",
-    "label_otp": "أدخل OTP",
-    "action_send": "إرسال OTP",
-    "action_resend": "إعادة إرسال",
-    "action_verify": "التحقق",
-    "enter_UIN":"أدخل UIN",
-    "logout_msg": "يجب على مقدم الطلب تسجيل الدخول بنفس الهاتف المحمول / البريد الإلكتروني للوصول إلى التطبيقات التي تم إنشاؤها",
-    "enter_uin":"أدخل UIN"
+   "enter_uin":"أدخل UIN"
   },
-  "8": {
+  "lock": {
     "sub_text": "قفل / فتح",
     "sub_text_UID": "المصادقة",
-    "otp_valid_label": "صالحة ل",
-    "label_email_num": "معرف البريد الإلكتروني أو رقم الهاتف",
-    "label_otp": "أدخل OTP",
-    "action_send": "إرسال OTP",
-    "action_resend": "إعادة إرسال",
-    "action_verify": "التحقق",
-    "enter_UIN":"أدخل UIN",
-    "logout_msg": "يجب على مقدم الطلب تسجيل الدخول بنفس الهاتف المحمول / البريد الإلكتروني للوصول إلى التطبيقات التي تم إنشاؤها",
+   "enter_uin":"أدخل UIN",
+   "checkBoxHeading" : "Select Biometrics to Lock",
+   "action_lock":"LOCK",
+   "faceBio":"Face Biometric",
+    "fingureBio": "Fingures Biometric",
+    "irisBio": "Iris Biometric"
+  },
+  "unlock": {
+    "sub_text": "قفل / فتح",
+    "sub_text_UID": "المصادقة",
+   "enter_uin":"أدخل UIN",
+   "checkBoxHeading" : "Select Biometrics to Unlock",
+   "action_lock":"UNLOCK",
+   "faceBio":"Face Biometric",
+   "fingureBio": "Fingures Biometric",
+   "irisBio": "Iris Biometric"
+  },
+  "authHistory":{
+    "sub_text": "View",
+    "sub_text_UID": "Authentication History",
     "enter_uin":"أدخل UIN"
   },
   "stepper": {
@@ -694,16 +638,21 @@
     "aboutResidentsubtext1" : "إذا لم يكن لديك UIN ،",
     "aboutResidentsubtext2" : "يمكنك حجز موعد مع أقرب مركز تسجيل باستخدام خيار حجز / تعديل موعد",
     "genVID": "إنشاء معرف افتراضي",
-    "checkVIDStatus" : "تحقق من حالة المعرف الافتراضي",
-    "twotypesVID" : "المعرّف الظاهري من نوعين: دائم ومؤقت",
-    "aboutVIDStatus": "للتحقق من حالة VID ، سيكون عليك إطعام UIN الخاص بك وملء OTP",
+    "ServiceRequestStatus" : "حالة طلب الخدمة",
+    "aboutlock": "مكن للشخص المسجل قفل بياناته الحيوية",
+    "aboutlock1":"لقفل القياسات الحيوية ، سيكون عليك إطعام UIN الخاص بك وملء OTP",
+    "statuscheck" : "هنا ، يمكنك التحقق من حالة طلبك",
+    "statuscheck1": "للتحقق من حالة RID (رقم التعريف المسجل) ، سيكون عليك إطعام RID الخاص بك وملء OTP للوصول إلى لوحة القيادة",
     "subtext" : "المعرّف الظاهري هو رقم عشوائي يتم تعيينه برقم تعريف فريد. يمكن إنشاؤها فقط من قبل مستخدم مسجل.",
     "aboutgenVID" : "لإنشاء VID ، سيكون عليك إطعام UIN الخاص بك وملء OTP لتلقي الهوية الافتراضية.",
     "revVID" : "إبطال المعرف الافتراضي",
-    "aboutrevVID" : "لإلغاء VID ، سيكون عليك إطعام UIN الخاص بك وملء OTP لإلغاء الهوية الافتراضية.",
+    "aboutrevVID" : "لإلغاء VID ، سيكون عليك إطعام VID الخاص بك وملء OTP لإلغاء الهوية الافتراضية.",
     "aboutrevokeVID" : "المعرّف الظاهري هو رقم عشوائي يتم تعيينه برقم تعريف فريد. يمكن إبطالها عند الحاجة من قبل مستخدم مسجل.",
     "aboutVID" : "يمكن للمستخدمين استخدام معرفهم الظاهري (VID) بدلاً من تقديم رقم التعريف الفريد الخاص بهم",
-    "UpdateUIN":"تحديث رقم التعريف الفريد",
+    "Lock":"قفل",
+    "CheckAuthenticationHistory":"تحقق من تاريخ المصادقة",
+    "aboutauthhist": "يمكن للمرء التحقق من تاريخ المصادقة هنا.",
+    "aboutauthhist1":"للتحقق من سجل المصادقة ، سيكون عليك إطعام UIN الخاص بك وملء OTP والتحقق من نفسك",
     "aboutUIN1":"لتحديث UIN ، يجب عليك تغذية UIN الخاص بك وملء OTP لتلقي UIN",
     "aboutUIN":"UIN هو رقم التعريف الفريد المعطى لكل مقيم",
     "bookmodifyappointment":"حجز / تعديل موعد",
@@ -711,16 +660,16 @@
     "aboutappointment1":"لحجز موعد ، سيكون عليك تغذية تفاصيل الاتصال الخاصة بك وملء OTP للوصول إلى لوحة القيادة",
     "reqprintuin":"طلب طباعة UIN",
     "aboutprintuin":"يمكنك طلب تسليم بطاقة UIN عن طريق البريد",
-    "aboutprintuin1":"لإنشاء طلب الطباعة ، سيتعين عليك إطعام UIN الخاص بك وملء OTP والتحقق من نفسك",
+    "aboutprintuin1":"لإنشاء طلب الطباعة ، سيتعين عليك إطعام VID الخاص بك وملء OTP والتحقق من نفسك",
     "reqeuin":"طلب Euina ",
     "abouteuin":"E-UIN هي النسخة الإلكترونية لبطاقة UIN الخاصة بك",
-    "abouteuin1":"لإنشاء نسخة إلكترونية من بطاقة UIN ، سيتعين عليك إطعام UIN الخاص بك وملء OTP وإثبات نفسك",
+    "abouteuin1":"لإنشاء نسخة إلكترونية من بطاقة VID ، سيتعين عليك إطعام UIN الخاص بك وملء OTP وإثبات نفسك",
     "Updatedemographic":"تحديث التفاصيل الديموغرافية",
     "aboutdemographic":"يمكن تغيير التفاصيل الديموغرافية مثل الاسم والعنوان والجنس هنا",
     "aboutdemographic1":"لتحديث التفاصيل الديموغرافية ، سيكون عليك إطعام UIN الخاص بك وملء OTP والتحقق من نفسك",
-    "lockunlock":"قفل / فتح",
-    "aboutlockunlock":"يمكنك قفل / فتح قفل استخدامات التفاصيل البيومترية الخاصة بك",
-    "aboutlockunlock1":"للقفل / إلغاء القفل ، سيكون عليك إطعام UIN الخاص بك وملء OTP والتحقق من نفسك"
+    "unlock":"الغاء القفل",
+    "aboutlockunlock":"مكنك فتح استخدامات التفاصيل البيومترية الخاصة بكك",
+    "aboutlockunlock1":"إلغاء القفل ، سيكون عليك إطعام UIN الخاص بك وملء OTP والتحقق من نفسك"
   
   },
   "error": {

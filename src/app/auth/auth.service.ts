@@ -37,7 +37,7 @@ export class AuthService {
     localStorage.setItem('loggedOut', 'true');
     this.removeToken();
     this.dataStorageService.onLogout().subscribe();
-    this.router.navigate(['residentServices','0']);
+    this.router.navigate(['bookmodifyappointment']);
     this.userIdle.stopWatching();
   }
 }

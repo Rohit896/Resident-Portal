@@ -11,37 +11,36 @@ import * as appConstants from '../../app.constants';
 import LanguageFactory from '../../../assets/i18n';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-unlock',
+  templateUrl: './unlock.component.html',
+  styleUrls: ['./unlock.component.css']
 })
-export class LoginComponent implements OnInit,OnDestroy {
-  inputPlaceholderContact = 'Email ID or Phone Number';
-  inputPlaceholderOTP = 'Enter OTP';
+export class UnlockComponent implements OnInit,OnDestroy {
+
+  
   disableBtn = false;
   timer:any ;
   inputOTP: string;
-  inputContactDetails = '';
   showSendOTP = true;
   showResend = false;
   showVerify = false;
-  showContactDetails = true;
   showOTP = false;
   disableVerify = false;
   secondaryLanguagelabels: any;
   loggedOutLang: string;
-  contactErrorMessage: string;
-  uinErrorMessage: string;
+  errorMessage: string;
   minutes: string;
   seconds: string;
   showSpinner = true;
   selectedLanguage= '';
   validationMessages = {};
-  servicesActivationStatus: boolean[] = [];
-  activatedServiceJSON={};
-  inputUinDetails = '';
-  showUinDetail = true;
-
+  inputDetails = '';
+  showDetail = true;
+  login = true;
+  bioFir = false;
+  bioIir = false;
+  bioFace = false;
+idType:string;
 
   constructor(
     private authService: AuthService,
@@ -55,46 +54,22 @@ export class LoginComponent implements OnInit,OnDestroy {
   ) {
   }
 
-  ngOnInit() {
-     // this.setServiceId();  
+  ngOnInit() {  
      this.setTimer();
-      this.loadValidationMessages();
-        
+     this.loadValidationMessages();
+     
       if (this.authService.isAuthenticated()) {
         this.authService.onLogout();
       }
   }
-
   loadValidationMessages() {
     let langCode=localStorage.getItem('langCode');
     this.selectedLanguage = appConstants.languageMapping[langCode].langName;
     let factory = new LanguageFactory(langCode);
     let response = factory.getCurrentlanguage();
     this.validationMessages = response['authValidationMessages'];
-
     this.showSpinner=false;
   }
-
-  loginIdValidator() {
-    this.contactErrorMessage = undefined;
-    const modes = this.configService.getConfigByKey(appConstants.CONFIG_KEYS.mosip_login_mode);
-    const emailRegex = new RegExp(this.configService.getConfigByKey(appConstants.CONFIG_KEYS.mosip_regex_email));
-    const phoneRegex = new RegExp(this.configService.getConfigByKey(appConstants.CONFIG_KEYS.mosip_regex_phone));
-    if (modes === 'email,mobile') {
-      if (!(emailRegex.test(this.inputContactDetails) || phoneRegex.test(this.inputContactDetails))) {
-        this.contactErrorMessage = this.validationMessages['invalidInput'];
-      }
-    } else if (modes === 'email') {
-      if (!emailRegex.test(this.inputContactDetails)) {
-        this.contactErrorMessage = this.validationMessages['invalidEmail'];
-      }
-    } else if (modes === 'mobile') {
-      if (!phoneRegex.test(this.inputContactDetails)) {
-        this.contactErrorMessage = this.validationMessages['invalidMobile'];
-      }
-    }
-  }
-
   setTimer() {
     const time = Number(this.configService.getConfigByKey(appConstants.CONFIG_KEYS.mosip_kernel_otp_expiry_time));
     if (!isNaN(time)) {
@@ -128,17 +103,15 @@ export class LoginComponent implements OnInit,OnDestroy {
       this.showVerify = false;
     }
   }
-
-  submit(): void {  
-      this.loginIdValidator();
-  
-
-  if ((this.showSendOTP || this.showResend) && this.contactErrorMessage === undefined)  {
+  submit(): void {
+    if ((this.showSendOTP || this.showResend) && this.errorMessage === undefined )  {
       this.inputOTP = '';
       this.showResend = true;
       this.showOTP = true;
       this.showSendOTP = false;
-      this.showContactDetails = false;
+     // this.showContactDetails = false;
+      this.showDetail = false;
+      console.log("inside submit111");
 
       const timerFn = () => {
         let secValue = Number(document.getElementById('secondsSpan').innerText);
@@ -148,12 +121,12 @@ export class LoginComponent implements OnInit,OnDestroy {
           secValue = 60;
           if (minValue === 0) {
             // redirecting to initial phase on completion of timer
-            this.showContactDetails = true;
+           // this.showContactDetails = true;
             this.showSendOTP = true;
             this.showResend = false;
             this.showOTP = false;
             this.showVerify = false;
-            this.showUinDetail = true;
+            this.showDetail = true;
             document.getElementById('minutesSpan').innerText = this.minutes;
             document.getElementById('timer').style.visibility = 'hidden';
             clearInterval(this.timer);
@@ -178,38 +151,37 @@ export class LoginComponent implements OnInit,OnDestroy {
         document.getElementById('timer').style.visibility = 'visible';
         this.timer = setInterval(timerFn, 1000);
       }
-      
-        this.dataService.sendOtp(this.inputContactDetails).subscribe(response => {});
+
+        this.dataService.sendOtpForServices(this.inputDetails,this.idType).subscribe(response=>{
+          console.log("otp generated");
+        });
       // dynamic update of button text for Resend and Verify
-    } else if (this.showVerify && this.contactErrorMessage === undefined) {
-      this.disableVerify = true;
-        this.preRegLogin();
-    }
+    } else if (this.showVerify && this.errorMessage === undefined ) {
+            this.disableVerify = true;
+            this.login = false;
+            clearInterval(this.timer);
+      }
   
 }
-  preRegLogin(){
-
-    this.dataService.verifyOtp(this.inputContactDetails, this.inputOTP).subscribe(
-      response => {
-        if (!response['errors']) {
-          clearInterval(this.timer);
-          localStorage.setItem('loggedIn', 'true');
-          this.authService.setToken();
-          this.regService.setLoginId(this.inputContactDetails);
-          this.disableVerify = false;
-          this.router.navigate(['dashboard']);
-        } else {
-          this.disableVerify = false;
-          this.showOtpMessage();
-        }
-      },
-      error => {
-        this.disableVerify = false;
-        this.showErrorMessage();
-      }
-    );
+  unlock(){
     
-    }
+    console.log(this.bioFir);
+    console.log(this.bioIir);
+    console.log(this.bioFace);
+    let auth: string[]=[];
+      if(this.bioFace)
+        auth.push('bio-FACE');
+      if(this.bioFir)
+        auth.push('bio-FMR');
+      if(this.bioIir)
+        auth.push('bio-IIR');
+
+      this.dataService.generateToken().subscribe(response=>{
+      this.dataService.unlockUIN(this.inputDetails,this.inputOTP,auth,this.idType).subscribe(response=>{
+        console.log(response);
+      });
+    });
+  }
 
   showOtpMessage() {
     this.inputOTP = '';
@@ -239,8 +211,10 @@ export class LoginComponent implements OnInit,OnDestroy {
       data: message
     });
   }
+
   ngOnDestroy(){
-    // console.log("component changed");
-     clearInterval(this.timer);
-   }
+    clearInterval(this.timer);
+  }
+
+
 }

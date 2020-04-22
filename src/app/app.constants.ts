@@ -23,6 +23,7 @@ export const IDS = {
   generateVidId: 'mosip.resident.vid',
   sendOtpForServices:'mosip.identity.otp.internal',
   revokeVid: 'mosip.resident.vidstatus',
+  residentTokenId:'io.mosip.resident',
   printUIN: 'mosip.resident.reprintuin',
   getEUIN: 'mosip.resident.euin',
   serviceRequest:'mosip.resident.uinstatus',

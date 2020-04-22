@@ -51,7 +51,7 @@
                                         <br>
                                             <li class=" item-2378 child-class"><h3>{{'mainpage.aboutappointment' | translate}}</h3></li>
                                             <li class=" item-2380 child-class"><h3>{{'mainpage.aboutappointment1' | translate}}</h3></li>
-                                            <br> <button  class="button2 button" routerLink="/residentServices/0">{{'mainpage.bookmodifyappointment' | translate}}</button>
+                                            <br> <button  class="button2 button" routerLink="/bookmodifyappointment">{{'mainpage.bookmodifyappointment' | translate}}</button>
                                             </ul>
                                     </li>
 
@@ -69,7 +69,7 @@
                                             <li class=" item-2378 child-class"><h3><strong>{{'mainpage.subtext' | translate}}</strong></h3></li>
                                               <li class=" item-2378 child-class"><h3>{{'mainpage.aboutVID' | translate}}</h3></li>
                                               <li class=" item-2380 child-class"><h3>{{'mainpage.aboutgenVID' | translate}}</h3></li>
-                                              <br> <button class="button2 button" routerLink="/residentServices/1">{{'mainpage.genVID' | translate}}</button>
+                                              <br> <button class="button2 button" routerLink="/generateVid">{{'mainpage.genVID' | translate}}</button>
                                          </ul>
                                       </li>
 
@@ -85,7 +85,7 @@
                                             <li class=" item-2380 child-class"><h3><strong>{{'mainpage.aboutrevokeVID' | translate}}</strong></h3></li>
                                           
                                               <li class=" item-2380 child-class"><h3>{{'mainpage.aboutrevVID' | translate}}</h3></li>
-                                              <br><button  class="button2 button" routerLink="/residentServices/2">{{'mainpage.revVID' | translate}}</button>
+                                              <br><button  class="button2 button" routerLink="revokeVid">{{'mainpage.revVID' | translate}}</button>
                                             </ul>
                                     </li>
 
@@ -93,31 +93,18 @@
                                         <div class="cs-top-gradient"></div>
                                         <div class="content-body-cover">
                                             <div class="content-body">
-                                                <h2 class="Check VID Status">{{'mainpage.checkVIDStatus' | translate}}</h2>
+                                                <h2 class="ServiceRequestStatus">{{'mainpage.ServiceRequestStatus' | translate}}</h2>
                             
                                             </div>
                                         </div>                                       
                                         <ul class="nav-child unstyled small pl-80">
-                                            <br> <li class=" item-2378 child-class"><h3>{{'mainpage.twotypesVID' | translate}}</h3></li>
-                                            <li class=" item-2380 child-class"><h3>{{'mainpage.aboutVIDStatus' | translate}}</h3></li>
-                                            <br>   <button  class="button2 button" routerLink="/residentServices/3">{{'mainpage.checkVIDStatus' | translate}}</button>
+                                            <br> <li class=" item-2378 child-class"><h3>{{'mainpage.statuscheck' | translate}}</h3></li>
+                                            <li class=" item-2380 child-class"><h3>{{'mainpage.statuscheck1' | translate}}</h3></li>
+                                            <br>   <button  class="button2 button" routerLink="/servReqCheckStatus">{{'mainpage.ServiceRequestStatus' | translate}}</button>
                                             </ul>
                                     </li>
 
-                                    <li class=" item-2377 menu12 deeper parent">
-                                        <div class="cs-top-gradient"></div>
-                                        <div class="content-body-cover">
-                                            <div class="content-body">
-                                                <h2 class="Update UIN">{{'mainpage.UpdateUIN' | translate}}</h2>
-                            
-                                            </div>
-                                        </div>                                       
-                                        <ul class="nav-child unstyled small pl-80">
-                                            <br>  <li class=" item-2378 child-class"><h3>{{'mainpage.aboutUIN' | translate}}</h3></li>
-                                            <li class=" item-2380 child-class"><h3>{{'mainpage.aboutUIN1' | translate}}</h3></li>
-                                            <br>   <button  class="button2 button" routerLink="/residentServices/4">{{'mainpage.UpdateUIN' | translate}}</button>
-                                            </ul>
-                                    </li>
+                                    
 
                                     <li class=" item-2377 menu12 deeper parent">
                                         <div class="cs-top-gradient"></div>
@@ -130,7 +117,7 @@
                                         <ul class="nav-child unstyled small pl-80">
                                             <br>  <li class=" item-2378 child-class"><h3>{{'mainpage.aboutprintuin' | translate}}</h3></li>
                                             <li class=" item-2380 child-class"><h3>{{'mainpage.aboutprintuin1' | translate}}</h3></li>
-                                            <br> <button  class="button2 button" routerLink="/residentServices/5">{{'mainpage.reqprintuin' | translate}}</button>
+                                            <br> <button  class="button2 button" routerLink="/requestUin">{{'mainpage.reqprintuin' | translate}}</button>
                                             </ul>
                                     </li>
                                     <li class=" item-2377 menu12 deeper parent">
@@ -144,7 +131,7 @@
                                         <ul class="nav-child unstyled small pl-80">
                                             <br> <li class=" item-2378 child-class"><h3>{{'mainpage.abouteuin' | translate}}</h3></li>
                                             <li class=" item-2380 child-class"><h3>{{'mainpage.abouteuin1' | translate}}</h3></li>
-                                            <br> <button  class="button2 button" routerLink="/residentServices/6">{{'mainpage.reqeuin' | translate}}</button>
+                                            <br> <button  class="button2 button" routerLink="/requestEuin">{{'mainpage.reqeuin' | translate}}</button>
                                             </ul>
                                     </li>
                                     <li class=" item-2377 menu12 deeper parent">
@@ -158,21 +145,49 @@
                                         <ul class="nav-child unstyled small pl-80">
                                             <br> <li class=" item-2378 child-class"><h3>{{'mainpage.aboutdemographic' | translate}}</h3></li>
                                             <li class=" item-2380 child-class"><h3>{{'mainpage.aboutdemographic1' | translate}}</h3></li>
-                                            <br> <button  class="button2 button" routerLink="/residentServices/7">{{'mainpage.Updatedemographic' | translate}}</button>
+                                            <br> <button  class="button2 button" routerLink="/updateDemograhic">{{'mainpage.Updatedemographic' | translate}}</button>
                                             </ul>
                                     </li>
                                     <li class=" item-2377 menu12 deeper parent">
                                         <div class="cs-top-gradient"></div>
                                         <div class="content-body-cover">
                                             <div class="content-body">
-                                                <h2 class="Lock/Unlock">{{'mainpage.lockunlock' | translate}}</h2>
+                                                <h2 class="Check Authentication history">{{'mainpage.CheckAuthenticationHistory' | translate}}</h2>
+                            
+                                            </div>
+                                        </div>                                       
+                                        <ul class="nav-child unstyled small pl-80">
+                                            <br>  <li class=" item-2378 child-class"><h3>{{'mainpage.aboutauthhist' | translate}}</h3></li>
+                                            <li class=" item-2380 child-class"><h3>{{'mainpage.aboutauthhist1' | translate}}</h3></li>
+                                            <br>   <button  class="button2 button" routerLink="/authHistory">{{'mainpage.CheckAuthenticationHistory' | translate}}</button>
+                                            </ul>
+                                    </li>
+                                    <li class=" item-2377 menu12 deeper parent">
+                                        <div class="cs-top-gradient"></div>
+                                        <div class="content-body-cover">
+                                            <div class="content-body">
+                                                <h2 class="Lock">{{'mainpage.Lock' | translate}}</h2>
+                            
+                                            </div>
+                                        </div>                                       
+                                        <ul class="nav-child unstyled small pl-80">
+                                            <br>  <li class=" item-2378 child-class"><h3>{{'mainpage.aboutlock' | translate}}</h3></li>
+                                            <li class=" item-2380 child-class"><h3>{{'mainpage.aboutlock1' | translate}}</h3></li>
+                                            <br>   <button  class="button2 button" routerLink="/lock">{{'mainpage.Lock' | translate}}</button>
+                                            </ul>
+                                    </li>
+                                    <li class=" item-2377 menu12 deeper parent">
+                                        <div class="cs-top-gradient"></div>
+                                        <div class="content-body-cover">
+                                            <div class="content-body">
+                                                <h2 class="Unlock">{{'mainpage.unlock' | translate}}</h2>
                             
                                             </div>
                                         </div>                                       
                                         <ul class="nav-child unstyled small pl-80">
                                             <br>  <li class=" item-2378 child-class"><h3>{{'mainpage.aboutlockunlock' | translate}}</h3></li>
                                             <li class=" item-2380 child-class"><h3>{{'mainpage.aboutlockunlock1' | translate}}</h3></li>
-                                            <br> <button  class="button2 button" routerLink="/residentServices/8">{{'mainpage.lockunlock' | translate}}</button>
+                                            <br> <button  class="button2 button" routerLink="/unlock">{{'mainpage.unlock' | translate}}</button>
                                             </ul>
                                     </li>
 
