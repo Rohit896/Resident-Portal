@@ -449,7 +449,20 @@ export class DataStorageService {
       return this.httpClient.post(url,obj);
     }
 
-    updateDemographic(userId: string, otp: string) {
+    updateDemographic(authId: string, otp: string, idType:string) {
+      console.log("inside update demographic");
+      const request = {
+        individualId: authId,
+        individualIdType: idType,
+        otp: otp,
+        transactionID: "0987654321",
+        identityJson:"<base64 encoded identity json byte array>",
+        documents:[{name:"abc",value:"abc"}]
+      };
+      const obj = new RequestModel(appConstants.IDS.updateDemo, request);
+      const url= this.BASE_URL+ appConstants.APPEND_URL.resident_service + appConstants.APPEND_URL.updateDemo;
+  //    const url = this.BASE_URL + appConstants.APPEND_URL.resident+ appConstants.APPEND_URL.vid;
+      return this.httpClient.post(url,obj);
     
     }
 

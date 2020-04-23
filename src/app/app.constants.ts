@@ -29,7 +29,8 @@ export const IDS = {
   serviceRequest:'mosip.resident.uinstatus',
   authHistory:'mosip.resident.authhistory',
   lockUIN:'mosip.resident.authlock',
-  unlockUIN:'mosip.resident.authunlock'
+  unlockUIN:'mosip.resident.authunlock',
+  updateDemo:'mosip.resident.updateuin'
 };
 
 export const APPEND_URL = {
@@ -70,7 +71,8 @@ export const APPEND_URL = {
   vid_service:'vid',
   lock_service:'req/auth-lock',
   unlock_service:'req/auth-unlock',
-  authHistory:'req/auth-history'
+  authHistory:'req/auth-history',
+  updateDemo:'req/update-uin'
 
 };
 
