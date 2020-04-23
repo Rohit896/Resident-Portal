@@ -152,6 +152,16 @@ export class RequestUinComponent implements OnInit,OnDestroy {
         this.dataService.generateToken().subscribe(response=>{
         this.dataService.sendOtpForServices(this.inputDetails,this.idType).subscribe(response=>{
           console.log("otp generated");
+          if (!response['errors']) {
+            this.showOtpMessage();
+        } else {
+          this.disableVerify = false;
+          this.showOtpMessage();
+        }
+      },
+      error => {
+        this.disableVerify = false;
+        this.showErrorMessage();
         });
       });
       // dynamic update of button text for Resend and Verify
@@ -174,7 +184,7 @@ export class RequestUinComponent implements OnInit,OnDestroy {
     this.inputOTP = '';
     let factory = new LanguageFactory(localStorage.getItem('langCode'));
     let response = factory.getCurrentlanguage();
-    let otpmessage = response['message']['login']['msg3'];
+    let otpmessage = response['authCommonText']['otpSent'];
     const message = {
       case: 'MESSAGE',
       message: otpmessage
