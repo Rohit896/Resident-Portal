@@ -7,6 +7,7 @@ import { Applicant } from '../../shared/models/dashboard-model/dashboard.modal';
 import { ConfigService } from './config.service';
 import { RequestModel} from 'src/app/shared/models/request-model/RequestModel';
 import { RequestModelSendOtp} from 'src/app/shared/models/request-model/RequestModelSendOtp';
+import { RequestModelServices} from 'src/app/shared/models/request-model/RequestModelServices';
 
 import Utils from 'src/app/app.util';
 
@@ -410,7 +411,7 @@ export class DataStorageService {
         cardType: "MASKED_UIN"
       };
   
-      const obj = new RequestModel(appConstants.IDS.printUIN, req);
+      const obj = new RequestModelServices(appConstants.IDS.printUIN, req);
   
       const url = this.BASE_URL + appConstants.APPEND_URL.resident_service +appConstants.APPEND_URL.print_uin ;
       return this.httpClient.post(url, obj);
@@ -427,7 +428,7 @@ export class DataStorageService {
         vidType: "Temporary"
       };
   
-      const obj = new RequestModel(appConstants.IDS.generateVidId, request);
+      const obj = new RequestModelServices(appConstants.IDS.generateVidId, request);
       const url= this.BASE_URL + appConstants.APPEND_URL.resident_service + appConstants.APPEND_URL.vid_service;
   //    const url = this.BASE_URL + appConstants.APPEND_URL.resident+ appConstants.APPEND_URL.vid;
       return this.httpClient.post(url,obj);

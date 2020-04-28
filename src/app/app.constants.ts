@@ -1,4 +1,5 @@
 export const VERSION = '1.0';
+export const VERSION1 = 'v1';
 export const RESPONSE = 'response';
 export const METADATA = 'documentsMetaData';
 export const ERROR = 'error';
@@ -24,7 +25,8 @@ export const IDS = {
   sendOtpForServices:'mosip.identity.otp.internal',
   revokeVid: 'mosip.resident.vidstatus',
   residentTokenId:'io.mosip.resident',
-  printUIN: 'mosip.resident.reprintuin',
+
+  printUIN: 'mosip.resident.printuin',
   getEUIN: 'mosip.resident.euin',
   serviceRequest:'mosip.resident.uinstatus',
   authHistory:'mosip.resident.authhistory',
