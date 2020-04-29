@@ -99,7 +99,7 @@ export class UpdateDemographicComponent implements OnInit {
     }
   }
   submit(): void {
-    if ((this.showSendOTP || this.showResend) && this.errorMessage === undefined )  {
+  /*  if ((this.showSendOTP || this.showResend) && this.errorMessage === undefined )  {
       this.inputOTP = '';
       this.showResend = true;
       this.showOTP = true;
@@ -155,12 +155,15 @@ export class UpdateDemographicComponent implements OnInit {
             this.disableVerify = true;
             clearInterval(this.timer);
             this.revokeVid();   
+*/
 
+
+this.router.navigate(['updatedemo']);
       }
   
-}
-  revokeVid(){
-    console.log("revokeVid");
+
+ /*revokeVid(){
+   console.log("revokeVid");
   }
 
   showOtpMessage() {
@@ -191,6 +194,6 @@ export class UpdateDemographicComponent implements OnInit {
       data: message
     });
   }
-
+*/
 
 }
