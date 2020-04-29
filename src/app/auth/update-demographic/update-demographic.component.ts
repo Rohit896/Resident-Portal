@@ -160,7 +160,7 @@ export class UpdateDemographicComponent implements OnInit {
 
 this.router.navigate(['updatedemo']);
       }
-  
+    //}
 
  /*revokeVid(){
    console.log("revokeVid");
