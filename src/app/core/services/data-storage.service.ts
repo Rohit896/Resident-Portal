@@ -7,7 +7,7 @@ import { Applicant } from '../../shared/models/dashboard-model/dashboard.modal';
 import { ConfigService } from './config.service';
 import { RequestModel} from 'src/app/shared/models/request-model/RequestModel';
 import { RequestModelSendOtp} from 'src/app/shared/models/request-model/RequestModelSendOtp';
-
+import { RequestModelServices } from 'src/app/shared/models/request-model/RequestModelServices';
 import Utils from 'src/app/app.util';
 
 /**
@@ -357,12 +357,7 @@ export class DataStorageService {
 
       const obj = new RequestModelSendOtp(uin,idType);
       const url= this.BASE_URL+'idauthentication/v1/internal/otp';
-      
-      this.generateToken().subscribe(response=>{
-        
-      });
       return this.httpClient.post(url, obj);
-      
 
     }
 
@@ -392,7 +387,7 @@ export class DataStorageService {
         cardType: "MASKED_UIN"
       };
   
-      const obj = new RequestModel(appConstants.IDS.getEUIN, req);
+      const obj = new RequestModelServices(appConstants.IDS.getEUIN, req);
   
       const url = this.BASE_URL +'resident/v1/req/euin';
       return this.httpClient.post(url, obj);
@@ -409,7 +404,7 @@ export class DataStorageService {
         cardType: "MASKED_UIN"
       };
   
-      const obj = new RequestModel(appConstants.IDS.printUIN, req);
+      const obj = new RequestModelServices(appConstants.IDS.printUIN, req);
   
       const url = this.BASE_URL +'resident/v1/req/print-uin';
       return this.httpClient.post(url, obj);
@@ -426,7 +421,7 @@ export class DataStorageService {
         vidType: "Temporary"
       };
   
-      const obj = new RequestModel(appConstants.IDS.generateVidId, request);
+      const obj = new RequestModelServices(appConstants.IDS.generateVidId, request);
       const url= this.BASE_URL+'resident/v1/vid';
       return this.httpClient.post(url,obj);
   
@@ -441,7 +436,7 @@ export class DataStorageService {
         transactionID: "0987654321",
         vidStatus: "REVOKED"
       };
-      const obj = new RequestModel(appConstants.IDS.revokeVid, request);
+      const obj = new RequestModelServices(appConstants.IDS.revokeVid, request);
       const url= this.BASE_URL+'resident/v1/vid/'+vid;
       return this.httpClient.post(url,obj);
     }
@@ -459,7 +454,7 @@ export class DataStorageService {
         transactionID: "0987654321",
         authType:authArray
       };
-      const obj = new RequestModel(appConstants.IDS.lockUIN, request);
+      const obj = new RequestModelServices(appConstants.IDS.lockUIN, request);
       const url= this.BASE_URL+'resident/v1/req/auth-lock';
   //    const url = this.BASE_URL + appConstants.APPEND_URL.resident+ appConstants.APPEND_URL.vid;
       return this.httpClient.post(url,obj);
@@ -475,7 +470,7 @@ export class DataStorageService {
         transactionID: "0987654321",
         authType:authArray
       };
-      const obj = new RequestModel(appConstants.IDS.unlockUIN, request);
+      const obj = new RequestModelServices(appConstants.IDS.unlockUIN, request);
       const url= this.BASE_URL+'resident/v1/req/auth-unlock';
   //    const url = this.BASE_URL + appConstants.APPEND_URL.resident+ appConstants.APPEND_URL.vid;
       return this.httpClient.post(url,obj);
@@ -491,7 +486,7 @@ export class DataStorageService {
         otp: otp,
         transactionID: "0987654321",
       };
-      const obj = new RequestModel(appConstants.IDS.authHistory, request);
+      const obj = new RequestModelServices(appConstants.IDS.authHistory, request);
       const url= this.BASE_URL+'resident/v1/req/auth-history';
   //    const url = this.BASE_URL + appConstants.APPEND_URL.resident+ appConstants.APPEND_URL.vid;
       return this.httpClient.post(url,obj);

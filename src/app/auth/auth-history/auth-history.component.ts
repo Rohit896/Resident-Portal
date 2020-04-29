@@ -150,13 +150,14 @@ export class AuthHistoryComponent implements OnInit,OnDestroy {
         this.dataService.generateToken().subscribe(response=>{
           this.dataService.sendOtpForServices(this.inputDetails,this.idType).subscribe(response=>{
              console.log("otp generated");
+             console.log(response);
             // if()
             // this.showOtpMessage();
             if (!response['errors']) {
                 this.showOtpMessage();
             } else {
               this.disableVerify = false;
-              this.showOtpMessage();
+              this.showErrorMessage();
             }
           },
           error => {

@@ -87,8 +87,8 @@ export class GenerateVidComponent implements OnInit,OnDestroy{
 
   showVerifyBtn() {
     if (
-      this.inputOTP.length ===
-      Number(this.configService.getConfigByKey(appConstants.CONFIG_KEYS.mosip_kernel_otp_default_length))
+      this.inputOTP.length === 6
+     // Number(this.configService.getConfigByKey(appConstants.CONFIG_KEYS.mosip_kernel_otp_default_length))
     ) {
       this.showVerify = true;
       this.showResend = false;
@@ -149,6 +149,7 @@ export class GenerateVidComponent implements OnInit,OnDestroy{
         this.dataService.generateToken().subscribe(response=>{
         this.dataService.sendOtpForServices(this.inputUinDetails,"UIN").subscribe(response=>{
           console.log("otp generated");
+          console.log(response);
         });
 
       });
