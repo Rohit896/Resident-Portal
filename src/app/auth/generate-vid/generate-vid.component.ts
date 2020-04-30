@@ -149,6 +149,7 @@ export class GenerateVidComponent implements OnInit,OnDestroy{
         this.dataService.generateToken().subscribe(response=>{
         this.dataService.sendOtpForServices(this.inputUinDetails,"UIN").subscribe(response=>{
           console.log("otp generated");
+          console.log(response);
 
           if (!response['errors']) {
             this.showOtpMessage();
