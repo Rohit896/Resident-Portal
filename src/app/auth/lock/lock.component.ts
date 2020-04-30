@@ -155,10 +155,24 @@ export class LockComponent implements OnInit,OnDestroy {
         this.timer = setInterval(timerFn, 1000);
       }
 
+
+      this.dataService.generateToken().subscribe(response=>{
         this.dataService.sendOtpForServices(this.inputDetails,this.idType).subscribe(response=>{
           console.log(response);
           console.log("otp generated");
+          if (!response['errors']) {
+            this.showOtpMessage();
+        } else {
+          this.disableVerify = false;
+          this.showOtpMessage();
+        }
+      },
+      error => {
+        this.disableVerify = false;
+        this.showErrorMessage();
+      });
         });
+    
       // dynamic update of button text for Resend and Verify
     } else if (this.showVerify && this.errorMessage === undefined ) {
             this.disableVerify = true;
@@ -177,18 +191,17 @@ export class LockComponent implements OnInit,OnDestroy {
       if(this.bioIir)
         auth.push('bio-IIR');
 
-        this.dataService.generateToken().subscribe(response=>{
+        
       this.dataService.lockUIN(this.inputDetails,this.inputOTP,auth,this.idType).subscribe(response=>{
         console.log(response);
       });
-    });
-  }
+    }
 
   showOtpMessage() {
     this.inputOTP = '';
     let factory = new LanguageFactory(localStorage.getItem('langCode'));
     let response = factory.getCurrentlanguage();
-    let otpmessage = response['message']['login']['msg3'];
+    let otpmessage = response['authCommonText']['otpSent'];
     const message = {
       case: 'MESSAGE',
       message: otpmessage

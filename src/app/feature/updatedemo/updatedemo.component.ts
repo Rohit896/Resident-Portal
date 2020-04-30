@@ -36,17 +36,17 @@ export class UpdatedemoComponent implements OnInit {
   {
     console.log(this.fileByteArray);
     console.log(this.fileToUpload);
-    console.log(this.house);
-    console.log(this.street);
-    console.log(this.area);
-    console.log(this.landmark);
-    console.log(this.pincode);
-    console.log(this.village);
-    console.log(this.postOffice);
-    console.log(this.district);
-    console.log(this.state);
+    // console.log(this.house);
+    // console.log(this.street);
+    // console.log(this.area);
+    // console.log(this.landmark);
+    // console.log(this.pincode);
+    // console.log(this.village);
+    // console.log(this.postOffice);
+    // console.log(this.district);
+    // console.log(this.state);
 
-    this.dataService.updateDemographic()
+    this.dataService.updateDemographic(this.fileByteArray,this.fileToUpload);
   }
   getBase64(file) {
     return new Promise((resolve, reject) => {

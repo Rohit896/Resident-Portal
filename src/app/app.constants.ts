@@ -1,4 +1,5 @@
 export const VERSION = '1.0';
+export const SERVICEVERSION = 'v1';
 export const RESPONSE = 'response';
 export const METADATA = 'documentsMetaData';
 export const ERROR = 'error';
@@ -29,7 +30,8 @@ export const IDS = {
   serviceRequest:'mosip.resident.uinstatus',
   authHistory:'mosip.resident.authhistory',
   lockUIN:'mosip.resident.authlock',
-  unlockUIN:'mosip.resident.authunlock'
+  unlockUIN:'mosip.resident.authunlock',
+  updateDemo:'mosip.resident.updateuin'
 };
 
 export const APPEND_URL = {
@@ -61,7 +63,18 @@ export const APPEND_URL = {
   master_data: 'v1/masterdata/',
   auth: 'login/',
   cancelAppointment: 'appointment/',
-  vid : '/vid'
+  vid : '/vid',
+  otp_service:'idauthentication/v1/internal/otp',
+  resident_service:'resident/v1/',
+  check_status:'rid/check-status',
+  euin:'req/euin',
+  print_uin:'req/print-uin',
+  vid_service:'vid',
+  lock_service:'req/auth-lock',
+  unlock_service:'req/auth-unlock',
+  authHistory:'req/auth-history',
+  updateDemo:'req/update-uin'
+
 };
 
 export const PARAMS_KEYS = {

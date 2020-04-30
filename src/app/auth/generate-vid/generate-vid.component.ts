@@ -87,8 +87,7 @@ export class GenerateVidComponent implements OnInit,OnDestroy{
 
   showVerifyBtn() {
     if (
-      this.inputOTP.length === 6
-     // Number(this.configService.getConfigByKey(appConstants.CONFIG_KEYS.mosip_kernel_otp_default_length))
+      this.inputOTP.length ===Number(this.configService.getConfigByKey(appConstants.CONFIG_KEYS.mosip_kernel_otp_default_length))
     ) {
       this.showVerify = true;
       this.showResend = false;
@@ -149,7 +148,17 @@ export class GenerateVidComponent implements OnInit,OnDestroy{
         this.dataService.generateToken().subscribe(response=>{
         this.dataService.sendOtpForServices(this.inputUinDetails,"UIN").subscribe(response=>{
           console.log("otp generated");
-          console.log(response);
+
+          if (!response['errors']) {
+            this.showOtpMessage();
+        } else {
+          this.disableVerify = false;
+          this.showOtpMessage();
+        }
+      },
+      error => {
+        this.disableVerify = false;
+        this.showErrorMessage();
         });
 
       });
@@ -175,7 +184,7 @@ export class GenerateVidComponent implements OnInit,OnDestroy{
     this.inputOTP = '';
     let factory = new LanguageFactory(localStorage.getItem('langCode'));
     let response = factory.getCurrentlanguage();
-    let otpmessage = response['message']['login']['msg3'];
+    let otpmessage = response['authCommonText']['otpSent'];
     const message = {
       case: 'MESSAGE',
       message: otpmessage

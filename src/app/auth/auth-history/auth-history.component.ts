@@ -178,6 +178,7 @@ export class AuthHistoryComponent implements OnInit,OnDestroy {
     console.log("getAuthHistory");
     this.dataService.authHistory(this.inputDetails,this.inputOTP,this.idType).subscribe(response=>{
       console.log(response);
+      
     });
   }
 
