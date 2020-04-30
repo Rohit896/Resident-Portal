@@ -99,7 +99,7 @@ export class UpdateDemographicComponent implements OnInit,OnDestroy {
     }
   }
   submit(): void {
-    if ((this.showSendOTP || this.showResend) && this.errorMessage === undefined )  {
+  /*  if ((this.showSendOTP || this.showResend) && this.errorMessage === undefined )  {
       this.inputOTP = '';
       this.showResend = true;
       this.showOTP = true;
@@ -165,16 +165,16 @@ export class UpdateDemographicComponent implements OnInit,OnDestroy {
     } else if (this.showVerify && this.errorMessage === undefined ) {
             this.disableVerify = true;
             clearInterval(this.timer);
-            this.updateDemographic();   
+            this.revokeVid();   
+*/
 
+
+this.router.navigate(['updatedemo']);
       }
-  
-}
-updateDemographic(){
-    console.log("update demographic");
-    this.dataService.authHistory(this.inputDetails,this.inputOTP,this.idType).subscribe(response=>{
-      console.log(response);
-    });
+    //}
+
+ /*revokeVid(){
+   console.log("revokeVid");
   }
 
   showOtpMessage() {
@@ -205,9 +205,13 @@ updateDemographic(){
       data: message
     });
   }
+<<<<<<< HEAD
   ngOnDestroy(){
     // console.log("component changed");
      clearInterval(this.timer);
    }
+=======
+*/
+>>>>>>> b6d42f261b451efdc92049621b2b3d86784f2214
 
 }
