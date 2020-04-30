@@ -1,4 +1,5 @@
 export const VERSION = '1.0';
+export const VERSION1 = 'v1';
 export const RESPONSE = 'response';
 export const METADATA = 'documentsMetaData';
 export const ERROR = 'error';
