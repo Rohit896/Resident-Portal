@@ -7,7 +7,7 @@ import { Applicant } from '../../shared/models/dashboard-model/dashboard.modal';
 import { ConfigService } from './config.service';
 import { RequestModel} from 'src/app/shared/models/request-model/RequestModel';
 import { RequestModelSendOtp} from 'src/app/shared/models/request-model/RequestModelSendOtp';
-
+git ;
 import Utils from 'src/app/app.util';
 
 /**
@@ -365,7 +365,6 @@ export class DataStorageService {
         
       });
       return this.httpClient.post(url, obj);
-      
 
     }
 
@@ -393,7 +392,7 @@ export class DataStorageService {
         cardType: "MASKED_UIN"
       };
   
-      const obj = new RequestModel(appConstants.IDS.getEUIN, req);
+      const obj = new RequestModelServices(appConstants.IDS.getEUIN, req);
   
       const url = this.BASE_URL + appConstants.APPEND_URL.resident_service +appConstants.APPEND_URL.euin;
       return this.httpClient.post(url, obj);
@@ -410,7 +409,7 @@ export class DataStorageService {
         cardType: "MASKED_UIN"
       };
   
-      const obj = new RequestModel(appConstants.IDS.printUIN, req);
+      const obj = new RequestModelServices(appConstants.IDS.printUIN, req);
   
       const url = this.BASE_URL + appConstants.APPEND_URL.resident_service +appConstants.APPEND_URL.print_uin ;
       return this.httpClient.post(url, obj);

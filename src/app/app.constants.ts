@@ -24,7 +24,7 @@ export const IDS = {
   sendOtpForServices:'mosip.identity.otp.internal',
   revokeVid: 'mosip.resident.vidstatus',
   residentTokenId:'io.mosip.resident',
-  printUIN: 'mosip.resident.reprintuin',
+  printUIN: 'mosip.resident.printuin',
   getEUIN: 'mosip.resident.euin',
   serviceRequest:'mosip.resident.uinstatus',
   authHistory:'mosip.resident.authhistory',

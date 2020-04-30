@@ -87,8 +87,13 @@ export class GenerateVidComponent implements OnInit,OnDestroy{
 
   showVerifyBtn() {
     if (
+<<<<<<< HEAD
       this.inputOTP.length ===6
       //Number(this.configService.getConfigByKey(appConstants.CONFIG_KEYS.mosip_kernel_otp_default_length))
+=======
+      this.inputOTP.length === 6
+     // Number(this.configService.getConfigByKey(appConstants.CONFIG_KEYS.mosip_kernel_otp_default_length))
+>>>>>>> ff0e188ac71e120609680165f0303907564c1a9b
     ) {
       this.showVerify = true;
       this.showResend = false;
