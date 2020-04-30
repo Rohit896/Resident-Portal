@@ -15,6 +15,7 @@ import { ServiceReqStatusCheckComponent } from './auth/service-req-status-check/
 import { LockComponent } from './auth/lock/lock.component';
 import { UnlockComponent } from './auth/unlock/unlock.component';
 import { AuthHistoryComponent } from "./auth/auth-history/auth-history.component";
+import { UpdatedemoComponent } from './feature/updatedemo/updatedemo.component';
 
 /**
  * @description These are the routes.
@@ -25,7 +26,7 @@ const appRoutes: Routes = [
   { path: 'about-us', component: AboutUsComponent },
   { path: 'faq', component: FaqComponent },
   { path: 'contact', component: ContactComponent },
-
+  { path: 'updatedemo', component: UpdatedemoComponent},
   { path: 'bookmodifyappointment', component: LoginComponent},
    { path: 'generateVid', component: GenerateVidComponent},
    { path: 'revokeVid', component: RevokeVidComponent},
@@ -35,6 +36,7 @@ const appRoutes: Routes = [
    { path: 'updateDemograhic', component: UpdateDemographicComponent},
    {path:'lock',component: LockComponent},
    {path:'unlock',component: UnlockComponent},
+  
    {path:'authHistory',component: AuthHistoryComponent},
 
   {

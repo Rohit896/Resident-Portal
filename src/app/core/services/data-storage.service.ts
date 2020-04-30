@@ -38,6 +38,10 @@ export class DataStorageService {
   BASE_URL = this.appConfigService.getConfig()['BASE_URL'];
   PRE_REG_URL = this.appConfigService.getConfig()['PRE_REG_URL'];
 
+  userIdUpdateDemo='';
+  otpUpdateDemo='';
+  idTypeUpdateDemo='';
+
   getUsers(userId: string) {
     let url = this.BASE_URL + this.PRE_REG_URL + appConstants.APPEND_URL.applicants;
     return this.httpClient.get<Applicant[]>(url);
@@ -441,8 +445,30 @@ export class DataStorageService {
       return this.httpClient.post(url,obj);
     }
 
-    updateDemographic(userId: string, otp: string) {
-    
+    updateDemoUserOtp(userId: string, otp: string, idType:string  ){
+      this.userIdUpdateDemo=userId;
+      this.otpUpdateDemo=otp;
+      this.idTypeUpdateDemo=idType;
+    }
+    updateDemographic( docByteArray:any, fileData:File) {
+    console.log("Inside UpdateDemo");
+    console.log(this.userIdUpdateDemo);
+
+      const request={ 
+        transactionID :"0987654321",
+        individualId : this.userIdUpdateDemo,
+        individualIdType : this.idTypeUpdateDemo,
+        otp : this.otpUpdateDemo,
+        identityJson : "<base64 encoded identity json byte array>",
+        documents:[ 
+           { 
+              name:fileData.name,
+              value: docByteArray
+           }
+        ]
+     }
+
+
     }
 
     lockUIN(authId: string, otp: string,authArray:string[], idType:string){

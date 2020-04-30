@@ -254,12 +254,14 @@
     ]
   },
   "header": {
+    "home":"الصفحة الرئيسية",
     "link_about": "ابدء",
     "link_faq": "التعليمات",
     "link_contact": "اتصل",
     "link_applications": "تطبيقاتك",
     "link_logout": "الخروج",
     "link_login": "تسجيل الدخول",
+    "mainheading": "البوابة المقيمة",
     "link_pre-registration": "حجز / تعديل موعد"
   },
   "authCommonText":{

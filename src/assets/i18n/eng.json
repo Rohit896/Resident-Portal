@@ -254,14 +254,15 @@
     ]
   },
   "header": {
+    "home":"Home",
     "link_about": "Getting Started",
     "link_faq": "FAQ",
     "link_contact": "Contact Us",
     "link_applications": "Your Applications",
     "link_logout": "Logout",
     "link_login": "LOGIN",
-    "link_pre-registration": "Book / Modify Appointment"
-    
+    "link_pre-registration": "Book / Modify Appointment",
+    "mainheading": "Resident Portal"
   },
   "mainpage":{
     "aboutResident" : "The Resident Services will provide a host of services to an individual which can be availed after the creation of their Unique Identification Number(UIN).",
@@ -283,7 +284,7 @@
     "CheckAuthenticationHistory":"Check Authentication History",
     "aboutauthhist":" One can check the authentication history here.",
     "aboutauthhist1":"To check authentication history, you will have to feed your UIN and fill up the OTP and verify yourself",
-    "bookmodifyappointment":"Book / modify appointment",
+    "bookmodifyappointment":"Book / Modify appointment",
     "aboutappointment":"You can book an appointment for pre-registration",
     "aboutappointment1":"To book an appointment,you will have to feed your contact details and fill up the OTP to get to the dashboard",
     "reqprintuin":"Request Print UIN",

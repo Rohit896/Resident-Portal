@@ -150,19 +150,21 @@ export class UpdateDemographicComponent implements OnInit,OnDestroy {
         this.dataService.sendOtpForServices(this.inputDetails,this.idType).subscribe(response=>{
           console.log("otp generated");
           console.log(response);
+          //this.router.navigate(['updatedemo']);
         });
       });
+      this.router.navigate(['updatedemo']);
       // dynamic update of button text for Resend and Verify
     } else if (this.showVerify && this.errorMessage === undefined ) {
             this.disableVerify = true;
             clearInterval(this.timer);
-            this.revokeVid();   
-
+            this.updateDemo;   
       }
-  
-}
-  revokeVid(){
-    console.log("revokeVid");
+    }
+
+ updateDemo(){
+   console.log("UpdateDemo User Otp");
+   this.dataService.updateDemoUserOtp(this.inputDetails,this.inputOTP,this.idType);
   }
 
   showOtpMessage() {
