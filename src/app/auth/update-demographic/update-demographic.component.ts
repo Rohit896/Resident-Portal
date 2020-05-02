@@ -99,7 +99,7 @@ export class UpdateDemographicComponent implements OnInit,OnDestroy {
     }
   }
   submit(): void {
-  /*  if ((this.showSendOTP || this.showResend) && this.errorMessage === undefined )  {
+   if ((this.showSendOTP || this.showResend) && this.errorMessage === undefined )  {
       this.inputOTP = '';
       this.showResend = true;
       this.showOTP = true;
@@ -161,19 +161,20 @@ export class UpdateDemographicComponent implements OnInit,OnDestroy {
         this.showErrorMessage();
         });
       });
+
+      this.router.navigate(['updatedemo']);
       // dynamic update of button text for Resend and Verify
     } else if (this.showVerify && this.errorMessage === undefined ) {
             this.disableVerify = true;
             clearInterval(this.timer);
             this.revokeVid();   
-*/
 
 
-this.router.navigate(['updatedemo']);
+
       }
-    //}
+  }
 
- /*revokeVid(){
+ revokeVid(){
    console.log("revokeVid");
   }
 
@@ -205,13 +206,9 @@ this.router.navigate(['updatedemo']);
       data: message
     });
   }
-<<<<<<< HEAD
-  ngOnDestroy(){
-    // console.log("component changed");
-     clearInterval(this.timer);
-   }
-=======
-*/
->>>>>>> b6d42f261b451efdc92049621b2b3d86784f2214
 
+   ngOnDestroy()
+   {
+    clearInterval(this.timer);
+   }
 }

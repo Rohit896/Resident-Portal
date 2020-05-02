@@ -39,6 +39,14 @@
   <div class="form-group"><label class="col-md-4 control-label" for="filebutton">Upload Address Proof</label>
   <div class="col-md-4"><input id="filebutton" [(ngModel)]="upload" class="input-file" name="filebutton" type="file" /></div>
   </div>
+
+
+  <div class="form-group">
+    <label for="file">New File</label>
+    <input type="file"
+           id="file"
+           (change)="handleFileInput($event.target.files)">
+</div>
 <br />
 
   <div class="form-group"><label class="col-md-4 control-label" for="singlebutton"></label>
