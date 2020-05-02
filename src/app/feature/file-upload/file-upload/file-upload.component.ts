@@ -81,8 +81,8 @@ export class FileUploadComponent implements OnInit, OnDestroy {
     attribute: '',
     value: ''
   };
-  documentCategoryrequestDto: DocumentCategoryDTO[];
   documentRequest: RequestModel;
+  documentCategoryrequestDto: DocumentCategoryDTO[];
   step: number = 0;
   multipleApplicants: boolean = false;
   allApplicants: any[] = [];

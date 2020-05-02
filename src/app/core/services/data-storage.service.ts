@@ -7,8 +7,7 @@ import { Applicant } from '../../shared/models/dashboard-model/dashboard.modal';
 import { ConfigService } from './config.service';
 import { RequestModel} from 'src/app/shared/models/request-model/RequestModel';
 import { RequestModelSendOtp} from 'src/app/shared/models/request-model/RequestModelSendOtp';
-import { RequestModelServices} from 'src/app/shared/models/request-model/RequestModelServices';
-
+import { RequestModelServices } from 'src/app/shared/models/request-model/RequestModelServices';
 import Utils from 'src/app/app.util';
 
 /**
@@ -38,6 +37,10 @@ export class DataStorageService {
 
   BASE_URL = this.appConfigService.getConfig()['BASE_URL'];
   PRE_REG_URL = this.appConfigService.getConfig()['PRE_REG_URL'];
+
+  userIdUpdateDemo:string;
+  otpUpdateDemo:string;
+  idTypeUpdateDemo:string;
 
   getUsers(userId: string) {
     let url = this.BASE_URL + this.PRE_REG_URL + appConstants.APPEND_URL.applicants;
@@ -361,10 +364,13 @@ export class DataStorageService {
       //const url = this.BASE_URL + this.PRE_REG_URL + appConstants.APPEND_URL.auth + appConstants.APPEND_URL.send_otp;
       const url= this.BASE_URL+appConstants.APPEND_URL.otp_service;
       console.log("in sendotpforservices");
+<<<<<<< HEAD
       
       this.generateToken().subscribe(response=>{
         
       });
+=======
+>>>>>>> a054a470cc409766b010f41bcdc4d638dc726c67
       return this.httpClient.post(url, obj);
 
     }
@@ -443,27 +449,42 @@ export class DataStorageService {
         transactionID: "0987654321",
         vidStatus: "REVOKED"
       };
+<<<<<<< HEAD
       const obj = new RequestModel(appConstants.IDS.revokeVid, request);
       const url= this.BASE_URL+  appConstants.APPEND_URL.resident_service + appConstants.APPEND_URL.vid_service + '/' +vid;
   //    const url = this.BASE_URL + appConstants.APPEND_URL.resident+ appConstants.APPEND_URL.vid;
+=======
+      const obj = new RequestModelServices(appConstants.IDS.revokeVid, request);
+      const url= this.BASE_URL+'resident/v1/vid/'+vid;
+>>>>>>> a054a470cc409766b010f41bcdc4d638dc726c67
       return this.httpClient.post(url,obj);
     }
 
-    updateDemographic(authId: string, otp: string, idType:string) {
-      console.log("inside update demographic");
-      const request = {
-        individualId: authId,
-        individualIdType: idType,
-        otp: otp,
-        transactionID: "0987654321",
-        identityJson:"<base64 encoded identity json byte array>",
-        documents:[{name:"abc",value:"abc"}]
-      };
-      const obj = new RequestModel(appConstants.IDS.updateDemo, request);
-      const url= this.BASE_URL+ appConstants.APPEND_URL.resident_service + appConstants.APPEND_URL.updateDemo;
-  //    const url = this.BASE_URL + appConstants.APPEND_URL.resident+ appConstants.APPEND_URL.vid;
-      return this.httpClient.post(url,obj);
-    
+    updateDemoUserOtp(userId: string, otp: string, idType:string  ){
+      this.userIdUpdateDemo=userId;
+      this.otpUpdateDemo=otp;
+      this.idTypeUpdateDemo=idType;
+    }
+    updateDemographic( docByteArray:any, fileData:File) {
+    console.log("Inside UpdateDemo");
+    console.log(this.userIdUpdateDemo);
+
+      const request={ 
+        transactionID :"0987654321",
+        individualId : this.userIdUpdateDemo,
+        individualIdType : this.idTypeUpdateDemo,
+        otp : this.otpUpdateDemo,
+        identityJson : "<base64 encoded identity json byte array>",
+        documents:[ 
+           { 
+              name:fileData.name,
+              value: docByteArray
+           }
+        ]
+     }
+     //const url='';
+     //return this.httpClient.post(url,);
+
     }
 
     lockUIN(authId: string, otp: string,authArray:string[], idType:string){
