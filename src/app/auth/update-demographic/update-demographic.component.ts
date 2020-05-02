@@ -161,7 +161,7 @@ export class UpdateDemographicComponent implements OnInit,OnDestroy {
         this.showErrorMessage();
         });
       });
-     // this.updateDemo();
+      this.updateDemo();
       this.router.navigate(['updatedemo']);
       // dynamic update of button text for Resend and Verify
     } else if (this.showVerify && this.errorMessage === undefined ) {
