@@ -12,18 +12,6 @@ export class UpdatedemoComponent implements OnInit {
   house='';
   street='';
   area='';
-<<<<<<< HEAD
-  Landmark='';
-  Pincode='';
-  Village='';
-  PostOffice='';
-  District='';
-  State='';
-  upload='';
-  fileToUpload: File = null;
-  fileByteArray;
-  constructor() { }
-=======
   landmark='';
   pincode='';
   village='';
@@ -34,7 +22,6 @@ export class UpdatedemoComponent implements OnInit {
   fileToUpload:File=null;
   fileByteArray:any;
   constructor(private dataService:DataStorageService) { }
->>>>>>> a054a470cc409766b010f41bcdc4d638dc726c67
 
   ngOnInit() {
   }
@@ -47,10 +34,6 @@ export class UpdatedemoComponent implements OnInit {
 }
   submit()
   {
-<<<<<<< HEAD
-    console.log(this.upload);
-    
-=======
     console.log(this.fileByteArray);
     console.log(this.fileToUpload);
     // console.log(this.house);
@@ -72,26 +55,9 @@ export class UpdatedemoComponent implements OnInit {
       reader.onload = () => resolve(reader.result);
       reader.onerror = error => reject(error);
     });
->>>>>>> a054a470cc409766b010f41bcdc4d638dc726c67
   }
 
-  handleFileInput(files: FileList) {
-    this.fileToUpload = files.item(0);
-    console.log( this.fileToUpload);
-    this.getBase64(this.fileToUpload).then(data => {
-      this.fileByteArray = data;
-    });
-    console.log("filebytearray"+ this.fileByteArray);
-
     
-}
 
-getBase64(file) {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => resolve(reader.result);
-    reader.onerror = error => reject(error);
-  });
-}
+
 }
