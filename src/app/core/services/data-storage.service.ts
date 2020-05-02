@@ -364,13 +364,6 @@ export class DataStorageService {
       //const url = this.BASE_URL + this.PRE_REG_URL + appConstants.APPEND_URL.auth + appConstants.APPEND_URL.send_otp;
       const url= this.BASE_URL+appConstants.APPEND_URL.otp_service;
       console.log("in sendotpforservices");
-<<<<<<< HEAD
-      
-      this.generateToken().subscribe(response=>{
-        
-      });
-=======
->>>>>>> a054a470cc409766b010f41bcdc4d638dc726c67
       return this.httpClient.post(url, obj);
 
     }
@@ -449,14 +442,9 @@ export class DataStorageService {
         transactionID: "0987654321",
         vidStatus: "REVOKED"
       };
-<<<<<<< HEAD
       const obj = new RequestModel(appConstants.IDS.revokeVid, request);
       const url= this.BASE_URL+  appConstants.APPEND_URL.resident_service + appConstants.APPEND_URL.vid_service + '/' +vid;
   //    const url = this.BASE_URL + appConstants.APPEND_URL.resident+ appConstants.APPEND_URL.vid;
-=======
-      const obj = new RequestModelServices(appConstants.IDS.revokeVid, request);
-      const url= this.BASE_URL+'resident/v1/vid/'+vid;
->>>>>>> a054a470cc409766b010f41bcdc4d638dc726c67
       return this.httpClient.post(url,obj);
     }
 
