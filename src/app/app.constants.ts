@@ -1,4 +1,5 @@
 export const VERSION = '1.0';
+export const SERVICEVERSION = 'v1';
 export const RESPONSE = 'response';
 export const METADATA = 'documentsMetaData';
 export const ERROR = 'error';
@@ -19,7 +20,18 @@ export const IDS = {
   sendOtp: 'mosip.pre-registration.login.sendotp',
   validateOtp: 'mosip.pre-registration.login.useridotp',
   documentUpload: 'mosip.pre-registration.document.upload',
-  applicantTypeId: 'mosip.applicanttype.fetch'
+  applicantTypeId: 'mosip.applicanttype.fetch',
+  generateVidId: 'mosip.resident.vid',
+  sendOtpForServices:'mosip.identity.otp.internal',
+  revokeVid: 'mosip.resident.vidstatus',
+  residentTokenId:'io.mosip.resident',
+  printUIN: 'mosip.resident.printuin',
+  getEUIN: 'mosip.resident.euin',
+  serviceRequest:'mosip.resident.uinstatus',
+  authHistory:'mosip.resident.authhistory',
+  lockUIN:'mosip.resident.authlock',
+  unlockUIN:'mosip.resident.authunlock',
+  updateDemo:'mosip.resident.updateuin'
 };
 
 export const APPEND_URL = {
@@ -50,7 +62,19 @@ export const APPEND_URL = {
   send_notification: 'notify',
   master_data: 'v1/masterdata/',
   auth: 'login/',
-  cancelAppointment: 'appointment/'
+  cancelAppointment: 'appointment/',
+  vid : '/vid',
+  otp_service:'idauthentication/v1/internal/otp',
+  resident_service:'resident/v1/',
+  check_status:'rid/check-status',
+  euin:'req/euin',
+  print_uin:'req/print-uin',
+  vid_service:'vid',
+  lock_service:'req/auth-lock',
+  unlock_service:'req/auth-unlock',
+  authHistory:'req/auth-history',
+  updateDemo:'req/update-uin'
+
 };
 
 export const PARAMS_KEYS = {

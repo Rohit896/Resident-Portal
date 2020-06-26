@@ -13,6 +13,8 @@ import { CoreModule } from './core/core.module';
 import { AuthModule } from './auth/auth.module';
 import { SharedModule } from './shared/shared.module';
 import { ConfigService } from 'src/app/core/services/config.service';
+import { UpdatedemoComponent } from './feature/updatedemo/updatedemo.component';
+import { FormsModule } from '@angular/forms';
 
 const appInitialization = (appConfig: AppConfigService) => {
   return () => {
@@ -21,7 +23,7 @@ const appInitialization = (appConfig: AppConfigService) => {
 };
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, UpdatedemoComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -30,6 +32,7 @@ const appInitialization = (appConfig: AppConfigService) => {
     CoreModule,
     AuthModule,
     SharedModule,
+    FormsModule,
     NgxPrintModule
   ],
   providers: [

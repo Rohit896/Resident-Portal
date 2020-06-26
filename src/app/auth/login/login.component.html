@@ -1,3 +1,4 @@
+
 <div class="wrapper spacing" *ngIf="showSpinner">
   <mat-spinner></mat-spinner>
 </div>
@@ -5,30 +6,33 @@
 <div *ngIf="!showSpinner" class="wrapper">
   <div class="form_wrapper">
     <div class="heading">
-      <span>{{ 'login.text' | translate }}</span>
+      <span>{{ 'authCommonText.text' | translate }}</span>
     </div>
-
-    <div class="subHeading pinkText">
-      {{ 'login.sub_text' | translate }} <span class="boldText"> {{ 'login.sub_text_UID' | translate }} </span>
-    </div>
-
+ 
+      <div class="subHeading pinkText">
+      {{ 'bookModifyAppointment.sub_text' | translate }} <span class="boldText"> {{ 'bookModifyAppointment.sub_text_UID' | translate}} </span> 
+      </div> 
     <div
       style="width: 38vw; max-width: 323px;"
       [ngClass]="selectedLanguage !== 'Arabic' ? 'form_fields_wrapper form_fields_padding' : 'form_fields_wrapper'"
     >
-      <div>
+
+    <!-- <div *ngIf=" showUinDetail && servicesActivationStatus[i] && !(servicesActivationStatus[0])">
+      <div [dir]="textDir">
         <mat-form-field appearance="outline">
-          <mat-select
-            disableOptionCentering
-            panelClass="select-option"
-            [(ngModel)]="selectedLanguage"
-            (selectionChange)="changeLanguage()"
-            placeholder="Select your language"
-          >
-            <mat-option *ngFor="let lang of languages" [value]="lang">{{ lang }}</mat-option>
-          </mat-select>
+          <input
+            class="input_pri"
+            autofocus="autofocus"
+            matInput
+            [(ngModel)]="inputUinDetails" 
+            placeholder="{{ activatedServiceJSON.enter_uin | translate }}"
+            id="inputFieldUin"
+            required
+          />
         </mat-form-field>
       </div>
+      <p class="error" *ngIf="uinErrorMessage && servicesActivationStatus[i]">{{ uinErrorMessage }}</p>
+    </div> -->
 
       <div *ngIf="showContactDetails">
         <div [dir]="textDir">
@@ -38,13 +42,13 @@
               autofocus="autofocus"
               matInput
               [(ngModel)]="inputContactDetails"
-              placeholder="{{ 'login.label_email_num' | translate }}"
+              placeholder="{{ 'bookModifyAppointment.label_email_num' | translate }}"
               id="inputFieldContact"
               required
             />
           </mat-form-field>
         </div>
-        <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+        <p class="error" *ngIf="contactErrorMessage">{{ contactErrorMessage }}</p>
       </div>
 
       <div *ngIf="showOTP">
@@ -53,7 +57,7 @@
             autofocus="autofocus"
             matInput
             [(ngModel)]="inputOTP"
-            placeholder="{{ 'login.label_otp' | translate }}"
+            placeholder="{{ 'authCommonText.label_otp' | translate }}"
             id="inputFieldOTP"
             (input)="showVerifyBtn()"
           />
@@ -68,7 +72,7 @@
           [disabled]="inputContactDetails.length > 0 ? false : true"
           (click)="submit()"
         >
-          {{ 'login.action_send' | translate }}
+          {{ 'authCommonText.action_send' | translate }}
         </button>
       </div>
 
@@ -80,20 +84,24 @@
           disabled="{{ disableBtn }}"
           (click)="submit()"
         >
-          {{ 'login.action_verify' | translate }}
+          {{ 'authCommonText.action_verify' | translate }}
         </button>
       </div>
 
       <div *ngIf="showResend">
         <button mat-raised-button class="btn_axn-pri" disabled="{{ disableBtn }}" (click)="submit()">
-          {{ 'login.action_resend' | translate }}
+          {{ 'authCommonText.action_resend' | translate }}
         </button>
       </div>
 
       <div class="pinkText boldText" id="timer">
-        <span>{{ 'login.otp_valid_label' | translate }}&nbsp;</span><span id="minutesSpan">{{ minutes }}</span
+        <span>{{ 'authCommonText.otp_valid_label' | translate }}&nbsp;</span><span id="minutesSpan">{{ minutes }}</span
         >:<span id="secondsSpan">{{ seconds }}</span>
       </div>
+
+
     </div>
+    
+    
   </div>
 </div>

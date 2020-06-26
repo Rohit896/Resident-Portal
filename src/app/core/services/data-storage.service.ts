@@ -5,7 +5,10 @@ import * as appConstants from '../../app.constants';
 import { AppConfigService } from '../../app-config.service';
 import { Applicant } from '../../shared/models/dashboard-model/dashboard.modal';
 import { ConfigService } from './config.service';
-import { RequestModel } from 'src/app/shared/models/request-model/RequestModel';
+import { RequestModel} from 'src/app/shared/models/request-model/RequestModel';
+import { RequestModelSendOtp} from 'src/app/shared/models/request-model/RequestModelSendOtp';
+import { RequestModelServices } from 'src/app/shared/models/request-model/RequestModelServices';
+import Utils from 'src/app/app.util';
 
 /**
  * @description This class is responsible for sending or receiving data to the service.
@@ -34,6 +37,10 @@ export class DataStorageService {
 
   BASE_URL = this.appConfigService.getConfig()['BASE_URL'];
   PRE_REG_URL = this.appConfigService.getConfig()['PRE_REG_URL'];
+
+  userIdUpdateDemo:string;
+  otpUpdateDemo:string;
+  idTypeUpdateDemo:string;
 
   getUsers(userId: string) {
     let url = this.BASE_URL + this.PRE_REG_URL + appConstants.APPEND_URL.applicants;
@@ -321,9 +328,22 @@ export class DataStorageService {
   }
 
   getConfig() {
-    //    return this.httpClient.get('./assets/configs.json');
+      //  return this.httpClient.get('./assets/configs.json');
     const url = this.BASE_URL + this.PRE_REG_URL + appConstants.APPEND_URL.auth + appConstants.APPEND_URL.config;
     return this.httpClient.get(url);
+  }
+  generateToken(){
+    const req={
+      clientId: "residentUser_iiitB",
+      secretKey: "92d5ee2f-4dc5-4fdf-a112-ed4ec91c942b",
+      appId: "resident"
+    }
+    const obj= new RequestModel(appConstants.IDS.residentTokenId,req);
+
+    const url=this.BASE_URL+'v1/authmanager/authenticate/clientidsecretkey'
+
+    return this.httpClient.post(url,obj);
+
   }
 
   sendOtp(userId: string) {
@@ -336,6 +356,172 @@ export class DataStorageService {
     const url = this.BASE_URL + this.PRE_REG_URL + appConstants.APPEND_URL.auth + appConstants.APPEND_URL.send_otp;
     return this.httpClient.post(url, obj);
   }
+
+    sendOtpForServices(uin: string, idType:string){
+
+      const obj = new RequestModelSendOtp(uin,idType);
+  
+      //const url = this.BASE_URL + this.PRE_REG_URL + appConstants.APPEND_URL.auth + appConstants.APPEND_URL.send_otp;
+      const url= this.BASE_URL+appConstants.APPEND_URL.otp_service;
+      console.log("in sendotpforservices");
+      return this.httpClient.post(url, obj);
+
+    }
+
+    serviceRequest(rid: string)
+    {
+      console.log("insde status check");
+      const req = {
+        individualId: rid,
+        individualIdType: "RID",
+      };
+  
+      const obj = new RequestModel(appConstants.IDS.serviceRequest, req);
+  
+      const url = this.BASE_URL + appConstants.APPEND_URL.resident_service + appConstants.APPEND_URL.check_status;
+      return this.httpClient.post(url, obj);
+    }
+    
+    getEUIN(authId: string, otp : string, idType:string) {
+      console.log("inside euin");
+      const req = {
+        individualId: authId,
+        individualIdType: idType,
+        otp: otp,
+        transactionID: "0987654321",
+        cardType: "MASKED_UIN"
+      };
+  
+      const obj = new RequestModelServices(appConstants.IDS.getEUIN, req);
+  
+      const url = this.BASE_URL + appConstants.APPEND_URL.resident_service +appConstants.APPEND_URL.euin;
+      return this.httpClient.post(url, obj);
+    }
+
+
+    printUIN(authId: string, otp : string, idType:string) {
+      console.log("inside print uin");
+      const req = {
+        individualId: authId,
+        individualIdType: idType,
+        otp: otp,
+        transactionID: "0987654321",
+        cardType: "MASKED_UIN"
+      };
+  
+      const obj = new RequestModelServices(appConstants.IDS.printUIN, req);
+  
+      const url = this.BASE_URL + appConstants.APPEND_URL.resident_service +appConstants.APPEND_URL.print_uin ;
+      return this.httpClient.post(url, obj);
+    }
+
+
+    generateVid(uin: string, otp : string){
+      console.log("inside generate VId");
+      const request = {
+        individualId: uin,
+        individualIdType: "UIN",
+        otp: otp,
+        transactionID: "0987654321",
+        vidType: "Temporary"
+      };
+  
+      const obj = new RequestModelServices(appConstants.IDS.generateVidId, request);
+      const url= this.BASE_URL + appConstants.APPEND_URL.resident_service + appConstants.APPEND_URL.vid_service;
+  //    const url = this.BASE_URL + appConstants.APPEND_URL.resident+ appConstants.APPEND_URL.vid;
+      return this.httpClient.post(url,obj);
+  
+    }
+
+    revokeVid(vid:string, otp:string){
+      console.log("inside revokeVID-service");
+      const request = {
+        individualId: vid,
+        individualIdType: "VID",
+        otp: otp,
+        transactionID: "0987654321",
+        vidStatus: "REVOKED"
+      };
+      const obj = new RequestModelServices(appConstants.IDS.revokeVid, request);
+      const url= this.BASE_URL+'resident/v1/vid/'+vid;
+      return this.httpClient.post(url,obj);
+    }
+
+    updateDemoUserOtp(userId: string, otp: string, idType:string  ){
+      this.userIdUpdateDemo=userId;
+      this.otpUpdateDemo=otp;
+      this.idTypeUpdateDemo=idType;
+    }
+    updateDemographic( docByteArray:any, fileData:File) {
+    console.log("Inside UpdateDemo");
+    console.log(this.userIdUpdateDemo);
+
+      const request={ 
+        transactionID :"0987654321",
+        individualId : this.userIdUpdateDemo,
+        individualIdType : this.idTypeUpdateDemo,
+        otp : this.otpUpdateDemo,
+        identityJson : "<base64 encoded identity json byte array>",
+        documents:[ 
+           { 
+              name:fileData.name,
+              value: docByteArray
+           }
+        ]
+     }
+     //const url='';
+     //return this.httpClient.post(url,);
+
+    }
+
+    lockUIN(authId: string, otp: string,authArray:string[], idType:string){
+      console.log("inside lock");
+      const request = {
+        individualId: authId,
+        individualIdType: idType,
+        otp: otp,
+        transactionID: "0987654321",
+        authType:authArray
+      };
+      const obj = new RequestModel(appConstants.IDS.lockUIN, request);
+      const url= this.BASE_URL+ appConstants.APPEND_URL.resident_service +appConstants.APPEND_URL.lock_service;
+  //    const url = this.BASE_URL + appConstants.APPEND_URL.resident+ appConstants.APPEND_URL.vid;
+      return this.httpClient.post(url,obj);
+    }
+
+
+    unlockUIN(authId: string, otp: string,authArray:string[],idType:string){
+      console.log("inside unlock");
+      const request = {
+        individualId: authId,
+        individualIdType: idType,
+        otp: otp,
+        transactionID: "0987654321",
+        authType:authArray
+      };
+      const obj = new RequestModel(appConstants.IDS.unlockUIN, request);
+      const url= this.BASE_URL+appConstants.APPEND_URL.resident_service +appConstants.APPEND_URL.unlock_service;
+  //    const url = this.BASE_URL + appConstants.APPEND_URL.resident+ appConstants.APPEND_URL.vid;
+      return this.httpClient.post(url,obj);
+
+    }
+
+    authHistory(authId: string, otp: string, idType:string)
+    {
+      console.log("inside auth history");
+      const request = {
+        individualId: authId,
+        individualIdType: idType,
+        otp: otp,
+        transactionID: "0987654321",
+      };
+      const obj = new RequestModel(appConstants.IDS.authHistory, request);
+      const url= this.BASE_URL+ appConstants.APPEND_URL.resident_service + appConstants.APPEND_URL.unlock_service;
+  //    const url = this.BASE_URL + appConstants.APPEND_URL.resident+ appConstants.APPEND_URL.vid;
+      return this.httpClient.post(url,obj);
+    }
+
+    
 
   verifyOtp(userId: string, otp: string) {
     const request = {
@@ -362,7 +548,7 @@ export class DataStorageService {
       this.BASE_URL + appConstants.APPEND_URL.master_data + 'workingdays/' + registartionCenterId + '/' + langCode;
     return this.httpClient.get(url);
   }
-
+  
   /**
    * @description This method is responsible to logout the user and invalidate the token.
    *
@@ -372,5 +558,7 @@ export class DataStorageService {
   onLogout() {
     const url = this.BASE_URL + this.PRE_REG_URL + appConstants.APPEND_URL.auth + appConstants.APPEND_URL.logout;
     return this.httpClient.post(url, '');
-  }
+  } 
+
+  
 }

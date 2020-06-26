@@ -254,27 +254,94 @@
     ]
   },
   "header": {
+    "home":"الصفحة الرئيسية",
     "link_about": "ابدء",
-    "link_faq": "FAQ",
+    "link_faq": "التعليمات",
     "link_contact": "اتصل",
     "link_applications": "تطبيقاتك",
     "link_logout": "الخروج",
-    "link_login": "تسجيل الدخول"
+    "link_login": "تسجيل الدخول",
+    "mainheading": "البوابة المقيمة",
+    "link_pre-registration": "حجز / تعديل موعد"
   },
-  "login": {
+  "authCommonText":{
     "text": "خطوات سريعة وسهلة",
-    "sub_text": "التسجيل المسبق ل",
-    "sub_text_UID": "رقم تعريف فريد",
-    "otp_valid_label": "صالحة ل",
-    "label_email_num": "معرف البريد الإلكتروني أو رقم الهاتف",
     "label_otp": "أدخل OTP",
     "action_send": "إرسال OTP",
     "action_resend": "إعادة إرسال",
     "action_verify": "التحقق",
-    "logout_msg": "يجب على مقدم الطلب تسجيل الدخول بنفس الهاتف المحمول / البريد الإلكتروني للوصول إلى التطبيقات التي تم إنشاؤها",
+    "otp_valid_label": "صالحة ل"
+  },
+  "authValidationMessages":{
     "invalidEmail": "تم إدخال معرف البريد الإلكتروني غير صالح",
     "invalidMobile": "تم إدخال رقم جوال غير صالح",
     "invalidInput": "تم إدخال معرف البريد الإلكتروني أو رقم الجوال غير صالح"
+  },
+  "bookModifyAppointment": {
+    "sub_text": "التسجيل المسبق ل",
+    "sub_text_UID": "رقم تعريف فريد",
+    "label_email_num": "معرف البريد الإلكتروني أو رقم الهاتف",
+    "logout_msg": "يجب على مقدم الطلب تسجيل الدخول بنفس الهاتف المحمول / البريد الإلكتروني للوصول إلى التطبيقات التي تم إنشاؤها"
+  },
+  "generateVid": {
+    "sub_text": "انشاء",
+    "sub_text_UID": "رقم التعريف الظاهري",
+   "enter_uin":"أدخل UIN"
+  },
+  "revokeVid": {
+    "sub_text": "سحب او إبطال",
+    "sub_text_UID": "رقم التعريف الظاهري",
+   "enter_uin":"أدخل VID"
+  },
+  "servReqStatusCheck": {
+    "sub_text": "تحقق من حالة",
+    "sub_text_UID": "Registered Identification Number",
+   "enter_uin":"أدخل RID"
+  },
+  "updateUin": {
+    "sub_text": "تحديث",
+    "sub_text_UID": "رقم تعريف فريد",
+   "enter_uin":"أدخل UIN"
+  },
+  "reqPrintUin": {
+    "sub_text": "طلب / طباعة",
+    "sub_text_UID": "رقم تعريف فريد",
+   "enter_uin":"أدخل VID"
+  },
+  "requestEuin": {
+    "sub_text": "طلب",
+    "sub_text_UID": "رقم التعريف الفريد الإلكتروني",
+   "enter_uin":"أدخل VID"
+  },
+  "updateDemographic": {
+    "sub_text": "تحديث",
+    "sub_text_UID": "التفاصيل الديموغرافية",
+   "enter_uin":"أدخل UIN"
+  },
+  "lock": {
+    "sub_text": "قفل / فتح",
+    "sub_text_UID": "المصادقة",
+   "enter_uin":"أدخل UIN",
+   "checkBoxHeading" : "Select Biometrics to Lock",
+   "action_lock":"LOCK",
+   "faceBio":"Face Biometric",
+    "fingureBio": "Fingures Biometric",
+    "irisBio": "Iris Biometric"
+  },
+  "unlock": {
+    "sub_text": "قفل / فتح",
+    "sub_text_UID": "المصادقة",
+   "enter_uin":"أدخل UIN",
+   "checkBoxHeading" : "Select Biometrics to Unlock",
+   "action_lock":"UNLOCK",
+   "faceBio":"Face Biometric",
+   "fingureBio": "Fingures Biometric",
+   "irisBio": "Iris Biometric"
+  },
+  "authHistory":{
+    "sub_text": "View",
+    "sub_text_UID": "Authentication History",
+    "enter_uin":"أدخل UIN"
   },
   "stepper": {
     "link_demographic": "التفاصيل الديموغرافية",
@@ -567,6 +634,45 @@
     "nearBy": "مراكز التسجيل على أساس موقعك الجغرافي",
     "magnifying_glass": "البحث يعتمد على اختيار القائمة المنسدلة.",
     "preview_continue": "تحميل جميع الملفات للمتابعة"
+  },
+  "mainpage":{
+    "aboutResident" : "ستوفر الخدمات المقيمة مجموعة من الخدمات للفرد يمكن الاستفادة منها بعد إنشاء رقم التعريف الفريد (UIN) الخاص بهم.",
+    "aboutResidentsubtext1" : "إذا لم يكن لديك UIN ،",
+    "aboutResidentsubtext2" : "يمكنك حجز موعد مع أقرب مركز تسجيل باستخدام خيار حجز / تعديل موعد",
+    "genVID": "إنشاء معرف افتراضي",
+    "ServiceRequestStatus" : "حالة طلب الخدمة",
+    "aboutlock": "مكن للشخص المسجل قفل بياناته الحيوية",
+    "aboutlock1":"لقفل القياسات الحيوية ، سيكون عليك إطعام UIN الخاص بك وملء OTP",
+    "statuscheck" : "هنا ، يمكنك التحقق من حالة طلبك",
+    "statuscheck1": "للتحقق من حالة RID (رقم التعريف المسجل) ، سيكون عليك إطعام RID الخاص بك وملء OTP للوصول إلى لوحة القيادة",
+    "subtext" : "المعرّف الظاهري هو رقم عشوائي يتم تعيينه برقم تعريف فريد. يمكن إنشاؤها فقط من قبل مستخدم مسجل.",
+    "aboutgenVID" : "لإنشاء VID ، سيكون عليك إطعام UIN الخاص بك وملء OTP لتلقي الهوية الافتراضية.",
+    "revVID" : "إبطال المعرف الافتراضي",
+    "aboutrevVID" : "لإلغاء VID ، سيكون عليك إطعام VID الخاص بك وملء OTP لإلغاء الهوية الافتراضية.",
+    "aboutrevokeVID" : "المعرّف الظاهري هو رقم عشوائي يتم تعيينه برقم تعريف فريد. يمكن إبطالها عند الحاجة من قبل مستخدم مسجل.",
+    "aboutVID" : "يمكن للمستخدمين استخدام معرفهم الظاهري (VID) بدلاً من تقديم رقم التعريف الفريد الخاص بهم",
+    "Lock":"قفل",
+    "CheckAuthenticationHistory":"تحقق من تاريخ المصادقة",
+    "aboutauthhist": "يمكن للمرء التحقق من تاريخ المصادقة هنا.",
+    "aboutauthhist1":"للتحقق من سجل المصادقة ، سيكون عليك إطعام UIN الخاص بك وملء OTP والتحقق من نفسك",
+    "aboutUIN1":"لتحديث UIN ، يجب عليك تغذية UIN الخاص بك وملء OTP لتلقي UIN",
+    "aboutUIN":"UIN هو رقم التعريف الفريد المعطى لكل مقيم",
+    "bookmodifyappointment":"حجز / تعديل موعد",
+    "aboutappointment":"يمكنك حجز موعد للتسجيل المسبق",
+    "aboutappointment1":"لحجز موعد ، سيكون عليك تغذية تفاصيل الاتصال الخاصة بك وملء OTP للوصول إلى لوحة القيادة",
+    "reqprintuin":"طلب طباعة UIN",
+    "aboutprintuin":"يمكنك طلب تسليم بطاقة UIN عن طريق البريد",
+    "aboutprintuin1":"لإنشاء طلب الطباعة ، سيتعين عليك إطعام VID الخاص بك وملء OTP والتحقق من نفسك",
+    "reqeuin":"طلب Euina ",
+    "abouteuin":"E-UIN هي النسخة الإلكترونية لبطاقة UIN الخاصة بك",
+    "abouteuin1":"لإنشاء نسخة إلكترونية من بطاقة VID ، سيتعين عليك إطعام UIN الخاص بك وملء OTP وإثبات نفسك",
+    "Updatedemographic":"تحديث التفاصيل الديموغرافية",
+    "aboutdemographic":"يمكن تغيير التفاصيل الديموغرافية مثل الاسم والعنوان والجنس هنا",
+    "aboutdemographic1":"لتحديث التفاصيل الديموغرافية ، سيكون عليك إطعام UIN الخاص بك وملء OTP والتحقق من نفسك",
+    "unlock":"الغاء القفل",
+    "aboutlockunlock":"مكنك فتح استخدامات التفاصيل البيومترية الخاصة بكك",
+    "aboutlockunlock1":"إلغاء القفل ، سيكون عليك إطعام UIN الخاص بك وملء OTP والتحقق من نفسك"
+  
   },
   "error": {
     "error": "حدث خطأ فني ولا يمكن إتمام العملية. لا يجوز حفظ أي بيانات مقدمة",
